@@ -172,13 +172,13 @@
                             </div>
 
                             <ul>
-                                <li class="ur-radio-list"><input id="Do not exist"
+                                <li class="ur-radio-list"><input oninput="checkedRadio()" id="Do not exist"
                                         class="input-radio ur-frontend-field  " name="certificateExistance" type="radio"
                                         value="Do not exist" /> <label class="radio" for="Do not exist">Do not
                                         exist</label></li>
-                                <li class="ur-radio-list"><input id="Exists" class="input-radio ur-frontend-field  "
-                                        name="certificateExistance" type="radio" value="Exists" /> <label class="radio"
-                                        for="Exists">Exists</label></li>
+                                <li class="ur-radio-list"><input oninput="checkedRadio()" id="Exists"
+                                        class="input-radio ur-frontend-field  " name="certificateExistance" type="radio"
+                                        value="Exists" /> <label class="radio" for="Exists">Exists</label></li>
                             </ul>
                         </div>
                     </div>
@@ -219,6 +219,13 @@
     <script>
         var errors = 0;
         var temp = 0;
+        function checkedRadio() {
+            var label = document.getElementById("errorLabel3");
+            if (errors > 0) {
+                errors -= 1;
+            }
+            label.innerHTML = "";
+        }
         function checkedCheckbox() {
             var label = document.getElementById("errorLabel2");
             if (errors > 0) {
