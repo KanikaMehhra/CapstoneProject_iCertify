@@ -44,11 +44,11 @@
 <div class="ur-form-grid ur-grid-2" style="width: 48%;">
 
 <div>
-<input id="abn" maxlength="11" type="number" placeholder="ABN/ACN" required="required" oninput="validateABN()"/>
+<input id="abn" type="number" placeholder="ABN/ACN" required="required" oninput="validateABN()"/>
 </div>
 
 <div>
-<label style="color:#FF0000;" id="errorLabel"></label>
+<label style="color:#FF0000;" id="errorLabel1"></label>
 </div>
 
 </div>
@@ -84,7 +84,8 @@
 <div class="ur-form-grid ur-grid-2" style="width: 48%;">
 
 <div>
-<input id="phone" maxlength="10" required="required" type="number" placeholder="Phone (10 digits)"/>
+
+<input pattern="\+[0-9]{2}\s[0-9]{4}\s[0-9]{4}" id="phone" required="required" type="text" placeholder="Phone (+XX XXXX XXXX)"/>
 </div>
 
 </div>
@@ -163,7 +164,7 @@
 <script>
 function validateABN(){
 var abn=document.getElementById("abn").value.length;
-var label=document.getElementById("errorLabel");
+var label=document.getElementById("errorLabel1");
 if(abn!==11 && abn!==9){
 label.innerHTML="ABN must be 11 and ACN must be 9 digit long";
 }
