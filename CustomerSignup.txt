@@ -1,0 +1,3 @@
+Please select the option that best describes your organization:
+
+[maxbutton name="Buyer"]      OR      [maxbutton name="Supplier"]
