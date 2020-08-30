@@ -166,6 +166,11 @@
 
                             <label class="ur-label" for="Do not exist">Current Certification Status <abbr
                                     class="required" title="required">*</abbr></label>
+
+                            <div>
+                                <label style="color:#FF0000;" id="errorLabel3"></label>
+                            </div>
+
                             <ul>
                                 <li class="ur-radio-list"><input id="Do not exist"
                                         class="input-radio ur-frontend-field  " name="certificateExistance" type="radio"
@@ -227,6 +232,12 @@
             if (len === 0) {
                 errors += 1;
                 label.innerHTML = "*Please select atleast one service.";
+            }
+            var label3 = document.getElementById("errorLabel3");
+            var len3 = document.querySelectorAll('input[type="radio"]:checked').length;
+            if (len3 === 0) {
+                errors += 1;
+                label3.innerHTML = "*Please select current certification status.";
             }
             if (errors > 0) {
                 event.preventDefault();
