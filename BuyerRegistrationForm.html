@@ -115,13 +115,13 @@
 
 <ul>
 <li class="ur-checkbox-list">
-<input id="ISO 9001" class="input-checkbox ur-frontend-field  " name="ISO 9001" type="checkbox" value="ISO 9001" /> <label class="ur-checkbox-label" for="ISO 9001">ISO 9001</label></li>
-	<li class="ur-checkbox-list"><input id="ISO 14001" class="input-checkbox ur-frontend-field  " name="ISO 14001" type="checkbox" value="ISO 14001"/> <label class="ur-checkbox-label" for="ISO 14001">ISO 14001</label></li>
-	<li class="ur-checkbox-list"><input id="AS4801/OHSAS 18001" class="input-checkbox ur-frontend-field  " name="AS4801/OHSAS 18001" type="checkbox" value="AS4801/OHSAS 18001"/> <label class="ur-checkbox-label" for="AS4801/OHSAS 18001">AS4801/OHSAS 18001</label></li>
-	<li class="ur-checkbox-list"><input id="ISO 45001" class="input-checkbox ur-frontend-field  " name="ISO 45001" type="checkbox" value="ISO 45001"/> <label class="ur-checkbox-label" for="ISO 45001">ISO 45001</label></li>
-	<li class="ur-checkbox-list"><input id="ISO 27001" class="input-checkbox ur-frontend-field  " name="ISO 27001" type="checkbox" value="ISO 27001"/> <label class="ur-checkbox-label" for="ISO 27001">ISO 27001</label></li>
-	<li class="ur-checkbox-list"><input id="NSQHS Standards" class="input-checkbox ur-frontend-field  " name="NSQHS Standards" type="checkbox" value="NSQHS Standards"/> <label class="ur-checkbox-label" for="NSQHS Standards">NSQHS Standards</label></li>
-	<li class="ur-checkbox-list"><input id="National Standards for Disability Services (NDIS)" class="input-checkbox ur-frontend-field  " name="National Standards for Disability Services (NDIS)" type="checkbox" value="National Standards for Disability Services (NDIS)"/> <label class="ur-checkbox-label" for="National Standards for Disability Services (NDIS)">National Standards for Disability Services (NDIS)</label></li>
+<input oninput="checkedCheckbox()" id="ISO 9001" class="input-checkbox ur-frontend-field  " name="ISO 9001" type="checkbox" value="ISO 9001" /> <label class="ur-checkbox-label" for="ISO 9001">ISO 9001</label></li>
+	<li class="ur-checkbox-list"><input oninput="checkedCheckbox()" id="ISO 14001" class="input-checkbox ur-frontend-field  " name="ISO 14001" type="checkbox" value="ISO 14001"/> <label class="ur-checkbox-label" for="ISO 14001">ISO 14001</label></li>
+	<li class="ur-checkbox-list"><input oninput="checkedCheckbox()" id="AS4801/OHSAS 18001" class="input-checkbox ur-frontend-field  " name="AS4801/OHSAS 18001" type="checkbox" value="AS4801/OHSAS 18001"/> <label class="ur-checkbox-label" for="AS4801/OHSAS 18001">AS4801/OHSAS 18001</label></li>
+	<li class="ur-checkbox-list"><input oninput="checkedCheckbox()" id="ISO 45001" class="input-checkbox ur-frontend-field  " name="ISO 45001" type="checkbox" value="ISO 45001"/> <label class="ur-checkbox-label" for="ISO 45001">ISO 45001</label></li>
+	<li class="ur-checkbox-list"><input oninput="checkedCheckbox()" id="ISO 27001" class="input-checkbox ur-frontend-field  " name="ISO 27001" type="checkbox" value="ISO 27001"/> <label class="ur-checkbox-label" for="ISO 27001">ISO 27001</label></li>
+	<li class="ur-checkbox-list"><input oninput="checkedCheckbox()" id="NSQHS Standards" class="input-checkbox ur-frontend-field  " name="NSQHS Standards" type="checkbox" value="NSQHS Standards"/> <label class="ur-checkbox-label" for="NSQHS Standards">NSQHS Standards</label></li>
+	<li class="ur-checkbox-list"><input oninput="checkedCheckbox()" id="National Standards for Disability Services (NDIS)" class="input-checkbox ur-frontend-field  " name="National Standards for Disability Services (NDIS)" type="checkbox" value="National Standards for Disability Services (NDIS)"/> <label class="ur-checkbox-label" for="National Standards for Disability Services (NDIS)">National Standards for Disability Services (NDIS)</label></li>
 </ul>
 </div>
 </div>
@@ -167,11 +167,15 @@
 </div>
 
 <script>
+function checkedCheckbox(){
+var label=document.getElementById("errorLabel2");
+label.innerHTML="";
+}
 function validateSubmit(){
 var label=document.getElementById("errorLabel2");
 var len = document.querySelectorAll('input[type="checkbox"]:checked').length;
 if(len===0){
-label.innerHTML="Please select atleast one service.";
+label.innerHTML="*Please select atleast one service.";
 }
 }
 function validateABN(){
