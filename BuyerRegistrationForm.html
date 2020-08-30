@@ -218,18 +218,20 @@
 
     <script>
         var errors = 0;
-        var temp = 0;
+        var abnCheck = 0;
+        var checkboxCheck = 0;
+        var radioCheck = 0;
         function checkedRadio() {
             var label = document.getElementById("errorLabel3");
             if (errors > 0) {
-                errors -= 1;
+                errors = errors - radioCheck;
             }
             label.innerHTML = "";
         }
         function checkedCheckbox() {
             var label = document.getElementById("errorLabel2");
             if (errors > 0) {
-                errors -= 1;
+                errors = errors - checkboxCheck;
             }
             label.innerHTML = "";
         }
@@ -238,12 +240,14 @@
             var len = document.querySelectorAll('.checkbox input[type="checkbox"]:checked').length;
             if (len === 0) {
                 errors += 1;
+                checkboxCheck += 1;
                 label.innerHTML = "*Please select atleast one service.";
             }
             var label3 = document.getElementById("errorLabel3");
             var len3 = document.querySelectorAll('input[type="radio"]:checked').length;
             if (len3 === 0) {
                 errors += 1;
+                radioCheck += 1;
                 label3.innerHTML = "*Please select current certification status.";
             }
             if (errors > 0) {
@@ -256,11 +260,11 @@
             if (abn !== 11 && abn !== 9) {
                 label.innerHTML = "ABN must be 11 and ACN must be 9 digit long";
                 errors += 1;
-                temp += 1;
+                abnCheck += 1;
             }
             else {
                 label.innerHTML = "";
-                errors = errors - temp;
+                errors = errors - abnCheck;
             }
         }
     </script>
