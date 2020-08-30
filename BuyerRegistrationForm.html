@@ -108,6 +108,11 @@
 <div>
 
 <label class="ur-label" >Services Required <abbr class="required" title="required">*</abbr></label>
+
+<div>
+<label style="color:#FF0000;" id="errorLabel2"></label>
+</div>
+
 <ul>
 <li class="ur-checkbox-list">
 <input id="ISO 9001" class="input-checkbox ur-frontend-field  " name="ISO 9001" type="checkbox" value="ISO 9001" /> <label class="ur-checkbox-label" for="ISO 9001">ISO 9001</label></li>
@@ -150,7 +155,7 @@
 </div>
  
 <div class="ur-button-container ">
-	<input id="submit" type="submit" onclick="return clicked();" >
+	<input id="submit" type="submit" onclick="validateSubmit();" >
 										</div>
 <div style="clear: both;"></div>
 <input name="ur-user-form-id" type="hidden" value="5882" />
@@ -162,6 +167,13 @@
 </div>
 
 <script>
+function validateSubmit(){
+var label=document.getElementById("errorLabel2");
+var len = document.querySelectorAll('input[type="checkbox"]:checked').length;
+if(len===0){
+label.innerHTML="Please select atleast one service.";
+}
+}
 function validateABN(){
 var abn=document.getElementById("abn").value.length;
 var label=document.getElementById("errorLabel1");
