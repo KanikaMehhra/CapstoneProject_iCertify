@@ -10,11 +10,11 @@
 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
 
 <div>
-<input required="required" type="text" placeholder="Organisation Name"/>
+<input id="organisationName" required="required" type="text" placeholder="Organisation Name"/>
 </div>
 
 <div>
-<input required="required" type="text" placeholder="Position Title"/>
+<input id="positionTitle" required="required" type="text" placeholder="Position Title"/>
 </div>
 
 </div>
@@ -22,11 +22,11 @@
 <div class="ur-form-grid ur-grid-2" style="width: 48%;">
 
 <div>
-<input required="required" type="text" placeholder="Contact Name" />
+<input id="contactName" required="required" type="text" placeholder="Contact Name" />
 </div>
 
 <div>
-<input min="1" type="number" required="required" placeholder="Number of employees"/>
+<input id="numOfEmployees" min="1" type="number" required="required" placeholder="Number of employees"/>
 </div>
 
 </div>
@@ -36,7 +36,7 @@
 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
 
 <div>
-<input required="required" type="text" placeholder="Head Office Location"/>
+<input id="headOfficeLocation" required="required" type="text" placeholder="Head Office Location"/>
 </div>
 
 </div>
@@ -44,7 +44,11 @@
 <div class="ur-form-grid ur-grid-2" style="width: 48%;">
 
 <div>
-<input pattern=".{11,}" maxlength="11" type="number" placeholder="ABN/ACN" required="required"/>
+<input id="abn" maxlength="11" type="number" placeholder="ABN/ACN" required="required" oninput="validateABN()"/>
+</div>
+
+<div>
+<label style="color:#FF0000;" id="errorLabel"></label>
 </div>
 
 </div>
@@ -54,7 +58,7 @@
 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
 
 <div>
-<input max="1000" min="1" required="required" type="number" placeholder="No. of physical locations within Aus"/>
+<input id="ausLocation" max="1000" min="1" required="required" type="number" placeholder="No. of physical locations within Aus"/>
 </div>
 
 </div>
@@ -62,7 +66,7 @@
 <div class="ur-form-grid ur-grid-2" style="width: 48%;">
 
 <div>
-<input max="1000" min="1" type="number" placeholder="No. of physical locations outside Aus" required="required"/>
+<input id="outAusLocation" max="1000" min="1" type="number" placeholder="No. of physical locations outside Aus" required="required"/>
 </div>
 
 </div>
@@ -72,7 +76,7 @@
 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
 
 <div>
-<input required="required" type="email" placeholder="E-mail"/>
+<input id="email" required="required" type="email" placeholder="E-mail"/>
 </div>
 
 </div>
@@ -80,7 +84,7 @@
 <div class="ur-form-grid ur-grid-2" style="width: 48%;">
 
 <div>
-<input pattern=".{10,}" maxlength="10" required="required" type="number" placeholder="Phone (10 digits)"/>
+<input id="phone" maxlength="10" required="required" type="number" placeholder="Phone (10 digits)"/>
 </div>
 
 </div>
@@ -90,7 +94,7 @@
 <div class="ur-form-grid ur-grid-1" style="width: 99%;">
 
 <div>
-<textarea required="required" rows="2" placeholder="Organisation Summary"></textarea>
+<textarea id="orgSummary" required="required" rows="2" placeholder="Organisation Summary"></textarea>
 </div>
 
 </div>
@@ -155,5 +159,19 @@
 </form>
 <div style="clear: both;"></div>
 </div>
+
+<script>
+function validateABN(){
+var abn=document.getElementById("abn").value.length;
+var label=document.getElementById("errorLabel");
+if(abn!==11 && abn!==9){
+label.innerHTML="ABN must be 11 and ACN must be 9 digit long";
+}
+else{
+label.innerHTML="";
+}
+}
+</script>
+
 </body>
 </html>
