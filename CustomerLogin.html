@@ -1,0 +1,40 @@
+<html>
+<div class="user-registration ur-frontend-form  " id="user-registration-form-5914">
+    <form method="post" action="https://icertify.net.au/?page_id=6135">
+        <div class="ur-form-row">
+            <div class="ur-form-grid ur-grid-1" style="width:99%">
+
+                <div>
+                    <input oninput="clicked()" id="email" type="email" placeholder="E-mail" required="required">
+                </div>
+
+                <div>
+                    <input oninput="clicked()" id="password" type="password" placeholder="Password" required="required">
+                </div>
+            </div>
+        </div>
+
+        <div class="ur-button-container ">
+            <input value="Finish Registration" id="submit" type="submit" disabled>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    function clicked() {
+        var password = document.getElementById("password");
+        var email = document.getElementById("email");
+        if (password !== null && email !== null) {
+            if (password.value.length !== 0 && email.value.length !== 0) {
+                document.getElementById("submit").disabled = false;
+            }
+            else {
+                document.getElementById("submit").disabled = true;
+            }
+        }
+    }
+</script>
+
+
+</html>
