@@ -91,11 +91,21 @@
 
                     <div>
 
-                        <input pattern="\+[0-9]{2}\s[0-9]{4}\s[0-9]{4}" id="phone" required="required" type="text"
-                            placeholder="Phone (+XX XXXX XXXX)" />
+                        <input pattern="\+[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}" id="mob" required="required"
+                            type="text" placeholder="Mob(+XX XXX XXX XXX)" />
                     </div>
 
                 </div>
+                <div class="ur-form-row">
+                    <div class="ur-form-grid ur-grid-1" style="width:99%">
+                        <div>
+                            <input pattern="[0-9]{2}\s[0-9]{1}\s[0-9]{4}\s[0-9]{4}" id="tel" required="required"
+                                type="text" placeholder="Tel(XX X XXXX XXXX)" />
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
 
             <div class="ur-form-row">
@@ -166,7 +176,12 @@
                                         Audit</label></li>
                                 <li class="ur-radio-list"><input id="Gap Audit" class="input-radio ur-frontend-field  "
                                         name="Gap Audit" type="checkbox" value="Gap Audit" /> <label class="radio"
-                                        for="Gap Audit">Exists</label></li>
+                                        for="Gap Audit">Gap Audit</label></li>
+
+                                <li class="ur-radio-list"><input id="Other Services"
+                                        class="input-radio ur-frontend-field  " name="Other Services" type="text"
+                                        placeholder="Other Services(comma seperated)" /> </li>
+
                             </ul>
                         </div>
                     </div>
