@@ -78,6 +78,17 @@
                 </div>
             </div>
 
+
+
+
+
+
+
+
+
+
+
+
             <div class="ur-form-row">
                 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
 
@@ -90,23 +101,71 @@
                 <div class="ur-form-grid ur-grid-2" style="width: 48%;">
 
                     <div>
+                        <input id="abn" type="number" placeholder="ABN/ACN" required="required"
+                            oninput="validateABN()" />
+                    </div>
 
-                        <input pattern="\+[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}" id="mob" required="required"
-                            type="text" placeholder="Mob(+XX XXX XXX XXX)" />
+                    <div>
+                        <label style="color:#FF0000;" id="errorLabel1"></label>
                     </div>
 
                 </div>
-                <div class="ur-form-row">
-                    <div class="ur-form-grid ur-grid-1" style="width:99%">
-                        <div>
-                            <input pattern="[0-9]{2}\s[0-9]{1}\s[0-9]{4}\s[0-9]{4}" id="tel" required="required"
-                                type="text" placeholder="Tel(XX X XXXX XXXX)" />
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
+
+
+
+
+
+
+
+
+
+
+
+            <div class="ur-form-row">
+                <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+
+                    <div>
+                        <input pattern="\+[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}" id="mob" required="required"
+                            type="text" placeholder="Mobile (+XX XXX XXX XXX)" />
+                    </div>
+
+                </div>
+
+                <div class="ur-form-grid ur-grid-2" style="width: 48%;">
+
+                    <div>
+                        <input pattern="[0-9]{2}\s[0-9]{1}\s[0-9]{4}\s[0-9]{4}" id="tel" required="required" type="text"
+                            placeholder="Telephone (XX X XXXX XXXX)" />
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             <div class="ur-form-row">
                 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
