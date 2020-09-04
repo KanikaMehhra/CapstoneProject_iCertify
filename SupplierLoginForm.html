@@ -183,39 +183,44 @@
 
                             <ul class="checkbox">
                                 <li class="ur-checkbox-list">
-                                    <input disabled oninput="checkedCheckbox()" id="ISO 9001"
-                                        class="input-checkbox ur-frontend-field  " name="ISO 9001" type="checkbox"
-                                        value="ISO 9001" /> <label class="ur-checkbox-label" for="ISO 9001">ISO
-                                        9001</label></li>
-                                <li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()" id="ISO 14001"
-                                        class="input-checkbox ur-frontend-field  " name="ISO 14001" type="checkbox"
-                                        value="ISO 14001" /> <label class="ur-checkbox-label" for="ISO 14001">ISO
-                                        14001</label></li>
+                                    <input disabled oninput="checkedCheckbox()" id="Quality"
+                                        class="input-checkbox ur-frontend-field  " name="Quality" type="checkbox"
+                                        value="Quality" /> <label class="ur-checkbox-label"
+                                        for="Quality">Quality</label></li>
                                 <li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()"
-                                        id="AS4801/OHSAS 18001" class="input-checkbox ur-frontend-field  "
-                                        name="AS4801/OHSAS 18001" type="checkbox" value="AS4801/OHSAS 18001" /> <label
-                                        class="ur-checkbox-label" for="AS4801/OHSAS 18001">AS4801/OHSAS 18001</label>
+                                        id="workplaceHealthAndSafety" class="input-checkbox ur-frontend-field  "
+                                        name="workplaceHealthAndSafety" type="checkbox"
+                                        value="workplaceHealthAndSafety" /> <label class="ur-checkbox-label"
+                                        for="workplaceHealthAndSafety">Workplace Health and Safety</label></li>
+                                <li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()"
+                                        id="environmentalSustainability" class="input-checkbox ur-frontend-field  "
+                                        name="environmentalSustainability" type="checkbox"
+                                        value="environmentalSustainability" /> <label class="ur-checkbox-label"
+                                        for="environmentalSustainability">Environmental Sustainability</label></li>
+                                <li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()"
+                                        id="sourcingPractices" class="input-checkbox ur-frontend-field  "
+                                        name="sourcingPractices" type="checkbox" value="sourcingPractices" /> <label
+                                        class="ur-checkbox-label" for="sourcingPractices">Sourcing Practices</label>
                                 </li>
-                                <li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()" id="ISO 45001"
-                                        class="input-checkbox ur-frontend-field  " name="ISO 45001" type="checkbox"
-                                        value="ISO 45001" /> <label class="ur-checkbox-label" for="ISO 45001">ISO
-                                        45001</label></li>
-                                <li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()" id="ISO 27001"
-                                        class="input-checkbox ur-frontend-field  " name="ISO 27001" type="checkbox"
-                                        value="ISO 27001" /> <label class="ur-checkbox-label" for="ISO 27001">ISO
-                                        27001</label></li>
                                 <li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()"
-                                        id="NSQHS Standards" class="input-checkbox ur-frontend-field  "
-                                        name="NSQHS Standards" type="checkbox" value="NSQHS Standards" /> <label
-                                        class="ur-checkbox-label" for="NSQHS Standards">NSQHS Standards</label></li>
+                                        id="supplyChainMonitoring" class="input-checkbox ur-frontend-field  "
+                                        name="supplyChainMonitoring" type="checkbox" value="supplyChainMonitoring" />
+                                    <label class="ur-checkbox-label" for="supplyChainMonitoring">Supply Chain
+                                        Monitoring</label></li>
                                 <li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()"
-                                        id="National Standards for Disability Services (NDIS)"
-                                        class="input-checkbox ur-frontend-field  "
-                                        name="National Standards for Disability Services (NDIS)" type="checkbox"
-                                        value="National Standards for Disability Services (NDIS)" /> <label
-                                        class="ur-checkbox-label"
-                                        for="National Standards for Disability Services (NDIS)">National Standards for
-                                        Disability Services (NDIS)</label></li>
+                                        id="energyManagement" class="input-checkbox ur-frontend-field  "
+                                        name="energyManagement" type="checkbox" value="energyManagement" /> <label
+                                        class="ur-checkbox-label" for="energyManagement">Energy Management</label></li>
+                                <li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()"
+                                        id="corporateSocialResponsibility" class="input-checkbox ur-frontend-field  "
+                                        name="corporateSocialResponsibility" type="checkbox"
+                                        value="corporateSocialResponsibility" /> <label class="ur-checkbox-label"
+                                        for="corporateSocialResponsibility">Corporate Social Responsibility</label></li>
+                                <li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()"
+                                        id="sustainabilityReporting" class="input-checkbox ur-frontend-field  "
+                                        name="sustainabilityReporting" type="checkbox"
+                                        value="sustainabilityReporting" /> <label class="ur-checkbox-label"
+                                        for="sustainabilityReporting">Sustainability Reporting</label></li>
                             </ul>
                         </div>
                     </div>
@@ -317,7 +322,11 @@
             }
         }
         function toggleEditOn() {
-            alert("Kanika");
+            var inputs = document.querySelectorAll('input[disabled]');
+            var len = document.querySelectorAll('input[disabled]').length;
+            for (var i = 0; i < inputs.length; i += 1) {
+                inputs[i].disabled = false;
+            }
         }
     </script>
 
