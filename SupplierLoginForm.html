@@ -292,6 +292,10 @@
     
     
     <script>
+    var intervalID=setInterval(function(){ if(document.getElementById("myfile").value.length!=0){
+    var label=document.getElementById("errorLabel3");
+    label.innerHTML="";
+    }}, 3000);
     var pricePreferenceError=0;
             var errors = 0;
             var abnCheck=0;
@@ -362,6 +366,8 @@
     var label=document.getElementById("errorLabel3");
     label.innerHTML="*Please select a file first.";
     event.preventDefault();
+    }else{
+    clearInterval(intervalID);
     }
     }
         </script>
