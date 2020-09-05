@@ -4,7 +4,7 @@
     <div class="ur-form-row">
     <div class="ur-form-grid ur-grid-1" style="width: 48%;">
     <div>
-    <strong>My Information  
+    <strong>Organisation Details  
     </strong>
     </div>
     </div>
@@ -199,11 +199,28 @@
     <input name="ur-redirect-url" type="hidden" value="" />
     <input id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" type="hidden" value="5db8c0f987" />
     
+    </form>
+    <div style="clear: both;"></div>
     </div>
+    <hr style="height: 10px;">
+    
     <div id="pricePreferenceForm">
     
+    <div class="ur-form-row">
+    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+    <div>
+    <strong>Pricing Preference  
+    </strong>
+    </div>
+    </div>
+    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+    <div onclick="togglePricingEditOn()">
+    <i class="fa fa-edit"></i>
+    </div>
+    </div>
+    </div>
     <div id="user-registration-form-5882" class="user-registration ur-frontend-form  ">
-    <form method="post" action="#" onsubmit="return false;">
+    <form class="pricing" method="post" action="#" onsubmit="return false;">
     
     <div class="ur-form-row">
     
@@ -211,15 +228,14 @@
     <div class="ur-field-item field-radio " data-field-id="radio_1598611551">
     <div id="radio_1598611551_field" class="form-row validate-required" data-priority="">
     
-    <label class="ur-label">Pricing Preference</label>
     
     <div>
     <label style="color:#FF0000;" id="errorLabel4"></label>
     </div>
     
     <ul class="pricingPreference">
-        <li class="ur-radio-list"><input oninput="checkedRadio()" id="variable" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="variable"/> <label class="radio" for="variable">Variable</label></li>
-        <li class="ur-radio-list"><input oninput="checkedRadio()" id="fixed" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="fixed"/> <label class="radio" for="fixed">Fixed</label></li>
+        <li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="variable" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="variable"/> <label class="radio" for="variable">Variable</label></li>
+        <li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="fixed" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="fixed"/> <label class="radio" for="fixed">Fixed</label></li>
     
     
     </ul>
@@ -230,7 +246,7 @@
     
      
     <div class="ur-button-container ">
-        <input value="Save" id="submit2" type="submit" onclick="checkPricing()" >
+        <input disabled value="Save" id="submit2" type="submit" onclick="checkPricing()" >
     
                                             </div>
     <br>
@@ -248,27 +264,49 @@
     </div>
     </div>
     
+    <hr style="height: 10px;">
+    
+    <div class="ur-form-row">
+    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+    <div>
+    <strong>Upload any additional documents  
+    </strong>
+    </div>
+    </div>
+    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+    <div onclick="toggleUploadingEditOn()">
+    <i class="fa fa-edit"></i>
+    </div>
+    </div>
+    </div>
+    
+    
     <div class="user-registration ur-frontend-form  " id="user-registration-form-5914">
-        <form method="post" action="#" onsubmit="return false;">
-            <div class="ur-form-row">
+        <form class="Upload" method="post" action="#" onsubmit="return false;">        <div class="ur-form-row">
                 <div class="ur-form-grid ur-grid-1" style="width:99%">
-                    <label for="myfile"><strong>Upload any additional documents:</strong></label>
+                    
       
         <div>
         <label style="color:#FF0000;" id="errorLabel3"></label>
         </div>
-                    <input type="file" id="myfile" name="myfile" multiple>
+                    <input disabled type="file" id="myfile" name="myfile" multiple>
                     
                 </div>
             </div>
     
             <div class="ur-button-container ">
-                <input onclick="checkUpload()" value="Upload" id="submit3" type="submit">
+                <input disabled onclick="checkUpload()" value="Upload" id="submit3" type="submit">
             </div><br><br>
     <div>
     <label style="color:rgb(0, 112, 15);" id="updatedUploads"></label>
         </div>	
-        </form>
+        <div style="clear: both;"></div>
+                    <input name="ur-user-form-id" type="hidden" value="5882" />
+                    <input name="ur-redirect-url" type="hidden" value="" />
+                    <input id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" type="hidden" value="5db8c0f987" />
+    
+                </form>
+                <div style="clear: both;"></div>
     </div>
     
     
@@ -320,6 +358,8 @@
                 }
             }
     function toggleEditOn(){
+    var label=document.getElementById("updatedInfo");
+    label.innerHTML="";
     var inputs=document.querySelectorAll('input[disabled]');
     var len=document.querySelectorAll('input[disabled]').length;
     for(var i=0;i<inputs.length;i+=1){
