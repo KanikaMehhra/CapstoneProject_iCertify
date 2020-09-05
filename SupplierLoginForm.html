@@ -311,11 +311,11 @@
     
     
     <script>
-    function formSubmission1(){
-    var label=document.getElementById("updatedInfo");
-    label.innerHTML="*Information successfully updated!";
-    toggleEditOff();
-    }
+     function formSubmission1(){
+        var label=document.getElementById("updatedInfo");
+        label.innerHTML="*Information successfully updated!";
+        toggleEditOff("information");
+        }
     var intervalID=setInterval(function(){ if(document.getElementById("myfile").value.length!=0){
     var label=document.getElementById("errorLabel3");
     label.innerHTML="";
@@ -379,6 +379,7 @@
                 }else{
     var label=document.getElementById("updatedPricing");
     label.innerHTML="*Information successfully updated!";
+        toggleEditOff("pricing");
     }
     }
     function checkedRadio() {
@@ -396,16 +397,35 @@
     }else{
     var label=document.getElementById("updatedUploads");
     label.innerHTML="*Information successfully updated!";
+        toggleEditOff("Update");
     clearInterval(intervalID);
     }
     }
-    function toggleEditOff(){
-    var inputs=document.querySelectorAll('.information input');
-    var len=document.querySelectorAll('input[disabled]').length;
-    for(var i=0;i<inputs.length;i+=1){
-    inputs[i].disabled=true;
-    }
-    }
+        function toggleEditOff(formClass){
+        var inputs=document.querySelectorAll('.'+formClass+ ' input');
+        var len=document.querySelectorAll('input[disabled]').length;
+        for(var i=0;i<inputs.length;i+=1){
+        inputs[i].disabled=true;
+        }
+        }
+    function togglePricingEditOn(){
+      var label=document.getElementById("updatedPricing");
+        label.innerHTML="";
+            var inputs=document.querySelectorAll('.pricing input');
+        var len=document.querySelectorAll('input[disabled]').length;
+        for(var i=0;i<inputs.length;i+=1){
+        inputs[i].disabled=false;
+        }   
+        }
+        function toggleUploadingEditOn(){
+      var label=document.getElementById("updatedUploads");
+        label.innerHTML="";
+        var inputs=document.querySelectorAll('.Upload input');
+        var len=document.querySelectorAll('input[disabled]').length;
+        for(var i=0;i<inputs.length;i+=1){
+        inputs[i].disabled=false;
+        }      
+        }
         </script>
     
     </body>
