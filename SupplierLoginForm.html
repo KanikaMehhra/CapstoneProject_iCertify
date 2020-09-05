@@ -203,7 +203,7 @@
     <div id="pricePreferenceForm">
     
     <div id="user-registration-form-5882" class="user-registration ur-frontend-form  ">
-    <form method="post" action="https://icertify.net.au/?page_id=5913">
+    <form method="post" action="#" onsubmit="return false;">
     
     <div class="ur-form-row">
     
@@ -231,7 +231,13 @@
      
     <div class="ur-button-container ">
         <input value="Save" id="submit2" type="submit" onclick="checkPricing()" >
+    
                                             </div>
+    <br>
+    <br>
+    <div>
+    <label style="color:rgb(0, 112, 15);" id="updatedPricing"></label>
+        </div>	
     <div style="clear: both;"></div>
     <input name="ur-user-form-id" type="hidden" value="5882" />
     <input name="ur-redirect-url" type="hidden" value="" />
@@ -243,7 +249,7 @@
     </div>
     
     <div class="user-registration ur-frontend-form  " id="user-registration-form-5914">
-        <form method="post" action="https://icertify.net.au/">
+        <form method="post" action="#" onsubmit="return false;">
             <div class="ur-form-row">
                 <div class="ur-form-grid ur-grid-1" style="width:99%">
                     <label for="myfile"><strong>Upload any additional documents:</strong></label>
@@ -258,8 +264,10 @@
     
             <div class="ur-button-container ">
                 <input onclick="checkUpload()" value="Upload" id="submit3" type="submit">
-            </div>
-    
+            </div><br><br>
+    <div>
+    <label style="color:rgb(0, 112, 15);" id="updatedUploads"></label>
+        </div>	
         </form>
     </div>
     
@@ -329,7 +337,8 @@
                 if(pricePreferenceError>0){
                     event.preventDefault();
                 }else{
-    alert("SAVE");
+    var label=document.getElementById("updatedPricing");
+    label.innerHTML="*Information successfully updated!";
     }
     }
     function checkedRadio() {
@@ -345,6 +354,8 @@
     label.innerHTML="*Please select a file first.";
     event.preventDefault();
     }else{
+    var label=document.getElementById("updatedUploads");
+    label.innerHTML="*Information successfully updated!";
     clearInterval(intervalID);
     }
     }
