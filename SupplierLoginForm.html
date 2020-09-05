@@ -191,7 +191,7 @@
     <label class="ur-label">Additional Services</label>
     
     <div>
-    <label style="color:#FF0000;" id="errorLabel3"></label>
+    <label style="color:#FF0000;"></label>
     </div>
     
     <ul class="additionalServices">
@@ -269,6 +269,28 @@
     <div style="clear: both;"></div>
     </div>
     
+    <div class="user-registration ur-frontend-form  " id="user-registration-form-5914">
+        <form method="post" action="https://icertify.net.au/">
+            <div class="ur-form-row">
+                <div class="ur-form-grid ur-grid-1" style="width:99%">
+                    <label for="myfile"><strong>Upload any additional documents:</strong></label>
+      
+        <div>
+        <label style="color:#FF0000;" id="errorLabel3"></label>
+        </div>
+                    <input type="file" id="myfile" name="myfile" multiple>
+                    
+                </div>
+            </div>
+    
+            <div class="ur-button-container ">
+                <input onclick="checkUpload()" value="Upload" id="submit3" type="submit">
+            </div>
+    
+        </form>
+    </div>
+    
+    
     <script>
     var pricePreferenceError=0;
             var errors = 0;
@@ -335,6 +357,13 @@
                 }
                 label.innerHTML = "";
             }
+    function checkUpload(){
+    if(document.getElementById("myfile").value.length==0){
+    var label=document.getElementById("errorLabel3");
+    label.innerHTML="*Please select a file first.";
+    event.preventDefault();
+    }
+    }
         </script>
     
     </body>
