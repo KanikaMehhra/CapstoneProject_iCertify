@@ -15,9 +15,8 @@
     </div>
     </div>
     <div id="user-registration-form-5882" class="user-registration ur-frontend-form  ">
-    
-    <form method="post" action="https://icertify.net.au/?page_id=5913">
-    
+    <form class="information" action="#" method="post" onsubmit="formSubmission1();return false;">
+    <div class="textInput">
     <div class="ur-form-row">
     <div class="ur-form-grid ur-grid-1" style="width: 48%;">
     
@@ -83,16 +82,6 @@
     </div>
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="ur-form-row">
     <div class="ur-form-grid ur-grid-1" style="width: 48%;">
     
@@ -134,30 +123,7 @@
     
     </div>
     </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    </div>
     <div class="ur-form-row">
     <div class="ur-form-grid ur-grid-1" style="width: 48%;">
     <div class="ur-field-item field-checkbox">
@@ -222,15 +188,21 @@
      
     <div class="ur-button-container ">
         <input disabled value="Save" id="submit" type="submit" onclick="validateSubmit()" >
-                                            </div>
+    </div>
+    <br>
+    <br>
+    <div>
+    <label style="color:rgb(0, 112, 15);" id="updatedInfo"></label>
+        </div>	
     <div style="clear: both;"></div>
     <input name="ur-user-form-id" type="hidden" value="5882" />
     <input name="ur-redirect-url" type="hidden" value="" />
     <input id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" type="hidden" value="5db8c0f987" />
     
     </div>
-    <div id="user-registration-form-5882" class="user-registration ur-frontend-form  ">
+    <div id="pricePreferenceForm">
     
+    <div id="user-registration-form-5882" class="user-registration ur-frontend-form  ">
     <form method="post" action="https://icertify.net.au/?page_id=5913">
     
     <div class="ur-form-row">
@@ -268,6 +240,7 @@
     </form>
     <div style="clear: both;"></div>
     </div>
+    </div>
     
     <div class="user-registration ur-frontend-form  " id="user-registration-form-5914">
         <form method="post" action="https://icertify.net.au/">
@@ -292,10 +265,15 @@
     
     
     <script>
+    function formSubmission1(){
+    var label=document.getElementById("updatedInfo");
+    label.innerHTML="*Information successfully updated!";
+    toggleEditOff();
+    }
     var intervalID=setInterval(function(){ if(document.getElementById("myfile").value.length!=0){
     var label=document.getElementById("errorLabel3");
     label.innerHTML="";
-    }}, 3000);
+    }}, 300);
     var pricePreferenceError=0;
             var errors = 0;
             var abnCheck=0;
@@ -368,6 +346,13 @@
     event.preventDefault();
     }else{
     clearInterval(intervalID);
+    }
+    }
+    function toggleEditOff(){
+    var inputs=document.querySelectorAll('.information input');
+    var len=document.querySelectorAll('input[disabled]').length;
+    for(var i=0;i<inputs.length;i+=1){
+    inputs[i].disabled=true;
     }
     }
         </script>
