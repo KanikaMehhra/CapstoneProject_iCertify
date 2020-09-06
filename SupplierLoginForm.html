@@ -2,8 +2,7 @@
 <html>
     <body>
     <div class="user-registration ur-frontend-form  " id="user-registration-form-5914">
-        <form method="post" action="https://icertify.net.au/">
-    
+          
     
     <div class="ur-form-row">
     <div class="ur-form-grid ur-grid-1" style="width: 48%;">
@@ -307,13 +306,38 @@
                 <div style="clear: both;"></div>
     </div>
     <hr style="height: 10px;background-color:black">
-    
+      <form method="post" action="https://icertify.net.au/" >
     <div class="ur-button-container ">
-                <input value="Save and Logout" id="submit4" type="submit">
+                <input onclick="saveAndLogout()" value="Save and Logout" id="submit4" type="submit">
             </div>
+     <div>
+                    <label style="color:#FF0000;" id="finalErrorCheck"></label>
+                        </div>	
     </form>
     </div>
     <script>
+    function saveAndLogout(){
+                var submit=document.getElementById("submit");
+                var submit2=document.getElementById("submit2");
+                var submit3=document.getElementById("submit3");
+                var finalError="";
+                if(!submit.disabled){
+                    finalError=finalError+"*Save the updated Organisation Information.";
+                }
+                if(!submit2.disabled){
+                    finalError=finalError+"\n*Save the updated Pricing Preference.";
+                }if(!submit3.disabled){
+                    finalError=finalError+"\n*Save the uploaded Documents.";
+                }
+                if(finalError.length!=0){
+                    var finalErrorCheck=document.getElementById("finalErrorCheck");
+                    finalErrorCheck.innerHTML=finalError;
+                    event.preventDefault();
+                }
+    else{
+    clearInterval(intervalID);
+    }
+            }
      function formSubmission1(){
         var label=document.getElementById("updatedInfo");
         label.innerHTML="*Information successfully updated!";
@@ -363,8 +387,7 @@
     function toggleEditOn(){
     var label=document.getElementById("updatedInfo");
     label.innerHTML="";
-    var inputs=document.querySelectorAll('input[disabled]');
-    var len=document.querySelectorAll('input[disabled]').length;
+    var inputs=document.querySelectorAll('.information input[disabled]');
     for(var i=0;i<inputs.length;i+=1){
     inputs[i].disabled=false;
     }
@@ -412,23 +435,21 @@
         }
         }
     function togglePricingEditOn(){
-      var label=document.getElementById("updatedPricing");
-        label.innerHTML="";
-            var inputs=document.querySelectorAll('.pricing input');
-        var len=document.querySelectorAll('input[disabled]').length;
-        for(var i=0;i<inputs.length;i+=1){
-        inputs[i].disabled=false;
-        }   
-        }
+          var label=document.getElementById("updatedPricing");
+            label.innerHTML="";
+            var inputs=document.querySelectorAll('.pricing input[disabled]');
+            for(var i=0;i<inputs.length;i+=1){
+            inputs[i].disabled=false;
+            }   
+            }
         function toggleUploadingEditOn(){
-      var label=document.getElementById("updatedUploads");
-        label.innerHTML="";
-        var inputs=document.querySelectorAll('.Upload input');
-        var len=document.querySelectorAll('input[disabled]').length;
-        for(var i=0;i<inputs.length;i+=1){
-        inputs[i].disabled=false;
-        }      
-        }
+          var label=document.getElementById("updatedUploads");
+            label.innerHTML="";
+            var inputs=document.querySelectorAll('.Upload input[disabled]');
+            for(var i=0;i<inputs.length;i+=1){
+            inputs[i].disabled=false;
+            }      
+            }
         </script>
     
     </body>
