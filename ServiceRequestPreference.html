@@ -47,7 +47,7 @@
 <div>
 <label style="color:#FF0000;" id="errorLabel3"></label>
 </div>
-
+<div class="addressDetails">
    <table id="address">
       <tr>
         <td class="label">Street address</td>
@@ -82,7 +82,7 @@
         </td>
       </tr>
     </table>
-
+</div>
 </div>
 </div>
 <div style="clear: both;"></div>
@@ -93,12 +93,7 @@
     <div class="ur-form-grid ur-grid-1" style="width: 48%;">
     <div class="ur-field-item field-checkbox">
 
-<label class="ur-label">Additional Required</label>
-
-<div>
-<label style="color:#FF0000;" id="errorLabel4"></label>
-</div>
-
+<label class="ur-label">Additional Services Required</label>
 <ul class="additionalServices">
 	<li class="ur-radio-list"><input id="Remote Audit" class="input-radio ur-frontend-field  " name="Remote Audit" type="checkbox" value="Remote Audit"/> <label class="radio" for="Remote Audit">Remote Audit</label></li>
 	<li class="ur-radio-list"><input id="Gap Audit" class="input-radio ur-frontend-field  " name="Gap Audit" type="checkbox" value="Gap Audit"/> <label class="radio" for="Gap Audit">Gap Audit</label></li>
@@ -127,6 +122,19 @@
 </form>
 <div style="clear: both;"></div>
 <script>
+var intervalID=setInterval(function(){ var inputs= document.querySelectorAll('.addressDetails input');
+var completed=true;
+for(var i=0;i<inputs.length;i++){
+if(inputs[i].value.length==0){
+    completed=flase;
+    break;
+}
+}
+if(completed){
+    var label3 = document.getElementById("errorLabel3");
+label3.innerHTML ="";
+}
+}, 300);
 var address=0;
         var errors = 0;
         var abnCheck=0;
@@ -147,7 +155,7 @@ var address=0;
                 label.innerHTML = "*Please select atleast one certification.";
             } 
 var label3 = document.getElementById("errorLabel3");
-var inputs= document.querySelectorAll('.address input);
+var inputs= document.querySelectorAll('.addressDetails input');
 for(var i=0;i<inputs.length;i++){
 if(inputs[i].value.length==0){
 errors += 1;
@@ -159,10 +167,7 @@ label3.innerHTML = "*Please fill-in the complete address where the service is re
                 event.preventDefault();
             }
         }
-function validateLocation(){
-
-}
-    </script>
+  </script>
 
 </body>
 </html>
