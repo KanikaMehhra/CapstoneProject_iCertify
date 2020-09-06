@@ -4,7 +4,7 @@
 
 <div id="user-registration-form-5882" class="user-registration ur-frontend-form  ">
 
-<form method="post" action="https://icertify.net.au/?page_id=5913">
+<form method="post" action="https://icertify.net.au/?page_id=6401">
 
 
 <div class="ur-form-row">
@@ -133,6 +133,9 @@ if(inputs[i].value.length==0){
 if(completed){
     var label3 = document.getElementById("errorLabel3");
 label3.innerHTML ="";
+ if(errors>0){
+            errors=errors-address;           
+            }
 }
 }, 300);
 var address=0;
