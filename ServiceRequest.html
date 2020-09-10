@@ -31,8 +31,10 @@
 <div><input id="headOfficeLocation" required="required" type="text" placeholder="Head Office Location" /></div>
 </div>
 <div class="ur-form-grid ur-grid-2" style="width: 48%;">
-<div><input id="abn" required="required" type="number" placeholder="ABN/ACN" /></div>
-<div></div>
+<div><input id="abn" required="required" type="number" placeholder="ABN/ACN" oninput="validateABN()"/></div>
+<div>
+<label style="color:#FF0000;" id="errorLabel1"></label>
+</div>
 </div>
 </div>
 <div class="ur-form-row">
