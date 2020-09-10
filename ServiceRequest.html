@@ -9,7 +9,7 @@
         font-family: "Karla", "Helvetica Neue", helvetica, arial, sans-serif;
     }
 </style>
-<div id="user-registration-form-5882" class="user-registration ur-frontend-form "><form action="https://icertify.net.au/?page_id=5913" method="post">
+<div id="user-registration-form-5882" class="user-registration ur-frontend-form "><form action="https://icertify.net.au/?page_id=6401" method="post">
 <div class="ur-form-row">
 <div class="ur-form-grid ur-grid-2" style="width: 99%;">
 <div><label class="ur-label">Organisation Information<abbr class="required" title="required">*</abbr></label>
@@ -170,6 +170,9 @@
 </div>
 <input id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" type="hidden" value="5db8c0f987" />
 <div class="ur-button-container "><input id="submit" type="submit" onclick="validateSubmit()"/></div>
+<div>
+    <label style="color:#FF0000;" id="finalErrorCheck"></label>
+        </div>	
 <div style="clear: both;"></div>
 <input name="ur-user-form-id" type="hidden" value="5882" />
 <input name="ur-redirect-url" type="hidden" value="" />
@@ -222,6 +225,7 @@
         }
       }          
             if(errors>0){
+                var finalCheck=document.getElementById("finalErrorCheck").innerHTML="*Please fill in all the required details."
                 event.preventDefault();
             }
         }
