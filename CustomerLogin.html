@@ -1,39 +1,51 @@
 <html>
 <div class="user-registration ur-frontend-form  " id="user-registration-form-5914">
-    <form method="post" action="https://icertify.net.au/">
-        <div class="ur-form-row">
-            <div class="ur-form-grid ur-grid-1" style="width:99%">
+<form method="post" action="#" onsubmit="return manipulate();">
+<div class="ur-form-row">
+<div class="ur-form-grid ur-grid-1" style="width:99%">
 
-                <div>
-                    <input oninput="clicked()" id="email" type="email" placeholder="E-mail" required="required">
-                </div>
+<div>
+<input oninput="clicked()" id="email" type="email" placeholder="E-mail"  required="required">
+</div>
 
-                <div>
-                    <input oninput="clicked()" id="password" type="password" placeholder="Password" required="required">
-                </div>
-            </div>
-        </div>
+<div>
+<input oninput="clicked()" id="password" type="password" placeholder="Password" required="required">
+</div>
+</div>
+</div>
 
-        <div class="ur-button-container ">
-            <input value="Login" id="submit" type="submit" disabled>
-        </div>
+<div class="ur-button-container ">
+<input value="Login" id="submit" type="submit" disabled>
+</div>
 
-    </form>
+</form>
 </div>
 
 <script>
-    function clicked() {
-        var password = document.getElementById("password");
-        var email = document.getElementById("email");
-        if (password !== null && email !== null) {
-            if (password.value.length !== 0 && email.value.length !== 0) {
-                document.getElementById("submit").disabled = false;
-            }
-            else {
-                document.getElementById("submit").disabled = true;
-            }
-        }
-    }
+function clicked() {
+         var password = document.getElementById("password");
+          var email = document.getElementById("email");
+      if(password!==null && email!==null){
+         if (password.value.length !== 0 && email.value.length !== 0) {
+         document.getElementById("submit").disabled = false;
+      }
+      else {
+         document.getElementById("submit").disabled = true;
+      }
+      } 
+   }
+function manipulate(){
+var password = document.getElementById("password");
+          var email = document.getElementById("email");
+if(email.value==="kanika@gmail.com" && password.value==="123"){
+window.location.replace("https://icertify.net.au/?page_id=6343");
+return false;
+}
+else{
+window.location.replace("https://icertify.net.au/?page_id=6208");
+return false;
+}
+}
 </script>
 
 

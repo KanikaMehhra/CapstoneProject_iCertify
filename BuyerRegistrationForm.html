@@ -1,72 +1,105 @@
 <html>
-
 <body>
 
 
-    <div id="user-registration-form-5882" class="user-registration ur-frontend-form  ">
+<div id="user-registration-form-5882" class="user-registration ur-frontend-form  ">
 
-        <form method="post" action="https://icertify.net.au/?page_id=5913">
+<form method="post" action="https://icertify.net.au/?page_id=5913">
 
-            <div class="ur-form-row">
-                <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+<div class="ur-form-row">
+<div class="ur-form-grid ur-grid-1" style="width: 48%;">
 
-                    <div>
-                        <input id="organisationName" required="required" type="text" placeholder="Organisation Name" />
-                    </div>
+<div>
+<input id="organisationName" required="required" type="text" placeholder="Organisation Name"/>
+</div>
 
-                    <div>
-                        <input id="positionTitle" required="required" type="text" placeholder="Position Title" />
-                    </div>
+<div>
+<input id="positionTitle" required="required" type="text" placeholder="Position Title"/>
+</div>
 
-                </div>
+</div>
 
-                <div class="ur-form-grid ur-grid-2" style="width: 48%;">
+<div class="ur-form-grid ur-grid-2" style="width: 48%;">
 
-                    <div>
-                        <input id="contactName" required="required" type="text" placeholder="Contact Name" />
-                    </div>
+<div>
+<input id="contactName" required="required" type="text" placeholder="Contact Name" />
+</div>
 
-                    <div>
-                        <input id="numOfEmployees" min="1" type="number" required="required"
-                            placeholder="Number of employees" />
-                    </div>
+<div>
+<input id="numOfEmployees" min="1" type="number" required="required" placeholder="Number of employees"/>
+</div>
 
-                </div>
-            </div>
+</div>
+</div>
 
-            <div class="ur-form-row">
-                <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+<div class="ur-form-row">
+<div class="ur-form-grid ur-grid-1" style="width: 48%;">
 
-                    <div>
-                        <input id="headOfficeLocation" required="required" type="text"
-                            placeholder="Head Office Location" />
-                    </div>
+<div>
+<input id="headOfficeLocation" required="required" type="text" placeholder="Head Office Location"/>
+</div>
 
-                </div>
+</div>
 
-                <div class="ur-form-grid ur-grid-2" style="width: 48%;">
+<div class="ur-form-grid ur-grid-2" style="width: 48%;">
 
-                    <div>
-                        <input id="abn" type="number" placeholder="ABN/ACN" required="required"
-                            oninput="validateABN()" />
-                    </div>
+<div>
+<input id="abn" type="number" placeholder="ABN/ACN" required="required" oninput="validateABN()"/>
+</div>
 
-                    <div>
-                        <label style="color:#FF0000;" id="errorLabel1"></label>
-                    </div>
+<div>
+<label style="color:#FF0000;" id="errorLabel1"></label>
+</div>
 
-                </div>
-            </div>
+</div>
+</div>
 
-            <div class="ur-form-row">
-                <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+<div class="ur-form-row">
+<div class="ur-form-grid ur-grid-1" style="width: 48%;">
 
-                    <div>
-                        <input id="ausLocation" max="1000" min="1" required="required" type="number"
-                            placeholder="No. of physical locations within Aus" />
-                    </div>
+<div>
+<input id="ausLocation" max="1000" min="1" required="required" type="number" placeholder="No. of physical locations within Aus"/>
+</div>
 
-                </div>
+</div>
+
+<div class="ur-form-grid ur-grid-2" style="width: 48%;">
+
+<div>
+<input id="outAusLocation" max="1000" min="1" type="number" placeholder="No. of physical locations outside Aus" required="required"/>
+</div>
+
+</div>
+</div>
+
+<div class="ur-form-row">
+<div class="ur-form-grid ur-grid-1" style="width: 48%;">
+
+<div>
+<input id="email" required="required" type="email" placeholder="E-mail"/>
+</div>
+
+</div>
+
+<div class="ur-form-grid ur-grid-2" style="width: 48%;">
+
+<div>
+
+<input pattern="\+[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}" id="mob" required="required" type="text" placeholder="Mob(+XX XXX XXX XXX)"/>
+</div>
+
+</div>
+
+<div class="ur-form-row">
+<div class="ur-form-grid ur-grid-1" style="width:99%">
+<div>
+<input pattern="[0-9]{2}\s[0-9]{1}\s[0-9]{4}\s[0-9]{4}" id="tel" required="required" type="text" placeholder="Tel(XX X XXXX XXXX)"/>
+</div>
+</div>
+</div>
+
+</div>
+
 
                 <div class="ur-form-grid ur-grid-2" style="width: 48%;">
 
@@ -234,20 +267,20 @@
 
     <script>
         var errors = 0;
-        var abnCheck = 0;
-        var checkboxCheck = 0;
-        var radioCheck = 0;
+        var abnCheck=0;
+        var checkboxCheck=0;
+        var radioCheck=0;
         function checkedRadio() {
             var label = document.getElementById("errorLabel3");
             if (errors > 0) {
-                errors = errors - radioCheck;
+                errors=errors-radioCheck;
             }
             label.innerHTML = "";
         }
         function checkedCheckbox() {
             var label = document.getElementById("errorLabel2");
-            if (errors > 0) {
-                errors = errors - checkboxCheck;
+            if(errors>0){
+            errors=errors-checkboxCheck;           
             }
             label.innerHTML = "";
         }
@@ -256,17 +289,17 @@
             var len = document.querySelectorAll('.checkbox input[type="checkbox"]:checked').length;
             if (len === 0) {
                 errors += 1;
-                checkboxCheck += 1;
+                checkboxCheck+=1;
                 label.innerHTML = "*Please select atleast one service.";
             }
             var label3 = document.getElementById("errorLabel3");
             var len3 = document.querySelectorAll('input[type="radio"]:checked').length;
-            if (len3 === 0) {
+           if (len3 === 0) {
                 errors += 1;
-                radioCheck += 1;
+                radioCheck+=1;
                 label3.innerHTML = "*Please select current certification status.";
-            }
-            if (errors > 0) {
+            }            
+            if(errors>0){
                 event.preventDefault();
             }
         }
@@ -276,15 +309,14 @@
             if (abn !== 11 && abn !== 9) {
                 label.innerHTML = "ABN must be 11 and ACN must be 9 digit long";
                 errors += 1;
-                abnCheck += 1;
+                abnCheck+=1;
             }
             else {
                 label.innerHTML = "";
-                errors = errors - abnCheck;
+                errors=errors-abnCheck;
             }
         }
     </script>
 
 </body>
-
 </html>
