@@ -1,6 +1,12 @@
 &nbsp;
 <div id="user-registration-form-5882" class="user-registration ur-frontend-form "><form action="https://icertify.net.au/?page_id=5913" method="post">
 <div class="ur-form-row">
+<div class="ur-form-grid ur-grid-2" style="width: 99%;">
+<div><label class="ur-label">Organisation Information<abbr class="required" title="required">*</abbr></label>
+</div>
+</div>
+</div>
+<div class="ur-form-row">
 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
 <div><input id="organisationName" required="required" type="text" placeholder="Organisation Name" /></div>
 <div><input id="positionTitle" required="required" type="text" placeholder="Position Title" /></div>
@@ -42,7 +48,7 @@
 </div>
 </div>
 <div class="ur-form-grid ur-grid-2" style="width: 48%;">
-<div><input oninput="changeColor()" id="date" style="color:#dedfdf;" required="required" type="date" placeholder="Date when service is required" /></div>
+<div><input oninput="changeColor()" id="date" style="color:#dedfdf;" required="required" type="date" /></div>
 </div>
 </div>
 <div class="ur-form-row">
@@ -84,29 +90,27 @@
 </div>
 </div>
 </div>
-<div class="ur-form-row">
-<div class="ur-form-grid ur-grid-1" style="width: 99%;">
-<div class="ur-field-item field-checkbox ">
-<div id="check_box_1598611632_field" class="form-row validate-required">
 
-<label class="ur-label">Terms &amp; Conditions <abbr class="required" title="required">*</abbr></label>
-<ul>
- 	<li class="ur-checkbox-list"><input id="policyConfirmation" class="input-checkbox ur-frontend-field " name="policyConfirmation" required="required" type="checkbox" /> <label class="ur-checkbox-label" for="policyConfirmation">By signing up I agree to the <a>terms of service and privacy policy.</a></label></li>
+<div class="ur-form-row">
+<div class="ur-form-grid ur-grid-1" style="width: 48%;">
+<div class="ur-field-item field-checkbox">
+<label class="ur-label">Additional Services Required</label>
+<ul class="additionalServices">
+<li class="ur-radio-list"><input id="Remote Audit" class="input-radio ur-frontend-field " name="Remote Audit" type="checkbox" value="Remote Audit" /> <label class="radio" for="Remote Audit">Remote Audit</label></li>
+<li class="ur-radio-list"><input id="Gap Audit" class="input-radio ur-frontend-field " name="Gap Audit" type="checkbox" value="Gap Audit" /> <label class="radio" for="Gap Audit">Gap Audit</label></li>
+<li class="ur-radio-list"><input id="Other Services" class="input-radio ur-frontend-field " name="Other Services" type="text" placeholder="Other Services(comma seperated)" /></li>
+</ul>
+</div>
+</div>
+<div class="ur-form-grid ur-grid-1" style="width: 48%;">
+<div class="ur-field-item field-checkbox">
+<label class="ur-label">Service Urgency</label>
+<ul class="servicesUrgency">
+<li class="ur-radio-list"><input id="urgent" class="input-radio ur-frontend-field " name="urgent" type="checkbox" value="Urgent" /> <label class="radio" for="urgent">Urgent</label></li>
 </ul>
 </div>
 </div>
 </div>
-</div>
-<div class="ur-button-container "><input id="submit" type="submit" /></div>
-<div style="clear: both;"></div>
-<input name="ur-user-form-id" type="hidden" value="5882" />
-<input name="ur-redirect-url" type="hidden" value="" />
-<input id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" type="hidden" value="5db8c0f987" />
-
-</form>
-<div style="clear: both;"></div>
-</div>
-<div id="user-registration-form-5882" class="user-registration ur-frontend-form "><form action="https://icertify.net.au/?page_id=6401" method="post">
 <div class="ur-form-row">
 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
 <div><label class="ur-label">Address where service is requested<abbr class="required" title="required">*</abbr></label></div>
@@ -137,29 +141,28 @@
 </div>
 </div>
 </div>
-<div style="clear: both;"></div>
-<input name="ur-user-form-id" type="hidden" value="5882" />
-<input name="ur-redirect-url" type="hidden" value="" />
 <div class="ur-form-row">
-<div class="ur-form-grid ur-grid-1" style="width: 48%;">
-<div class="ur-field-item field-checkbox">
+<div class="ur-form-grid ur-grid-1" style="width: 99%;">
+<div class="ur-field-item field-checkbox ">
+<div id="check_box_1598611632_field" class="form-row validate-required">
 
-<label class="ur-label">Additional Services Required</label>
-<ul class="additionalServices">
- 	<li class="ur-radio-list"><input id="Remote Audit" class="input-radio ur-frontend-field " name="Remote Audit" type="checkbox" value="Remote Audit" /> <label class="radio" for="Remote Audit">Remote Audit</label></li>
- 	<li class="ur-radio-list"><input id="Gap Audit" class="input-radio ur-frontend-field " name="Gap Audit" type="checkbox" value="Gap Audit" /> <label class="radio" for="Gap Audit">Gap Audit</label></li>
- 	<li class="ur-radio-list"><input id="Other Services" class="input-radio ur-frontend-field " name="Other Services" type="text" placeholder="Other Services(comma seperated)" /></li>
+<label class="ur-label">Terms &amp; Conditions <abbr class="required" title="required">*</abbr></label>
+<ul>
+ 	<li class="ur-checkbox-list"><input id="policyConfirmation" class="input-checkbox ur-frontend-field " name="policyConfirmation" required="required" type="checkbox" /> <label class="ur-checkbox-label" for="policyConfirmation">By signing up I agree to the <a>terms of service and privacy policy.</a></label></li>
 </ul>
 </div>
 </div>
 </div>
-</form></div>
+</div>
+<input id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" type="hidden" value="5db8c0f987" />
 <div class="ur-button-container "><input id="submit" type="submit" /></div>
 <div style="clear: both;"></div>
 <input name="ur-user-form-id" type="hidden" value="5882" />
 <input name="ur-redirect-url" type="hidden" value="" />
 <input id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" type="hidden" value="5db8c0f987" />
-<div style="clear: both;"></div>
+
+</form>
+</div>
 <script>
         var errors = 0;
         var abnCheck=0;
