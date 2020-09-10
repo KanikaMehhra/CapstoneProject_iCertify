@@ -128,7 +128,7 @@
 <div class="ur-form-row">
 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
 <div><label class="ur-label">Address where service is requested<abbr class="required" title="required">*</abbr></label></div>
-<div></div>
+<div><label style="color:#FF0000;" id="errorLabel4"></label></div>
 <div class="addressDetails">
 <table id="address">
 <tbody>
@@ -178,6 +178,7 @@
 </form>
 </div>
 <script>
+    var address = 0;
         var errors = 0;
         var abnCheck=0;
         var checkboxCheck=0;
@@ -210,7 +211,16 @@
                 errors += 1;
                 radioCheck+=1;
                 label3.innerHTML = "*Please select current certification status.";
-            }            
+            }  
+            var label4 = document.getElementById("errorLabel4");
+      var inputs = document.querySelectorAll('.addressDetails input');
+      for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].value.length == 0) {
+          errors += 1;
+          address += 1;
+          label4.innerHTML = "*Please fill-in the complete address where the service is required.";
+        }
+      }          
             if(errors>0){
                 event.preventDefault();
             }
@@ -231,6 +241,23 @@
 function changeColor(){
 document.getElementById("date").style.color="rgb(59, 59, 59)";
 }
+var intervalID = setInterval(function () {
+      var inputs = document.querySelectorAll('.addressDetails input');
+      var completed = true;
+      for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].value.length == 0) {
+          completed = flase;
+          break;
+        }
+      }
+      if (completed) {
+        var label4 = document.getElementById("errorLabel4");
+        label4.innerHTML = "";
+        if (errors > 0) {
+          errors = errors - address;
+        }
+      }
+    }, 300);
     </script>
 
 &nbsp;
