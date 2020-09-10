@@ -1,456 +1,455 @@
-
 <html>
-    <body>
-    <div class="user-registration ur-frontend-form  " id="user-registration-form-5914">
-          
-    
-    <div class="ur-form-row">
-    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-    <div>
-    <strong><u>Organisation Details  </u>
-    </strong>
-    </div>
-    </div>
-    <div onclick="toggleEditOn()">
-    <i class="fa fa-edit"></i>
-    </div>
-    </div>
-    <div id="user-registration-form-5882" class="user-registration ur-frontend-form  ">
-    <form class="information" action="#" method="post" onsubmit="formSubmission1();return false;">
-    <div class="textInput">
-    <div class="ur-form-row">
-    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-    
-    <div>Organisation Name
-    <input id="organisationName" required="required" type="text" placeholder="Organisation Name" value="Lloyds Register Quality Assurance Limited" disabled/>
-    </div>
-    
-    <div>Position Title
-    <input id="positionTitle" required="required" value="Manager" type="text" placeholder="Position Title" disabled/>
-    </div>
-    
-    </div>
-    
-    <div class="ur-form-grid ur-grid-2" style="width: 48%;">
-    
-    <div>Contact Name
-    <input id="contactName" required="required" type="text" value="Wai Kiong Foong" placeholder="Contact Name" disabled/>
-    </div>
-    
-    <div>Number of employees
-    <input id="numOfEmployees" min="1" value="1000" type="number" required="required" placeholder="Number of employees" disabled/>
-    </div>
-    
-    </div>
-    </div>
-    
-    <div class="ur-form-row">
-    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-    
-    <div>Head Office Location
-    <input id="headOfficeLocation" value="Level 16, 461 Bourke Street, Melbourne VIC 3000, Australia" required="required" type="text" placeholder="Head Office Location" disabled/>
-    </div>
-    
-    </div>
-    
-    <div class="ur-form-grid ur-grid-2" style="width: 48%;">
-    
-    <div>Avg. no. of certifications/annum
-    <input id="avgCerts" type="number" value="500" placeholder="Avg. no. of certifications/annum" required="required" disabled/>
-    </div>
-    
-    
-    
-    </div>
-    </div>
-    
-    <div class="ur-form-row">
-    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-    
-    <div>No. of physical locations within Aus
-    <input id="ausLocation" max="1000" min="1" required="required" type="number" placeholder="No. of physical locations within Aus" value="10" disabled/>
-    </div>
-    
-    </div>
-    
-    <div class="ur-form-grid ur-grid-2" style="width: 48%;">
-    
-    <div>No. of physical locations outside Aus
-    <input id="outAusLocation" max="1000" min="1" type="number" placeholder="No. of physical locations outside Aus" value="20" required="required" disabled/>
-    </div>
-    
-    </div>
-    </div>
-    
-    
-    <div class="ur-form-row">
-    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-    
-    <div>E-mail
-    <input id="email" required="required" type="email" value="wai-kiong.foong@lr.org" placeholder="E-mail" disabled/>
-    </div>
-    
-    </div>
-    
-    <div class="ur-form-grid ur-grid-2" style="width: 48%;">
-    
-    <div>ABN/ACN
-    <input id="abn" value="111111111" type="number" placeholder="ABN/ACN" required="required" oninput="validateABN()" disabled/>
-    </div>
-    
-    <div>
-    <label style="color:#FF0000;" id="errorLabel1"></label>
-    </div>
-    
-    </div>
-    </div>
-    
-    <div class="ur-form-row">
-    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-    
-    <div>Mobile (+XX XXX XXX XXX)
-    <input pattern="\+[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}" id="mob" required="required" type="text" value="+61 222 222 222" placeholder="Mobile (+XX XXX XXX XXX)" disabled/>
-    </div>
-    
-    </div>
-    
-    <div class="ur-form-grid ur-grid-2" style="width: 48%;">
-    
-    <div>Telephone (XX X XXXX XXXX)
-    <input pattern="[0-9]{2}\s[0-9]{1}\s[0-9]{4}\s[0-9]{4}" id="tel" required="required" type="text" value="61 3 2222 2222" placeholder="Telephone (XX X XXXX XXXX)" disabled/>
-    </div>
-    
-    
-    
-    </div>
-    </div>
-    </div>
-    <div class="ur-form-row">
-    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-    <div class="ur-field-item field-checkbox">
-    
-    <div>
-    
-    <label class="ur-label" >Certifications Provided <abbr class="required" title="required">*</abbr></label>
-    
-    <div>
-    <label style="color:#FF0000;" id="errorLabel2"></label>
-    </div>
-    
-    <ul class="checkbox">
-    <li class="ur-checkbox-list">
-    <input checked disabled oninput="checkedCheckbox()" id="Quality" class="input-checkbox ur-frontend-field  " name="Quality" type="checkbox" value="Quality" /> <label class="ur-checkbox-label" for="Quality">Quality</label></li>
-        <li class="ur-checkbox-list"><input checked disabled oninput="checkedCheckbox()" id="workplaceHealthAndSafety" class="input-checkbox ur-frontend-field  " name="workplaceHealthAndSafety" type="checkbox" value="workplaceHealthAndSafety"/> <label class="ur-checkbox-label" for="workplaceHealthAndSafety">Workplace Health and Safety</label></li>
-        <li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()" id="environmentalSustainability" class="input-checkbox ur-frontend-field  " name="environmentalSustainability" type="checkbox" value="environmentalSustainability"/> <label class="ur-checkbox-label" for="environmentalSustainability">Environmental Sustainability</label></li>
-        <li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()" id="sourcingPractices" class="input-checkbox ur-frontend-field  " name="sourcingPractices" type="checkbox" value="sourcingPractices"/> <label class="ur-checkbox-label" for="sourcingPractices">Sourcing Practices</label></li>
-        <li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()" id="supplyChainMonitoring" class="input-checkbox ur-frontend-field  " name="supplyChainMonitoring" type="checkbox" value="supplyChainMonitoring"/> <label class="ur-checkbox-label" for="supplyChainMonitoring">Supply Chain Monitoring</label></li>
-        <li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()" id="energyManagement" class="input-checkbox ur-frontend-field  " name="energyManagement" type="checkbox" value="energyManagement"/> <label class="ur-checkbox-label" for="energyManagement">Energy Management</label></li>
-        <li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()" id="corporateSocialResponsibility" class="input-checkbox ur-frontend-field  " name="corporateSocialResponsibility" type="checkbox" value="corporateSocialResponsibility"/> <label class="ur-checkbox-label" for="corporateSocialResponsibility">Corporate Social Responsibility</label></li>
-    <li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()" id="sustainabilityReporting" class="input-checkbox ur-frontend-field  " name="sustainabilityReporting" type="checkbox" value="sustainabilityReporting"/> <label class="ur-checkbox-label" for="sustainabilityReporting">Sustainability Reporting</label></li>
-    </ul>
-    </div>
-    </div>
-    </div>
-    <div class="ur-form-grid ur-grid-2" style="width: 48%;">
-    <div class="ur-field-item field-radio " data-field-id="radio_1598611551">
-    <div id="radio_1598611551_field" class="form-row validate-required" data-priority="">
-    
-    <label class="ur-label">Additional Services</label>
-    
-    <div>
-    <label style="color:#FF0000;"></label>
-    </div>
-    
-    <ul class="additionalServices">
-        <li class="ur-radio-list"><input disabled id="Remote Audit" class="input-radio ur-frontend-field  " name="Remote Audit" type="checkbox" value="Remote Audit"/> <label class="radio" for="Remote Audit">Remote Audit</label></li>
-        <li class="ur-radio-list"><input disabled id="Gap Audit" class="input-radio ur-frontend-field  " name="Gap Audit" type="checkbox" value="Gap Audit"/> <label class="radio" for="Gap Audit">Gap Audit</label></li>
-    
-    <li class="ur-radio-list">Other Services<input disabled id="Other Services" class="input-radio ur-frontend-field  " name="Other Services" type="text" placeholder="Other Services(comma seperated)"/> </li>
-    
-    </ul>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="ur-form-row">
-    <div class="ur-form-grid ur-grid-1" style="width: 99%;">
-    
-    <div class="ur-field-item field-checkbox ">
-    <div id="check_box_1598611632_field" class="form-row validate-required" >
-    
-    <label class="ur-label">Terms & Conditions <abbr class="required" title="required">*</abbr></label>
-    <ul>
-        <li class="ur-checkbox-list"><input checked disabled id="policyConfirmation" class="input-checkbox ur-frontend-field  " name="policyConfirmation" required="required" type="checkbox"/> <label class="ur-checkbox-label" for="policyConfirmation">By signing up I agree to the <a>terms of service and privacy policy.</a></label></li>
-    </ul>
-    </div>
-    </div>
-    </div>
-    </div>
-     
-    <div class="ur-button-container ">
-        <input disabled value="Save" id="submit" type="submit" onclick="validateSubmit()" >
-    </div>
-    <br>
-    <br>
-    <div>
-    <label style="color:rgb(0, 112, 15);" id="updatedInfo"></label>
-        </div>	
-    <div style="clear: both;"></div>
-    <input name="ur-user-form-id" type="hidden" value="5882" />
-    <input name="ur-redirect-url" type="hidden" value="" />
-    <input id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" type="hidden" value="5db8c0f987" />
-    
-    </form>
-    <div style="clear: both;"></div>
-    </div>
-    <hr style="height: 10px;">
-    
-    <div id="pricePreferenceForm">
-    
-    <div class="ur-form-row">
-    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-    <div>
-    <strong><u>Pricing Preference  </u>
-    </strong>
-    </div>
-    </div>
-    <div onclick="togglePricingEditOn()">
-    <i class="fa fa-edit"></i>
-    </div>
-    </div>
-    <div id="user-registration-form-5882" class="user-registration ur-frontend-form  ">
-    <form class="pricing" method="post" action="#" onsubmit="return false;">
-    
-    <div class="ur-form-row">
-    
-    <div class="ur-form-grid ur-grid-2" style="width: 48%;">
-    <div class="ur-field-item field-radio " data-field-id="radio_1598611551">
-    <div id="radio_1598611551_field" class="form-row validate-required" data-priority="">
-    
-    
-    <div>
-    <label style="color:#FF0000;" id="errorLabel4"></label>
-    </div>
-    
-    <ul class="pricingPreference">
-        <li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="variable" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="variable"/> <label class="radio" for="variable">Variable</label></li>
-        <li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="fixed" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="fixed"/> <label class="radio" for="fixed">Fixed</label></li>
-    
-    
-    </ul>
-    </div>
-    </div>
-    </div>
-    </div>
-    
-     
-    <div class="ur-button-container ">
-        <input disabled value="Save" id="submit2" type="submit" onclick="checkPricing()" >
-    
-                                            </div>
-    <br>
-    <br>
-    <div>
-    <label style="color:rgb(0, 112, 15);" id="updatedPricing"></label>
-        </div>	
-    <div style="clear: both;"></div>
-    <input name="ur-user-form-id" type="hidden" value="5882" />
-    <input name="ur-redirect-url" type="hidden" value="" />
-    <input id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" type="hidden" value="5db8c0f987" />
-    
-    </form>
-    <div style="clear: both;"></div>
-    </div>
-    </div>
-    
-    <hr style="height: 10px;">
-    
-    <div class="ur-form-row">
-    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-    <div>
-    <strong><u>Upload any additional documents  </u>
-    </strong>
-    </div>
-    </div>
-    <div onclick="toggleUploadingEditOn()">
-    <i class="fa fa-edit"></i>
-    </div>
-    </div>
-    
-    
-    <div class="user-registration ur-frontend-form  " id="user-registration-form-5914">
-        <form class="Upload" method="post" action="#" onsubmit="return false;">        <div class="ur-form-row">
-                <div class="ur-form-grid ur-grid-1" style="width:99%">
-                    
+<body>
+<div class="user-registration ur-frontend-form  " id="user-registration-form-5914">
       
-        <div>
-        <label style="color:#FF0000;" id="errorLabel3"></label>
-        </div>
-                    <input disabled type="file" id="myfile" name="myfile" multiple>
-                    
-                </div>
-            </div>
-    
-            <div class="ur-button-container ">
-                <input disabled onclick="checkUpload()" value="Upload" id="submit3" type="submit">
-            </div><br><br>
+
+<div class="ur-form-row">
+<div class="ur-form-grid ur-grid-1" style="width: 48%;">
+<div>
+<strong><u>Organisation Details  </u>
+</strong>
+</div>
+</div>
+<div onclick="toggleEditOn()">
+<i class="fa fa-edit"></i>
+</div>
+</div>
+<div id="user-registration-form-5882" class="user-registration ur-frontend-form  ">
+<form class="information" action="#" method="post" onsubmit="formSubmission1();return false;">
+<div class="textInput">
+<div class="ur-form-row">
+<div class="ur-form-grid ur-grid-1" style="width: 48%;">
+
+<div>Organisation Name
+<input id="organisationName" required="required" type="text" placeholder="Organisation Name" value="Lloyds Register Quality Assurance Limited" disabled/>
+</div>
+
+<div>Position Title
+<input id="positionTitle" required="required" value="Manager" type="text" placeholder="Position Title" disabled/>
+</div>
+
+</div>
+
+<div class="ur-form-grid ur-grid-2" style="width: 48%;">
+
+<div>Contact Name
+<input id="contactName" required="required" type="text" value="Wai Kiong Foong" placeholder="Contact Name" disabled/>
+</div>
+
+<div>Number of employees
+<input id="numOfEmployees" min="1" value="1000" type="number" required="required" placeholder="Number of employees" disabled/>
+</div>
+
+</div>
+</div>
+
+<div class="ur-form-row">
+<div class="ur-form-grid ur-grid-1" style="width: 48%;">
+
+<div>Head Office Location
+<input id="headOfficeLocation" value="Level 16, 461 Bourke Street, Melbourne VIC 3000, Australia" required="required" type="text" placeholder="Head Office Location" disabled/>
+</div>
+
+</div>
+
+<div class="ur-form-grid ur-grid-2" style="width: 48%;">
+
+<div>Avg. no. of certifications/annum
+<input id="avgCerts" type="number" value="500" placeholder="Avg. no. of certifications/annum" required="required" disabled/>
+</div>
+
+
+
+</div>
+</div>
+
+<div class="ur-form-row">
+<div class="ur-form-grid ur-grid-1" style="width: 48%;">
+
+<div>No. of physical locations within Aus
+<input id="ausLocation" max="1000" min="1" required="required" type="number" placeholder="No. of physical locations within Aus" value="10" disabled/>
+</div>
+
+</div>
+
+<div class="ur-form-grid ur-grid-2" style="width: 48%;">
+
+<div>No. of physical locations outside Aus
+<input id="outAusLocation" max="1000" min="1" type="number" placeholder="No. of physical locations outside Aus" value="20" required="required" disabled/>
+</div>
+
+</div>
+</div>
+
+
+<div class="ur-form-row">
+<div class="ur-form-grid ur-grid-1" style="width: 48%;">
+
+<div>E-mail
+<input id="email" required="required" type="email" value="wai-kiong.foong@lr.org" placeholder="E-mail" disabled/>
+</div>
+
+</div>
+
+<div class="ur-form-grid ur-grid-2" style="width: 48%;">
+
+<div>ABN/ACN
+<input id="abn" value="111111111" type="number" placeholder="ABN/ACN" required="required" oninput="validateABN()" disabled/>
+</div>
+
+<div>
+<label style="color:#FF0000;" id="errorLabel1"></label>
+</div>
+
+</div>
+</div>
+
+<div class="ur-form-row">
+<div class="ur-form-grid ur-grid-1" style="width: 48%;">
+
+<div>Mobile (+XX XXX XXX XXX)
+<input pattern="\+[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}" id="mob" required="required" type="text" value="+61 222 222 222" placeholder="Mobile (+XX XXX XXX XXX)" disabled/>
+</div>
+
+</div>
+
+<div class="ur-form-grid ur-grid-2" style="width: 48%;">
+
+<div>Telephone (XX X XXXX XXXX)
+<input pattern="[0-9]{2}\s[0-9]{1}\s[0-9]{4}\s[0-9]{4}" id="tel" required="required" type="text" value="61 3 2222 2222" placeholder="Telephone (XX X XXXX XXXX)" disabled/>
+</div>
+
+
+
+</div>
+</div>
+</div>
+<div class="ur-form-row">
+<div class="ur-form-grid ur-grid-1" style="width: 48%;">
+<div class="ur-field-item field-checkbox">
+
+<div>
+
+<label class="ur-label" >Certifications Provided <abbr class="required" title="required">*</abbr></label>
+
+<div>
+<label style="color:#FF0000;" id="errorLabel2"></label>
+</div>
+
+<ul class="checkbox">
+<li class="ur-checkbox-list">
+<input checked disabled oninput="checkedCheckbox()" id="Quality" class="input-checkbox ur-frontend-field  " name="Quality" type="checkbox" value="Quality" /> <label class="ur-checkbox-label" for="Quality">Quality</label></li>
+	<li class="ur-checkbox-list"><input checked disabled oninput="checkedCheckbox()" id="workplaceHealthAndSafety" class="input-checkbox ur-frontend-field  " name="workplaceHealthAndSafety" type="checkbox" value="workplaceHealthAndSafety"/> <label class="ur-checkbox-label" for="workplaceHealthAndSafety">Workplace Health and Safety</label></li>
+	<li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()" id="environmentalSustainability" class="input-checkbox ur-frontend-field  " name="environmentalSustainability" type="checkbox" value="environmentalSustainability"/> <label class="ur-checkbox-label" for="environmentalSustainability">Environmental Sustainability</label></li>
+	<li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()" id="sourcingPractices" class="input-checkbox ur-frontend-field  " name="sourcingPractices" type="checkbox" value="sourcingPractices"/> <label class="ur-checkbox-label" for="sourcingPractices">Sourcing Practices</label></li>
+	<li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()" id="supplyChainMonitoring" class="input-checkbox ur-frontend-field  " name="supplyChainMonitoring" type="checkbox" value="supplyChainMonitoring"/> <label class="ur-checkbox-label" for="supplyChainMonitoring">Supply Chain Monitoring</label></li>
+	<li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()" id="energyManagement" class="input-checkbox ur-frontend-field  " name="energyManagement" type="checkbox" value="energyManagement"/> <label class="ur-checkbox-label" for="energyManagement">Energy Management</label></li>
+	<li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()" id="corporateSocialResponsibility" class="input-checkbox ur-frontend-field  " name="corporateSocialResponsibility" type="checkbox" value="corporateSocialResponsibility"/> <label class="ur-checkbox-label" for="corporateSocialResponsibility">Corporate Social Responsibility</label></li>
+<li class="ur-checkbox-list"><input disabled oninput="checkedCheckbox()" id="sustainabilityReporting" class="input-checkbox ur-frontend-field  " name="sustainabilityReporting" type="checkbox" value="sustainabilityReporting"/> <label class="ur-checkbox-label" for="sustainabilityReporting">Sustainability Reporting</label></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ur-form-grid ur-grid-2" style="width: 48%;">
+<div class="ur-field-item field-radio " data-field-id="radio_1598611551">
+<div id="radio_1598611551_field" class="form-row validate-required" data-priority="">
+
+<label class="ur-label">Additional Services</label>
+
+<div>
+<label style="color:#FF0000;"></label>
+</div>
+
+<ul class="additionalServices">
+	<li class="ur-radio-list"><input disabled id="Remote Audit" class="input-radio ur-frontend-field  " name="Remote Audit" type="checkbox" value="Remote Audit"/> <label class="radio" for="Remote Audit">Remote Audit</label></li>
+	<li class="ur-radio-list"><input disabled id="Gap Audit" class="input-radio ur-frontend-field  " name="Gap Audit" type="checkbox" value="Gap Audit"/> <label class="radio" for="Gap Audit">Gap Audit</label></li>
+
+<li class="ur-radio-list">Other Services<input disabled id="Other Services" class="input-radio ur-frontend-field  " name="Other Services" type="text" placeholder="Other Services(comma seperated)"/> </li>
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="ur-form-row">
+<div class="ur-form-grid ur-grid-1" style="width: 99%;">
+
+<div class="ur-field-item field-checkbox ">
+<div id="check_box_1598611632_field" class="form-row validate-required" >
+
+<label class="ur-label">Terms & Conditions <abbr class="required" title="required">*</abbr></label>
+<ul>
+	<li class="ur-checkbox-list"><input checked disabled id="policyConfirmation" class="input-checkbox ur-frontend-field  " name="policyConfirmation" required="required" type="checkbox"/> <label class="ur-checkbox-label" for="policyConfirmation">By signing up I agree to the <a>terms of service and privacy policy.</a></label></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+ 
+<div class="ur-button-container ">
+	<input disabled value="Save" id="submit" type="submit" onclick="validateSubmit()" >
+</div>
+<br>
+<br>
+<div>
+<label style="color:rgb(0, 112, 15);" id="updatedInfo"></label>
+	</div>	
+<div style="clear: both;"></div>
+<input name="ur-user-form-id" type="hidden" value="5882" />
+<input name="ur-redirect-url" type="hidden" value="" />
+<input id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" type="hidden" value="5db8c0f987" />
+
+</form>
+<div style="clear: both;"></div>
+</div>
+<hr style="height: 10px;">
+
+<div id="pricePreferenceForm">
+
+<div class="ur-form-row">
+<div class="ur-form-grid ur-grid-1" style="width: 48%;">
+<div>
+<strong><u>Pricing Preference  </u>
+</strong>
+</div>
+</div>
+<div onclick="togglePricingEditOn()">
+<i class="fa fa-edit"></i>
+</div>
+</div>
+<div id="user-registration-form-5882" class="user-registration ur-frontend-form  ">
+<form class="pricing" method="post" action="#" onsubmit="return false;">
+
+<div class="ur-form-row">
+
+<div class="ur-form-grid ur-grid-2" style="width: 48%;">
+<div class="ur-field-item field-radio " data-field-id="radio_1598611551">
+<div id="radio_1598611551_field" class="form-row validate-required" data-priority="">
+
+
+<div>
+<label style="color:#FF0000;" id="errorLabel4"></label>
+</div>
+
+<ul class="pricingPreference">
+	<li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="variable" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="variable"/> <label class="radio" for="variable">Variable</label></li>
+	<li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="fixed" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="fixed"/> <label class="radio" for="fixed">Fixed</label></li>
+
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+ 
+<div class="ur-button-container ">
+	<input disabled value="Save" id="submit2" type="submit" onclick="checkPricing()" >
+
+										</div>
+<br>
+<br>
+<div>
+<label style="color:rgb(0, 112, 15);" id="updatedPricing"></label>
+	</div>	
+<div style="clear: both;"></div>
+<input name="ur-user-form-id" type="hidden" value="5882" />
+<input name="ur-redirect-url" type="hidden" value="" />
+<input id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" type="hidden" value="5db8c0f987" />
+
+</form>
+<div style="clear: both;"></div>
+</div>
+</div>
+
+<hr style="height: 10px;">
+
+<div class="ur-form-row">
+<div class="ur-form-grid ur-grid-1" style="width: 48%;">
+<div>
+<strong><u>Upload any additional documents  </u>
+</strong>
+</div>
+</div>
+<div onclick="toggleUploadingEditOn()">
+<i class="fa fa-edit"></i>
+</div>
+</div>
+
+
+<div class="user-registration ur-frontend-form  " id="user-registration-form-5914">
+    <form class="Upload" method="post" action="#" onsubmit="return false;">        <div class="ur-form-row">
+            <div class="ur-form-grid ur-grid-1" style="width:99%">
+                
+  
     <div>
-    <label style="color:rgb(0, 112, 15);" id="updatedUploads"></label>
-        </div>	
-        <div style="clear: both;"></div>
-                    <input name="ur-user-form-id" type="hidden" value="5882" />
-                    <input name="ur-redirect-url" type="hidden" value="" />
-                    <input id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" type="hidden" value="5db8c0f987" />
-    
-                </form>
-                <div style="clear: both;"></div>
+    <label style="color:#FF0000;" id="errorLabel3"></label>
     </div>
-    <hr style="height: 10px;background-color:black">
-      <form method="post" action="https://icertify.net.au/" >
-    <div class="ur-button-container ">
-                <input onclick="saveAndLogout()" value="Save and Logout" id="submit4" type="submit">
+                <input disabled type="file" id="myfile" name="myfile" multiple>
+                
             </div>
-     <div>
-                    <label style="color:#FF0000;" id="finalErrorCheck"></label>
-                        </div>	
-    </form>
-    </div>
-    <script>
-    function saveAndLogout(){
-                var submit=document.getElementById("submit");
-                var submit2=document.getElementById("submit2");
-                var submit3=document.getElementById("submit3");
-                var finalError="";
-                if(!submit.disabled){
-                    finalError=finalError+"*Save the updated Organisation Information.";
-                }
-                if(!submit2.disabled){
-                    finalError=finalError+"\n*Save the updated Pricing Preference.";
-                }if(!submit3.disabled){
-                    finalError=finalError+"\n*Save the uploaded Documents.";
-                }
-                if(finalError.length!=0){
-                    var finalErrorCheck=document.getElementById("finalErrorCheck");
-                    finalErrorCheck.innerHTML=finalError;
-                    event.preventDefault();
-                }
-    else{
-    clearInterval(intervalID);
-    }
+        </div>
+
+        <div class="ur-button-container ">
+            <input disabled onclick="checkUpload()" value="Upload" id="submit3" type="submit">
+        </div><br><br>
+<div>
+<label style="color:rgb(0, 112, 15);" id="updatedUploads"></label>
+	</div>	
+    <div style="clear: both;"></div>
+                <input name="ur-user-form-id" type="hidden" value="5882" />
+                <input name="ur-redirect-url" type="hidden" value="" />
+                <input id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" type="hidden" value="5db8c0f987" />
+
+            </form>
+            <div style="clear: both;"></div>
+</div>
+<hr style="height: 10px;background-color:black">
+  <form method="post" action="https://icertify.net.au/" >
+<div class="ur-button-container ">
+            <input onclick="saveAndLogout()" value="Save and Logout" id="submit4" type="submit">
+        </div>
+ <div>
+                <label style="color:#FF0000;" id="finalErrorCheck"></label>
+                    </div>	
+</form>
+</div>
+<script>
+function saveAndLogout(){
+            var submit=document.getElementById("submit");
+            var submit2=document.getElementById("submit2");
+            var submit3=document.getElementById("submit3");
+            var finalError="";
+            if(!submit.disabled){
+                finalError=finalError+"*Save the updated Organisation Information.";
             }
-     function formSubmission1(){
-        var label=document.getElementById("updatedInfo");
-        label.innerHTML="*Information successfully updated!";
-        toggleEditOff("information");
+            if(!submit2.disabled){
+                finalError=finalError+"\n*Save the updated Pricing Preference.";
+            }if(!submit3.disabled){
+                finalError=finalError+"\n*Save the uploaded Documents.";
+            }
+            if(finalError.length!=0){
+                var finalErrorCheck=document.getElementById("finalErrorCheck");
+                finalErrorCheck.innerHTML=finalError;
+                event.preventDefault();
+            }
+else{
+clearInterval(intervalID);
+}
         }
-    var intervalID=setInterval(function(){ if(document.getElementById("myfile").value.length!=0){
-    var label=document.getElementById("errorLabel3");
-    label.innerHTML="";
-    }}, 300);
-    var pricePreferenceError=0;
-            var errors = 0;
-            var abnCheck=0;
-            var checkboxCheck=0;
-            var radioCheck=0;
-            function checkedCheckbox() {
-                var label = document.getElementById("errorLabel2");
-                if(errors>0){
-                errors=errors-checkboxCheck;           
-                }
-                label.innerHTML = "";
-            }
-            function validateSubmit() {
-                var label = document.getElementById("errorLabel2");
-                var len = document.querySelectorAll('.checkbox input[type="checkbox"]:checked').length;
-                if (len === 0) {
-                    errors += 1;
-                    checkboxCheck+=1;
-                    label.innerHTML = "*Please select atleast one certification.";
-                }          
-                if(errors>0){
-                    event.preventDefault();
-                }
-            }
-            function validateABN() {
-                var abn = document.getElementById("abn").value.length;
-                var label = document.getElementById("errorLabel1");
-                if (abn !== 11 && abn !== 9) {
-                    label.innerHTML = "ABN must be 11 and ACN must be 9 digit long";
-                    errors += 1;
-                    abnCheck+=1;
-                }
-                else {
-                    label.innerHTML = "";
-                    errors=errors-abnCheck;
-                }
-            }
-    function toggleEditOn(){
+ function formSubmission1(){
     var label=document.getElementById("updatedInfo");
-    label.innerHTML="";
-    var inputs=document.querySelectorAll('.information input[disabled]');
-    for(var i=0;i<inputs.length;i+=1){
-    inputs[i].disabled=false;
-    }
-    }
-    function checkPricing(){
-    var label = document.getElementById("errorLabel4");
-                var len = document.querySelectorAll('input[type="radio"]:checked').length;
-     if (len === 0) {
-                    pricePreferenceError+= 1;
-                    radioCheck+=1;
-                    label.innerHTML = "*Please select atleast one pricing option.";
-                }          
-                if(pricePreferenceError>0){
-                    event.preventDefault();
-                }else{
-    var label=document.getElementById("updatedPricing");
     label.innerHTML="*Information successfully updated!";
-        toggleEditOff("pricing");
+    toggleEditOff("information");
     }
-    }
-    function checkedRadio() {
-                var label = document.getElementById("errorLabel4");
-                if(pricePreferenceError>0){
-                pricePreferenceError=pricePreferenceError-radioCheck;           
-                }
+var intervalID=setInterval(function(){ if(document.getElementById("myfile").value.length!=0){
+var label=document.getElementById("errorLabel3");
+label.innerHTML="";
+}}, 300);
+var pricePreferenceError=0;
+        var errors = 0;
+        var abnCheck=0;
+        var checkboxCheck=0;
+        var radioCheck=0;
+        function checkedCheckbox() {
+            var label = document.getElementById("errorLabel2");
+            if(errors>0){
+            errors=errors-checkboxCheck;           
+            }
+            label.innerHTML = "";
+        }
+        function validateSubmit() {
+            var label = document.getElementById("errorLabel2");
+            var len = document.querySelectorAll('.checkbox input[type="checkbox"]:checked').length;
+            if (len === 0) {
+                errors += 1;
+                checkboxCheck+=1;
+                label.innerHTML = "*Please select atleast one certification.";
+            }          
+            if(errors>0){
+                event.preventDefault();
+            }
+        }
+        function validateABN() {
+            var abn = document.getElementById("abn").value.length;
+            var label = document.getElementById("errorLabel1");
+            if (abn !== 11 && abn !== 9) {
+                label.innerHTML = "ABN must be 11 and ACN must be 9 digit long";
+                errors += 1;
+                abnCheck+=1;
+            }
+            else {
                 label.innerHTML = "";
+                errors=errors-abnCheck;
             }
-    function checkUpload(){
-    if(document.getElementById("myfile").value.length==0){
-    var label=document.getElementById("errorLabel3");
-    label.innerHTML="*Please select a file first.";
-    event.preventDefault();
-    }else{
-    var label=document.getElementById("updatedUploads");
-    label.innerHTML="*Information successfully updated!";
-        toggleEditOff("Upload");
-    clearInterval(intervalID);
+        }
+function toggleEditOn(){
+var label=document.getElementById("updatedInfo");
+label.innerHTML="";
+var inputs=document.querySelectorAll('.information input[disabled]');
+for(var i=0;i<inputs.length;i+=1){
+inputs[i].disabled=false;
+}
+}
+function checkPricing(){
+var label = document.getElementById("errorLabel4");
+            var len = document.querySelectorAll('input[type="radio"]:checked').length;
+ if (len === 0) {
+                pricePreferenceError+= 1;
+                radioCheck+=1;
+                label.innerHTML = "*Please select atleast one pricing option.";
+            }          
+            if(pricePreferenceError>0){
+                event.preventDefault();
+            }else{
+var label=document.getElementById("updatedPricing");
+label.innerHTML="*Information successfully updated!";
+    toggleEditOff("pricing");
+}
+}
+function checkedRadio() {
+            var label = document.getElementById("errorLabel4");
+            if(pricePreferenceError>0){
+            pricePreferenceError=pricePreferenceError-radioCheck;           
+            }
+            label.innerHTML = "";
+        }
+function checkUpload(){
+if(document.getElementById("myfile").value.length==0){
+var label=document.getElementById("errorLabel3");
+label.innerHTML="*Please select a file first.";
+event.preventDefault();
+}else{
+var label=document.getElementById("updatedUploads");
+label.innerHTML="*Information successfully updated!";
+    toggleEditOff("Upload");
+clearInterval(intervalID);
+}
+}
+    function toggleEditOff(formClass){
+    var inputs=document.querySelectorAll('.'+formClass+ ' input');
+    var len=document.querySelectorAll('input[disabled]').length;
+    for(var i=0;i<inputs.length;i+=1){
+    inputs[i].disabled=true;
     }
     }
-        function toggleEditOff(formClass){
-        var inputs=document.querySelectorAll('.'+formClass+ ' input');
-        var len=document.querySelectorAll('input[disabled]').length;
+function togglePricingEditOn(){
+      var label=document.getElementById("updatedPricing");
+        label.innerHTML="";
+        var inputs=document.querySelectorAll('.pricing input[disabled]');
         for(var i=0;i<inputs.length;i+=1){
-        inputs[i].disabled=true;
+        inputs[i].disabled=false;
+        }   
         }
+    function toggleUploadingEditOn(){
+      var label=document.getElementById("updatedUploads");
+        label.innerHTML="";
+        var inputs=document.querySelectorAll('.Upload input[disabled]');
+        for(var i=0;i<inputs.length;i+=1){
+        inputs[i].disabled=false;
+        }      
         }
-    function togglePricingEditOn(){
-          var label=document.getElementById("updatedPricing");
-            label.innerHTML="";
-            var inputs=document.querySelectorAll('.pricing input[disabled]');
-            for(var i=0;i<inputs.length;i+=1){
-            inputs[i].disabled=false;
-            }   
-            }
-        function toggleUploadingEditOn(){
-          var label=document.getElementById("updatedUploads");
-            label.innerHTML="";
-            var inputs=document.querySelectorAll('.Upload input[disabled]');
-            for(var i=0;i<inputs.length;i+=1){
-            inputs[i].disabled=false;
-            }      
-            }
-        </script>
-    
-    </body>
-    </html>
+    </script>
+
+</body>
+</html>
