@@ -1,5 +1,4 @@
-<html>
-<body>
+&nbsp;
 <div class="user-registration ur-frontend-form  " id="user-registration-form-5914">
       
 
@@ -232,6 +231,12 @@
 </div>
 <ul class="pricingPreference">
 	<div onclick="disableTextBox()"><li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="variable" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="variable"/> <label class="radio" for="variable">Variable</label></li></div>
+<li>
+<span class="multi-range">
+    <input style="top:40px; z-index:1;" type="range" min="0" max="50" value="5" id="lower">
+    <input type="range" min="0" max="50" value="45" id="upper">
+</span>
+</li>
 	<li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="fixed" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="fixed"/> <label class="radio" for="fixed">Fixed</label></li>
     <li><input id="pricingFixedTextBox" onclick="enableTextBox()" type="number" placeholder="Enter rate (AUD)" required disabled/></li>
 
@@ -467,7 +472,28 @@ element.addEventListener("click", function(){
     var input=document.querySelectorAll('.pricingPreference input[type="number"]');
     input[0].disabled=false;
 }, false);
+var lowerSlider = document.querySelector('#lower'),
+   upperSlider = document.querySelector('#upper'),
+   lowerVal = parseInt(lowerSlider.value);
+   upperVal = parseInt(upperSlider.value);
+upperSlider.oninput = function() {
+   lowerVal = parseInt(lowerSlider.value);
+   upperVal = parseInt(upperSlider.value); 
+   if (upperVal < lowerVal + 4) {
+      lowerSlider.value = upperVal - 4;    
+      if (lowerVal == lowerSlider.min) {
+         upperSlider.value = 4;
+      }
+   }
+};
+lowerSlider.oninput = function() {
+   lowerVal = parseInt(lowerSlider.value);
+   upperVal = parseInt(upperSlider.value); 
+   if (lowerVal > upperVal - 4) {
+      upperSlider.value = lowerVal + 4;    
+      if (upperVal == upperSlider.max) {
+         lowerSlider.value = parseInt(upperSlider.max) - 4;
+      }
+   }
+};
     </script>
-
-</body>
-</html>
