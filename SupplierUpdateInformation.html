@@ -232,9 +232,10 @@
 <ul class="pricingPreference">
 	<div onclick="disableTextBox()"><li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="variable" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="variable"/> <label class="radio" for="variable">Variable</label></li></div>
 <li>
+<div id="rangeDisplay"></div>
 <span class="multi-range">
-    <input style="top:40px; z-index:1;" type="range" min="0" max="50" value="5" id="lower">
-    <input type="range" min="0" max="50" value="45" id="upper">
+    <input style="top:40px; z-index:1;" type="range" min="0" max="500" value="100" id="lower">
+    <input type="range" min="0" max="500" value="450" id="upper">
 </span>
 </li>
 	<li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="fixed" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="fixed"/> <label class="radio" for="fixed">Fixed</label></li>
@@ -319,6 +320,16 @@
 </form>
 </div>
 <script>
+var lower = document.getElementById("lower");
+var upper= document.getElementById("upper");
+var rangeDisplay1= document.getElementById("rangeDisplay");
+rangeDisplay.innerHTML = "$" + lower.value+" - $"+upper.value;
+lower.addEventListener("input", function() {
+    rangeDisplay.innerHTML = "$" + lower.value+" - $"+upper.value;
+}, false);
+upper.addEventListener("input", function() {
+    rangeDisplay.innerHTML = "$" + lower.value+" - $"+upper.value;
+}, false); 
     function disableTextBox(){
         var element = document.getElementById("pricingFixedTextBox");
         element.value="";
