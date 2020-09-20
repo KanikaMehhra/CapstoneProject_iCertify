@@ -239,7 +239,7 @@
     <input disabled type="range" min="0" max="500" value="450" id="upper">
 </span>
 </li>
-	<li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="fixed" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="fixed"/> <label class="radio" for="fixed">Fixed</label></li>
+	<div onclick="disableRangeSlider()"><li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="fixed" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="fixed"/> <label class="radio" for="fixed">Fixed</label></li></div>
     <li><input id="pricingFixedTextBox" oninput="enableTextBox()" type="number" placeholder="Enter rate (AUD)" required disabled/></li>
 
 </ul>
@@ -337,9 +337,10 @@ upper.addEventListener("input", function() {
         element.disabled=true;
     }
     function disableRangeSlider(){
-        var element = document.getElementById("pricingFixedTextBox");
-        element.value="";
-        element.disabled=true;
+        var rangeElement = document.querySelectorAll('input[type="range"]');
+        for(var i=0;i<rangeElement.length;i+=1){
+        rangeElement[i].disabled=true;
+        } 
     }
 function enableTextBox(){
 var element = document.getElementById("pricingFixedTextBox");
@@ -356,9 +357,6 @@ if(element.length!=0){
     for(var i=0;i<rangeElement.length;i+=1){
         rangeElement[i].disabled=false;
         }    
-// var label = document.getElementById("errorLabel4");
-// label.innerHTML = "";
-// element.disabled=false;
 }
 }
 function saveAndLogout(){
