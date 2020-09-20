@@ -213,6 +213,7 @@
 </div>
 </div>
 <div onclick="togglePricingEditOn()">
+    <button onclick="togglePricingEditOn()">click</button>
 <i class="fa fa-edit"></i>
 </div>
 </div>
@@ -239,7 +240,7 @@
 </span>
 </li>
 	<li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="fixed" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="fixed"/> <label class="radio" for="fixed">Fixed</label></li>
-    <li><input id="pricingFixedTextBox" onclick="enableTextBox()" type="number" placeholder="Enter rate (AUD)" required disabled/></li>
+    <li><input id="pricingFixedTextBox" oninput="enableTextBox()" type="number" placeholder="Enter rate (AUD)" required disabled/></li>
 
 </ul>
 </div>
@@ -338,6 +339,8 @@ upper.addEventListener("input", function() {
 function enableTextBox(){
 var element = document.getElementById("pricingFixedTextBox");
 if(element.value.length!=0){
+var label = document.getElementById("errorLabel4");
+label.innerHTML = "";
 element.disabled=false;
 }
 }
@@ -420,12 +423,22 @@ inputs[i].disabled=false;
 function checkPricing(){
 var label = document.getElementById("errorLabel4");
             var len = document.querySelectorAll('input[type="radio"]:checked').length;
+var lenForTextBox = document.querySelectorAll('input[id="fixed"]:checked').length;
  if (len === 0) {
                 pricePreferenceError+= 1;
                 radioCheck+=1;
                 label.innerHTML = "*Please select atleast one pricing option.";
-            }          
-            if(pricePreferenceError>0){
+            }
+            if(lenForTextBox!==0){
+var pricingFixedTextBox=document.getElementById("pricingFixedTextBox");
+if(pricingFixedTextBox.value.length===0){
+    event.preventDefault();
+    label.innerHTML="*Please enter the fixed amount.";
+    return;
+}
+}   
+ 
+if(pricePreferenceError>0){
                 event.preventDefault();
             }else{
 var label=document.getElementById("updatedPricing");
