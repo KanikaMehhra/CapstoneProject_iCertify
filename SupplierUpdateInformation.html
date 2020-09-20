@@ -213,7 +213,7 @@
 </div>
 </div>
 <div onclick="togglePricingEditOn()">
-    <button onclick="togglePricingEditOn()">click</button>
+    <!-- <button onclick="togglePricingEditOn()">click</button> -->
 <i class="fa fa-edit"></i>
 </div>
 </div>
@@ -493,15 +493,12 @@ function togglePricingEditOn(){
         label.innerHTML="";
         var inputs=document.querySelectorAll('.pricing input[type="radio"]');
         var input=document.querySelectorAll('.pricing input[type="submit"]');
-        // var rangeInputs=document.querySelectorAll('.pricing input[type="range"]');
-        // for(var i=0;i<rangeInputs.length;i+=1){
-        //     rangeInputs[i].disabled=false;
-        // }
         for(var i=0;i<inputs.length;i+=1){
         inputs[i].disabled=false;
         }   
          input[0].disabled=false;
          enableTextBox();
+         enableRangeSlider();
         }
     function toggleUploadingEditOn(){
       var label=document.getElementById("updatedUploads");
