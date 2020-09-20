@@ -344,6 +344,18 @@ label.innerHTML = "";
 element.disabled=false;
 }
 }
+function enableRangeSlider(){
+var rangeElement = document.querySelectorAll('input[type="range"]');
+var element = document.querySelectorAll('input[type="radio"][name="pricing"]:checked');
+if(element.length!=0){
+    for(var i=0;i<rangeElement.length;i+=1){
+        rangeElement[i].disabled=false;
+        }    
+// var label = document.getElementById("errorLabel4");
+// label.innerHTML = "";
+// element.disabled=false;
+}
+}
 function saveAndLogout(){
             var submit=document.getElementById("submit");
             var submit2=document.getElementById("submit2");
@@ -452,6 +464,7 @@ function checkedRadio() {
             pricePreferenceError=pricePreferenceError-radioCheck;           
             }
             label.innerHTML = "";
+            enableRangeSlider();
         }
 function checkUpload(){
 if(document.getElementById("myfile").value.length==0){
@@ -477,10 +490,10 @@ function togglePricingEditOn(){
         label.innerHTML="";
         var inputs=document.querySelectorAll('.pricing input[type="radio"]');
         var input=document.querySelectorAll('.pricing input[type="submit"]');
-        var rangeInputs=document.querySelectorAll('.pricing input[type="range"]');
-        for(var i=0;i<rangeInputs.length;i+=1){
-            rangeInputs[i].disabled=false;
-        }
+        // var rangeInputs=document.querySelectorAll('.pricing input[type="range"]');
+        // for(var i=0;i<rangeInputs.length;i+=1){
+        //     rangeInputs[i].disabled=false;
+        // }
         for(var i=0;i<inputs.length;i+=1){
         inputs[i].disabled=false;
         }   
