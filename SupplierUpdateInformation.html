@@ -323,14 +323,14 @@
 <script>
 var lower = document.getElementById("lower");
 var upper= document.getElementById("upper");
-var rangeDisplay1= document.getElementById("rangeDisplay");
+var rangeDisplay= document.getElementById("rangeDisplay");
 rangeDisplay.innerHTML = "$" + lower.value+" - $"+upper.value;
 lower.addEventListener("input", function() {
     rangeDisplay.innerHTML = "$" + lower.value+" - $"+upper.value;
 }, false);
 upper.addEventListener("input", function() {
     rangeDisplay.innerHTML = "$" + lower.value+" - $"+upper.value;
-}, false); 
+}, false);  
     function disableTextBox(){
         var element = document.getElementById("pricingFixedTextBox");
         element.value="";
