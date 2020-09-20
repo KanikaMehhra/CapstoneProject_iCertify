@@ -235,8 +235,8 @@
 <li>
 <div id="rangeDisplay"></div>
 <span class="multi-range">
-    <input style="top:40px; z-index:1;" type="range" min="0" max="500" value="100" id="lower">
-    <input type="range" min="0" max="500" value="450" id="upper">
+    <input disabled style="top:40px; z-index:1;" type="range" min="0" max="500" value="100" id="lower">
+    <input disabled type="range" min="0" max="500" value="450" id="upper">
 </span>
 </li>
 	<li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="fixed" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="fixed"/> <label class="radio" for="fixed">Fixed</label></li>
@@ -477,6 +477,10 @@ function togglePricingEditOn(){
         label.innerHTML="";
         var inputs=document.querySelectorAll('.pricing input[type="radio"]');
         var input=document.querySelectorAll('.pricing input[type="submit"]');
+        var rangeInputs=document.querySelectorAll('.pricing input[type="range"]');
+        for(var i=0;i<rangeInputs.length;i+=1){
+            rangeInputs[i].disabled=false;
+        }
         for(var i=0;i<inputs.length;i+=1){
         inputs[i].disabled=false;
         }   
