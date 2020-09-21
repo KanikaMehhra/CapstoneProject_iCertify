@@ -98,7 +98,7 @@ if(isset($_POST['submit'])) {
         'ContactEmail' => $_POST['ContactEmail'],
         'Date' => $_POST['Date']
     );
-    $table_name = 'buyer';
+    $table_name = 'Buyer';
     $rowResult = $wpdb->insert($table_name, $data_array, $format=NULL);
     die;
 }
