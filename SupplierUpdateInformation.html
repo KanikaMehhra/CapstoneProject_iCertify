@@ -240,8 +240,8 @@
 </span>
 </li>
 	<div onclick="disableRangeSlider()"><li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="fixed" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="fixed"/> <label class="radio" for="fixed">Fixed</label></li></div>
-    <li><input id="pricingFixedTextBox" oninput="enableTextBox()" type="number" placeholder="Enter rate (AUD)" required disabled/></li>
-
+    <li><input id="pricingFixedTextBox" oninput="checkBaseHourlyRate()" type="number" placeholder="Enter hourly rate (AUD)" required disabled/></li>
+<label style="color:#FF0000;" id="checkBaseHourlyRate"></label>
 </ul>
 </div>
 </div>
@@ -321,6 +321,16 @@
 </form>
 </div>
 <script>
+function checkBaseHourlyRate(){
+var errorLabel= document.getElementById("checkBaseHourlyRate");
+var element = document.getElementById("pricingFixedTextBox");
+if(element.value<20){
+errorLabel.innerHTML="*Please enter a value greater than or equal to the minimum wage i.e. $20.";
+}
+else{
+errorLabel.innerHTML="";
+}
+}
 var lower = document.getElementById("lower");
 var upper= document.getElementById("upper");
 var rangeDisplay= document.getElementById("rangeDisplay");
@@ -448,7 +458,8 @@ var lenForTextBox = document.querySelectorAll('input[id="fixed"]:checked').lengt
 var pricingFixedTextBox=document.getElementById("pricingFixedTextBox");
 if(pricingFixedTextBox.value.length===0){
     event.preventDefault();
-    label.innerHTML="*Please enter the fixed amount.";
+    var errorLabel= document.getElementById("checkBaseHourlyRate");
+    errorLabel.innerHTML="*Please enter the fixed amount.";
     return;
 }
 }   
