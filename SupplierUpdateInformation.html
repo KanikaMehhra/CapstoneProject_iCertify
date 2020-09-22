@@ -208,7 +208,7 @@
 <div class="ur-form-row">
 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
 <div>
-<strong><u>Pricing Preference  </u>
+<strong><u>Pricing Preference (Hourly Rates)  </u>
 </strong>
 </div>
 </div>
@@ -235,8 +235,8 @@
 <li>
 <div id="rangeDisplay"></div>
 <span class="multi-range">
-    <input disabled style="top:40px; z-index:1;" type="range" min="0" max="500" value="100" id="lower">
-    <input disabled type="range" min="0" max="500" value="450" id="upper">
+    <input disabled style="top:40px; z-index:1;" type="range" min="20" max="2000" value="20" id="lower" step="5">
+    <input disabled type="range" min="20" max="2000" value="2000" id="upper" step="5">
 </span>
 </li>
 	<div onclick="disableRangeSlider()"><li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="fixed" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="fixed"/> <label class="radio" for="fixed">Fixed</label></li></div>
