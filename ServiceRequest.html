@@ -60,7 +60,7 @@
 </div>
 </div>
 <div class="ur-form-grid ur-grid-2" style="width: 48%;">
-<div><input oninput="changeColor()" id="date" style="color:#dedfdf;" required="required" type="date" /></div>
+<div><input oninput="changeColor()" id="date" style="color:#dedfdf;" required="required" type="date" disabled/></div>
 </div>
 </div>
 <div class="ur-form-row">
@@ -181,6 +181,16 @@
 </form>
 </div>
 <script>
+      var dateInput = document.getElementById("date");
+      var today = new Date();
+      var day = today.getDate();
+      // Set month to string to add leading 0
+      var mon = new String(today.getMonth()+1); //January is 0!
+      var yr = today.getFullYear();     
+        if(mon.length < 2) { mon = "0" + mon; }     
+        var date = new String( yr + '-' + mon + '-' + day );    
+      dateInput.disabled = false; 
+      dateInput.setAttribute('min', date);    
     var address = 0;
         var errors = 0;
         var abnCheck=0;
