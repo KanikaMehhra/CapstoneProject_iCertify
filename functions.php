@@ -13,43 +13,16 @@
     No. of physical locations within Aus<input type="number" min="1" id="LIA" required="required" name="NoOfPhysicalLocationsInAus"><br>
     No. of physical locations outside Aus<input type="number" min="1" id="AOA" required="required" name="NoOfPhysicalLocationsOutAus"><br>    
     Avg. no. of certifications/annum<input type="number" id="ACA" required="required" name="AverageOfYearlyCert"><br>
-    <table border="1">  
-        <tr>
-            <td colspan="2" id="CP">Select Certifications Provided:</td>  
-        </tr>  
-        <tr>  
-            <td>Quality</td>  
-            <td><input type="checkbox" id="Q" name="CertificationsProvided[]" value="Quality"></td>  
-        </tr>
-        <tr>  
-            <td>Workplace Health And Safety</td>  
-            <td><input type="checkbox" id="WHS" name="CertificationsProvided[]" value="workplaceHealthAndSafety"></td>
-        </tr>
-        <tr>  
-            <td>Environmental Sustainability</td>  
-            <td><input type="checkbox" id="ES" name="CertificationsProvided[]" value="environmentalSustainability"></td>
-        </tr>  
-        <tr>  
-            <td>Sourcing Practices</td>  
-            <td><input type="checkbox" id="SP" name="CertificationsProvided[]" value="sourcingPractices"></td>  
-        </tr>   
-        <tr>  
-            <td>Supply Chain Monitoring</td>  
-            <td><input type="checkbox" id="SM" name="CertificationsProvided[]" value="supplyChainMonitoring"></td>  
-        </tr>
-        <tr>  
-            <td>Energy Management</td>  
-            <td><input type="checkbox" id="EM" name="CertificationsProvided[]" value="energyManagement"></td>
-        </tr>
-        <tr>  
-            <td>Corporate Social Responsibility</td>  
-            <td><input type="checkbox" id="CSR" name="CertificationsProvided[]" value="corporateSocialResponsibility"></td>
-        </tr>  
-        <tr>  
-            <td>Sustainability Reporting</td>  
-            <td><input type="checkbox" id="SR"name="CertificationsProvided[]" value="sustainabilityReporting"></td>  
-        </tr> 
-    </table> 
+    <table>
+        <input type="checkbox" name="CertificationsProvided[]" value="Quality"/>Quality
+        <input type="checkbox" name="CertificationsProvided[]" value="Workplace Health And Safety">Workplace Health And Safety
+        <input type="checkbox" name="CertificationsProvided[]" value="Environmental Sustainability">Environmental Sustainability
+        <input type="checkbox" name="CertificationsProvided[]" value="Sourcing Practices">Sourcing Practices
+        <input type="checkbox" name="CertificationsProvided[]" value="Supply Chain Monitoring">Supply Chain Monitoring
+        <input type="checkbox" name="CertificationsProvided[]" value="Energy Management">Energy Management
+        <input type="checkbox" name="CertificationsProvided[]" value="Corporate Social Responsibility">Corporate Social Responsibility
+        <input type="checkbox" name="CertificationsProvided[]" value="Sustainability Reporting">Sustainability Reporting
+    </table>
     <input type="submit" name="submit" value="Submit" onclick="myfunction()">
 </form>
 </div>
@@ -70,17 +43,20 @@ function myfunction() {
 } 
 </script>
 <?php
+$CertificationsProvided = $_POST['CertificationsProvided'];
+if(empty($CertificationsProvided)) {
+   echo("You didn't select any certification.");
+} 
+else {
+   $N = count($CertificationsProvided);
+
+   echo("You selected $N certification(s): ");
+   for($i=0; $i < $N; $i++){
+     echo($CertificationsProvided[$i] . " ");
+    }
+}
 if(isset($_POST['submit'])) {
     global $wpdb;
-    if(!empty($_POST["CertificationsProvided"])) {
-        echo '<h3>You selected the following Certification</h3>';
-        foreach($_POST["CertificationsProvided"] as $CertificationsProvided) {
-            echo '<p>'.$CertificationsProvided.'</p>';
-        }
-    }
-    else {
-        echo 'please select at least one certification';
-    } 
     $data_array = array(
         'OrganisationName' => $_POST['OrganisationName'],
         'ContactName' => $_POST['ContactName'],
@@ -94,7 +70,7 @@ if(isset($_POST['submit'])) {
         'NoOfPhysicalLocationsInAus' => $_POST['NoOfPhysicalLocationsInAus'],
         'NoOfPhysicalLocationsOutAus' => $_POST['NoOfPhysicalLocationsOutAus'],
         'AverageOfYearlyCert' => $_POST['AverageOfYearlyCert'],
-        'CertificationsProvided' => $_POST['CertificationsProvided']
+        'CertificationsProvided' => $_POST['CertificationsProvided'] 
     );
     $table_name = 'Supplier';
     $rowResult = $wpdb->insert($table_name, $data_array, $format=NULL);
