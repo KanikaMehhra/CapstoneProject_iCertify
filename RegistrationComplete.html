@@ -8,3 +8,39 @@
 <input type="submit" value="Go to Home Page" />
 
 </form> 
+<script>      
+      var LoginEmail=document.getElementById("email").value;
+      var Password=document.getElementById("password").value;
+      sessionStorage.setItem("LoginEmail", LoginEmail);
+      sessionStorage.setItem("Password", Password);
+
+      var OrganisationName=document.getElementById("ON").value;
+      var ContactName=document.getElementById("CN").value;
+      var PositionTitle=document.getElementById("PT").value;
+                    var NoOfEmployees=document.getElementById("NOE").value;
+                    var HeadOfficeAddress=document.getElementById("HOL").value;
+                    var ABNNo=document.getElementById("ABN").value;
+                    var NoOfPhysicalLocationsInAus=document.getElementById("LIA").value;
+                    var NoOfPhysicalLocationsOutAus=document.getElementById("AOA").value;
+                    var Mobile=document.getElementById("MOB").value;
+                    var Telephone=document.getElementById("TEL").value;
+                    var ContactEmail=document.getElementById("EMAIL").value;
+                    var AverageOfYearlyCert=document.getElementById("ACA").value;
+                    var CertificationsProvided=document.getElementById("CertProvided").value;
+                    var AdditionalServices=document.getElementById("addServices").value;
+
+                    OrganisationName.value=sessionStorage.getItem("OrganisationName");
+                    ContactName.value=sessionStorage.getItem("ContactName");
+                    PositionTitle.value=sessionStorage.getItem("PositionTitle");
+                    NoOfEmployees.value=sessionStorage.getItem("NoOfEmployees");
+                    HeadOfficeAddress.value=sessionStorage.getItem("HeadOfficeAddress");
+                    ABNNo.value=sessionStorage.getItem("ABNNo");
+                    NoOfPhysicalLocationsInAus.value=sessionStorage.getItem("NoOfPhysicalLocationsInAus");
+                    NoOfPhysicalLocationsOutAus.value=sessionStorage.getItem("NoOfPhysicalLocationsOutAus");
+                    Mobile.value=sessionStorage.getItem("Mobile");
+                    Telephone.value=sessionStorage.getItem("Telephone");
+                    ContactEmail.value=sessionStorage.getItem("ContactEmail");
+                    AverageOfYearlyCert.value=sessionStorage.getItem("AverageOfYearlyCert");
+                    CertificationsProvided.value=sessionStorage.getItem("CertificationsProvided");
+                    AdditionalServices.value=sessionStorage.getItem("AdditionalServices");
+</script>
