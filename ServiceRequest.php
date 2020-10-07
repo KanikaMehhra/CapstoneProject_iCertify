@@ -207,6 +207,7 @@
 var errors = 0;
 var abnCheck = 0;
 var checkboxCheck = 0;
+var radioCheck=0;
 var dateInput = document.getElementById("DATE");
 var today = new Date();
 var day = today.getDate();
