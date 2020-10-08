@@ -1,0 +1,310 @@
+<html>
+<div id="user-registration-form-5882" class="user-registration ur-frontend-form  ">
+    <form method="post" action="https://icertify.net.au/registration-complete/">
+        <div class="ur-form-row">
+            <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                <b>Organisation Name</b><input type="text" id="ON" name="OrganisationName" required><br>
+                <b>Contact Name</b><input type="text" id="CN" name="ContactName" required><br>
+            </div>
+        </div>
+        <div class="ur-form-row">
+            <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                <b>Position Title</b><input type="text" id="PT" name="PositionTitle" required><br>
+                <b>Number of employees</b><input type="number" id="NOE" name="NoOfEmployees" min="1" required><br>
+            </div>
+        </div>
+        <div class="ur-form-row">
+            <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                <b>ABN/ACN</b><input type="number" id="ABN" required name="ABNNo" oninput="validateABN()">
+                <label style="color:#FF0000;" id="errorLabel1"></label><br>
+                <b>E-mail</b><input type="email" id="EMAIL" required name="ContactEmail"><br>
+            </div>
+        </div>
+        <div class="ur-form-row">
+            <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                <b>Mobile (+XX XXX XXX XXX</b>)<input type="text" pattern="\+[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}"
+                    id="MOB" required name="Mobile"><br>
+                <b>Telphone (XX X XXXX XXXX)</b><input type="text" pattern="[0-9]{2}\s[0-9]{1}\s[0-9]{4}\s[0-9]{4}"
+                    id="TEL" required name="Telephone"><br>
+            </div>
+        </div>
+        <div class="ur-form-row">
+            <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                <b>Head office location</b><input type="text" id="HOL" required name="HeadOfficeAddress"><br>
+                <b>Avg. no. of certifications/annum</b><input type="number" id="ACA" required
+                    name="AverageOfYearlyCert"><br>
+            </div>
+        </div>
+        <div class="ur-form-row">
+            <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                <b>No. of physical locations within Aus</b><input type="number" min="1" id="LIA" required
+                    name="NoOfPhysicalLocationsInAus"><br>
+                <b>No. of physical locations outside Aus</b><input type="number" min="1" id="AOA" required
+                    name="NoOfPhysicalLocationsOutAus"><br>
+            </div>
+        </div>
+        <div class="ur-form-row">
+            <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                <div class="ur-field-item field-checkbox">
+                    <table class="checkbox" border="1">
+                        <tr>
+                            <td colspan="2" id="CP"> <b> Select Certifications Provided:<abbr class="required"
+                                        title="required">*</abbr></b></td>
+                            <label style="color:#FF0000;" id="errorLabel2"></label>
+                        </tr>
+                        <tr>
+                            <td>Quality</td>
+                            <td><input oninput="checkedCheckbox()" type="checkbox" id="Q" name="CertificationsProvided"
+                                    value="Quality"></td>
+                        </tr>
+                        <tr>
+                            <td>Workplace Health And Safety</td>
+                            <td><input oninput="checkedCheckbox()" type="checkbox" id="WHS"
+                                    name="CertificationsProvided" value="Workplace Health And Safety"></td>
+                        </tr>
+                        <tr>
+                            <td>Environmental Sustainability</td>
+                            <td><input oninput="checkedCheckbox()" type="checkbox" id="ES" name="CertificationsProvided"
+                                    value="Environmental Sustainability"></td>
+                        </tr>
+                        <tr>
+                            <td>Sourcing Practices</td>
+                            <td><input oninput="checkedCheckbox()" type="checkbox" id="SP" name="CertificationsProvided"
+                                    value="Sourcing Practices"></td>
+                        </tr>
+                        <tr>
+                            <td>Supply Chain Monitoring</td>
+                            <td><input oninput="checkedCheckbox()" type="checkbox" id="SM" name="CertificationsProvided"
+                                    value="Supply Chain Monitoring"></td>
+                        </tr>
+                        <tr>
+                            <td>Energy Management</td>
+                            <td><input oninput="checkedCheckbox()" type="checkbox" id="EM" name="CertificationsProvided"
+                                    value="Energy Management"></td>
+                        </tr>
+                        <tr>
+                            <td>Corporate Social Responsibility</td>
+                            <td><input oninput="checkedCheckbox()" type="checkbox" id="CSR"
+                                    name="CertificationsProvided" value="Corporate Social Responsibility"></td>
+                        </tr>
+                        <tr>
+                            <td>Sustainability Reporting</td>
+                            <td><input oninput="checkedCheckbox()" type="checkbox" id="SR" name="CertificationsProvided"
+                                    value="Sustainability Reporting"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="ur-form-row">
+            <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                <div id="radio_1598611551_field" class="form-row validate-required" data-priority="">
+                    <table border="1">
+                        <tr>
+                            <td colspan="2" id="CP"> <b>Additional services: </b></td>
+                        </tr>
+                        <tr>
+                            <td>Remote audit</td>
+                            <td><input type="checkbox" id="RA" name="AdditionalServices" value="Remote audit"></td>
+                        </tr>
+                        <tr>
+                            <td>Gap audit</td>
+                            <td><input type="checkbox" id="GA" name="AdditionalServices" value="Gap audit"></td>
+                        </tr>
+                        <tr>
+                            <td>Other services</td>
+                            <td><input type="text" id="OTH" class="input-radio ur-frontend-field"
+                                    name="AdditionalServices" type="text"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="ur-form-row">
+            <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                <b>Credentials Setup</b>
+                <div class="ur-form-row">
+                    <div class="ur-form-grid ur-grid-1" style="width:99%">
+
+                        <div>
+                            <input oninput="clicked()" id="LoginEmail" type="email" name="LoginEmail"
+                                placeholder="E-mail to be used for login" required>
+                        </div>
+
+                        <div>
+                            <input oninput="clicked()" id="Password" name="Password" type="password"
+                                placeholder="Password" required>
+                        </div>
+
+                        <div>
+                            <input id="confirmPassword" type="password" placeholder="Confirm password" required
+                                oninput="validate()"><label style="color:#FF0000;" id="errorLabel"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ur-form-row">
+            <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                <input type="checkbox" id="Demo" name="Demo" required oninput="demo()"><b>Terms and Conditions</b><abbr
+                    class="required" title="required">*</abbr>
+                <input type="hidden" id="CertProvided" name="CertProvided">
+                <input type="hidden" id="addServices" name="addServices">
+            </div>
+        </div>
+        <div class="ur-button-container ">
+            <input type="submit" name="submit" value="Submit" onclick="validateSubmit()">
+        </div>
+        <div style="clear: both;"></div>
+        <input name="ur-user-form-id" type="hidden" value="5882" />
+        <input name="ur-redirect-url" type="hidden" value="" />
+        <input id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" type="hidden" value="5db8c0f987" />
+    </form>
+    <div style="clear: both;"></div>
+</div>
+<script>
+    var errors = 0;
+    var abnCheck = 0;
+    var checkboxCheck = 0;
+    function validateABN() {
+        var abn = document.getElementById("ABN").value.length;
+        var label = document.getElementById("errorLabel1");
+        if (abn !== 11 && abn !== 9) {
+            label.innerHTML = "ABN must be 11 and ACN must be 9 digit long";
+            errors += 1;
+            abnCheck += 1;
+        }
+        else {
+            label.innerHTML = "";
+            errors = errors - abnCheck;
+        }
+    }
+    function validateSubmit() {
+        var label = document.getElementById("errorLabel2");
+        var len = document.querySelectorAll('.checkbox input[type="checkbox"]:checked').length;
+        if (len === 0) {
+            errors += 1;
+            checkboxCheck += 1;
+            label.innerHTML = "*Please select at least one certification.";
+        }
+        if (errors > 0) {
+            event.preventDefault();
+        }
+        else {
+            if (typeof (Storage) !== "undefined") {
+                var OrganisationName = document.getElementById("ON").value;
+                var ContactName = document.getElementById("CN").value;
+                var PositionTitle = document.getElementById("PT").value;
+                var NoOfEmployees = document.getElementById("NOE").value;
+                var HeadOfficeAddress = document.getElementById("HOL").value;
+                var ABNNo = document.getElementById("ABN").value;
+                var NoOfPhysicalLocationsInAus = document.getElementById("LIA").value;
+                var NoOfPhysicalLocationsOutAus = document.getElementById("AOA").value;
+                var Mobile = document.getElementById("MOB").value;
+                var Telephone = document.getElementById("TEL").value;
+                var ContactEmail = document.getElementById("EMAIL").value;
+                var AverageOfYearlyCert = document.getElementById("ACA").value;
+                var CertificationsProvided = document.getElementById("CertProvided").value;
+                var AdditionalServices = document.getElementById("addServices").value;
+                var LoginEmail = document.getElementById("email").value;
+                var Password = document.getElementById("password").value;
+                LoginEmail.value = sessionStorage.setItem("LoginEmail");
+                Password.value = sessionStorage.setItem("Password");
+                sessionStorage.setItem("OrganisationName", OrganisationName);
+                sessionStorage.setItem("ContactName", ContactName);
+                sessionStorage.setItem("PositionTitle", PositionTitle);
+                sessionStorage.setItem("NoOfEmployees", NoOfEmployees);
+                sessionStorage.setItem("HeadOfficeAddress", HeadOfficeAddress);
+                sessionStorage.setItem("ABNNo", ABNNo);
+                sessionStorage.setItem("NoOfPhysicalLocationsInAus", NoOfPhysicalLocationsInAus);
+                sessionStorage.setItem("NoOfPhysicalLocationsOutAus", NoOfPhysicalLocationsOutAus);
+                sessionStorage.setItem("Mobile", Mobile);
+                sessionStorage.setItem("Telephone", Telephone);
+                sessionStorage.setItem("ContactEmail", ContactEmail);
+                sessionStorage.setItem("AverageOfYearlyCert", AverageOfYearlyCert);
+                sessionStorage.setItem("CertificationsProvided", CertificationsProvided);
+                sessionStorage.setItem("AdditionalServices", AdditionalServices);
+            }
+        }
+    }
+    function checkedCheckbox() {
+        var label = document.getElementById("errorLabel2");
+        if (errors > 0) {
+            errors = errors - checkboxCheck;
+        }
+        label.innerHTML = "";
+    }
+    function getCheckdValue() {
+        checkboxes = document.querySelectorAll('input[name="CertificationsProvided"]:checked');
+        let values = [];
+        var string = ""
+        checkboxes.forEach((checkbox) => {
+            values.push(checkbox.value);
+        });
+        for (var i = 0; i < values.length; i++) {
+            if (i === (values.length - 1)) {
+                string += values[i];
+            }
+            else {
+                string += values[i] + ",";
+            }
+        }
+        var hidden = document.getElementById("CertProvided");
+        hidden.value = string
+        alert(hidden.value)
+    }
+    function getServicesValue() {
+        checkboxes = document.querySelectorAll('input[name="AdditionalServices"]:checked');
+        other = document.getElementById('OTH');
+        let values = [];
+        var string = other.value;
+        if (checkboxes.length > 0) {
+            string += ",";
+        }
+        checkboxes.forEach((checkbox) => {
+            values.push(checkbox.value);
+        });
+        for (var i = 0; i < values.length; i++) {
+            if (i === (values.length - 1)) {
+                string += values[i];
+            }
+            else {
+                string += values[i] + ",";
+            }
+        }
+        var addServices = document.getElementById("addServices");
+        addServices.value = string
+        alert(addServices.value)
+    } 
+    function validate() {
+        var password = document.getElementById("Password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+        var label = document.getElementById("errorLabel");
+        if (password !== confirmPassword) {
+            label.innerHTML = "*Passwords do not match";
+        } else {
+            label.innerHTML = "";
+        }
+        this.clicked();
+    }
+    function clicked() {
+        var label = document.getElementById("errorLabel");
+        var password = document.getElementById("Password");
+        var confirmPassword = document.getElementById("confirmPassword");
+        var email = document.getElementById("LoginEmail");
+        if (password !== null && confirmPassword !== null && email !== null) {
+            if (label.textContent.length === 0 && password.value.length !== 0 && confirmPassword.value.length !== 0 && email
+                .value.length !== 0) {
+                document.getElementById("submit").disabled = false;
+            } else {
+                document.getElementById("submit").disabled = true;
+            }
+        }
+    }
+    function demo() {
+        getCheckdValue();
+        getServicesValue();
+    }
+</script>
+
+</html>

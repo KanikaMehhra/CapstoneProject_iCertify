@@ -4,56 +4,56 @@
     <form method=post enctype="multipart/form-data">
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                <b>Organisation Name <abbr class="required" title="required">*</abbr> </b<><input type="text" id="ON"
+                <b>Organisation Name </b><abbr class="required" title="required">*</abbr><input type="text" id="ON"
                         name="OrganisationName" required><br>
-                    <b>Contact Name <abbr class="required" title="required">*</abbr> </b><input type="text" id="CN"
+                    <b>Contact Name </b><abbr class="required" title="required">*</abbr> <input type="text" id="CN"
                         name="ContactName" required><br>
             </div>
         </div>
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                <b>Position Title <abbr class="required" title="required">*</abbr> </b><input type="text" id="PT"
+                <b>Position Title </b><abbr class="required" title="required">*</abbr> <input type="text" id="PT"
                     name="PositionTitle" required><br>
-                <b>Number of employees <abbr class="required" title="required">*</abbr> </b><input type="text" id="NOE"
+                <b>Number of employees </b><abbr class="required" title="required">*</abbr> <input type="text" id="NOE"
                     name="NoOfEmployees" required><br>
             </div>
         </div>
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                <b>Head office location <abbr class="required" title="required">*</abbr> </b><input type="text" id="HOL"
+                <b>Head office location </b><abbr class="required" title="required">*</abbr> <input type="text" id="HOL"
                     required name="HeadOfficeAddress"><br>
-                <b>ABN/ACN <abbr class="required" title="required">*</abbr> </b><input type="number" id="ABN" required
+                <b>ABN/ACN </b><abbr class="required" title="required">*</abbr> <input type="number" id="ABN" required
                     name="ABNNo" oninput="validateABN()"><br>
                 <label style="color:#FF0000;" id="errorLabel1"></label>
             </div>
         </div>
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                <b>No. of physical locations within Aus <abbr class="required" title="required">*</abbr> </b><input
+                <b>No. of physical locations within Aus </b><abbr class="required" title="required">*</abbr> <input
                     type="number" min="1" id="LIA" required name="NoOfPhysicalLocationsInAus"><br>
-                <b>No. of physical locations outside Aus <abbr class="required" title="required">*</abbr> </b><input
+                <b>No. of physical locations outside Aus </b><abbr class="required" title="required">*</abbr> </b><input
                     type="number" min="1" id="AOA" required name="NoOfPhysicalLocationsOutAus"><br>
             </div>
         </div>
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                <b>Mobile (+XX XXX XXX XXX) <abbr class="required" title="required">*</abbr> </b><input type="text"
+                <b>Mobile (+XX XXX XXX XXX) </b><abbr class="required" title="required">*</abbr> <input type="text"
                     pattern="\+[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}" id="MOB" required name="Mobile"><br>
-                <b>Telphone (XX X XXXX XXXX) <abbr class="required" title="required">*</abbr> </b><input type="text"
+                <b>Telphone (XX X XXXX XXXX) </b><abbr class="required" title="required">*</abbr> <input type="text"
                     pattern="[0-9]{2}\s[0-9]{1}\s[0-9]{4}\s[0-9]{4}" id="TEL" required name="Telephone"><br>
             </div>
         </div>
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                <b>E-mail <abbr class="required" title="required">*</abbr> </b><input type="email" id="EMAIL" required
+                <b>E-mail </b><abbr class="required" title="required">*</abbr> <input type="email" id="EMAIL" required
                     name="ContactEmail"><br>
-                <b>Date (YYYY-MM-DD) <abbr class="required" title="required">*</abbr> </b><input type="date" id="DATE"
+                <b>Date (YYYY-MM-DD) </b><abbr class="required" title="required">*</abbr> <input type="date" id="DATE"
                     required name="Date" oninput="changeColor()" disabled><br>
             </div>
         </div>
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                <b>Address where service is requested <abbr class="required" title="required">*</abbr> </b><input
+                <b>Address where service is requested </b><abbr class="required" title="required">*</abbr> <input
                     type="text" id="HOL" required name="AddressRequired"><br>
             </div>
         </div>
@@ -62,8 +62,8 @@
                 <div class="ur-field-item field-checkbox">
                     <table border="1">
                         <tr>
-                            <td colspan="2" id="CP">Select required services: <abbr class="required"
-                                    title="required">*</abbr> </b></td>
+                            <td colspan="2" id="CP"><b>Select required services: </b><abbr class="required"
+                                    title="required">*</abbr></td>
                             <label style="color:#FF0000;" id="errorLabel2"></label>
                         </tr>
                         <tr>
@@ -121,8 +121,8 @@
                     <div id="radio_1598611551_field" class="form-row validate-required" data-priority="">
                         <table border="1">
                             <tr>
-                                <td colspan="2" id="CP">Current certification stauts: <abbr class="required"
-                                        title="required">*</abbr> </b></td>
+                                <td colspan="2" id="CP"><b>Current certification stauts: </b><abbr class="required"
+                                        title="required">*</abbr></td>
                                 <label style="color:#FF0000;" id="errorLabel3"></label>
                             </tr>
                             <tr>
@@ -146,7 +146,7 @@
                     <div id="radio_1598611551_field" class="form-row validate-required" data-priority="">
                         <table border="1">
                             <tr>
-                                <td colspan="2" id="CP">Additional services: </b></td>
+                                <td colspan="2" id="CP"><b>Additional services: </b></td>
                             </tr>
                             <tr>
                                 <td>Remote audit</td>
@@ -171,8 +171,7 @@
                 <div class="ur-field-item field-checkbox">
                     <table border="1">
                         <tr>
-                            <td colspan="2" id="CP">Services Urgency:
-                                </b></td>
+                            <td colspan="2" id="CP"><b>Services Urgency:</b></td>
                         </tr>
                         <tr>
                             <td>Urgent</td>
@@ -184,8 +183,8 @@
         </div>
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                <input type="checkbox" id="Demo" name="Demo" oninput="demo()"><b> Terms and Conditions <abbr
-                        class="required" title="required">*</abbr> </b>
+                <input type="checkbox" id="Demo" name="Demo" oninput="demo()"><b> Terms and Conditions </b><abbr
+                        class="required" title="required">*</abbr>
                 <input type="hidden" id="ServicesRequired" name="ServicesRequired">
                 <input type="hidden" id="addServices" name="addServices">
                 <input type="hidden" id="Uregent" name="Uregent">
