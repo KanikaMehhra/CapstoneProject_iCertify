@@ -3,52 +3,86 @@
     <form method="post" action="https://icertify.net.au/registration-complete/">
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                <b>Organisation Name</b><input type="text" id="ON" name="OrganisationName" required><br>
-                <b>Contact Name</b><input type="text" id="CN" name="ContactName" required><br>
+                <div>
+                    <b>Organisation Name </b><abbr class="required" title="required">*</abbr><input type="text" id="ON"
+                        name="OrganisationName" required>
+                </div>
+                <div>
+                    <b>Contact Name </b><abbr class="required" title="required">*</abbr><input type="text" id="CN"
+                        name="ContactName" required>
+                </div>
             </div>
         </div>
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                <b>Position Title</b><input type="text" id="PT" name="PositionTitle" required><br>
-                <b>Number of employees</b><input type="number" id="NOE" name="NoOfEmployees" min="1" required><br>
+                <div>
+                    <b>Position Title </b><abbr class="required" title="required">*</abbr><input type="text" id="PT"
+                        name="PositionTitle" required>
+                </div>
+                <div>
+                    <b>Number of employees </b><abbr class="required" title="required">*</abbr><input type="number"
+                        id="NOE" name="NoOfEmployees" min="1" required>
+                </div>
             </div>
         </div>
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                <b>ABN/ACN</b><input type="number" id="ABN" required name="ABNNo" oninput="validateABN()">
-                <label style="color:#FF0000;" id="errorLabel1"></label><br>
-                <b>E-mail</b><input type="email" id="EMAIL" required name="ContactEmail"><br>
+                <div>
+                    <b>ABN/ACN </b><abbr class="required" title="required">*</abbr><input type="number" id="ABN"
+                        required name="ABNNo" oninput="validateABN()"><label style="color:#FF0000;"
+                        id="errorLabel1"></label>
+                </div>
+                <div>
+                    <b>E-mail </b><abbr class="required" title="required">*</abbr><input type="email" id="EMAIL"
+                        required name="ContactEmail">
+                </div>
             </div>
         </div>
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                <b>Mobile (+XX XXX XXX XXX</b>)<input type="text" pattern="\+[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}"
-                    id="MOB" required name="Mobile"><br>
-                <b>Telphone (XX X XXXX XXXX)</b><input type="text" pattern="[0-9]{2}\s[0-9]{1}\s[0-9]{4}\s[0-9]{4}"
-                    id="TEL" required name="Telephone"><br>
+                <div>
+                    <b>Mobile (+XX XXX XXX XXX) </b><abbr class="required" title="required">*</abbr><input type="text"
+                        pattern="\+[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}" id="MOB" required name="Mobile">
+                </div>
+                <div>
+                    <b>Telphone (XX X XXXX XXXX) </b><abbr class="required" title="required">*</abbr><input type="text"
+                        pattern="[0-9]{2}\s[0-9]{1}\s[0-9]{4}\s[0-9]{4}" id="TEL" required name="Telephone">
+                </div>
             </div>
         </div>
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                <b>Head office location</b><input type="text" id="HOL" required name="HeadOfficeAddress"><br>
-                <b>Avg. no. of certifications/annum</b><input type="number" id="ACA" required
-                    name="AverageOfYearlyCert"><br>
+                <div>
+                    <b>Head office location </b><abbr class="required" title="required">*</abbr><input type="text"
+                        id="HOL" required name="HeadOfficeAddress">
+                </div>
+                <div>
+                    <b>Avg. no. of certifications/annum </b><abbr class="required" title="required">*</abbr><input
+                        type="number" id="ACA" required name="AverageOfYearlyCert">
+                </div>
             </div>
         </div>
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                <b>No. of physical locations within Aus</b><input type="number" min="1" id="LIA" required
-                    name="NoOfPhysicalLocationsInAus"><br>
-                <b>No. of physical locations outside Aus</b><input type="number" min="1" id="AOA" required
-                    name="NoOfPhysicalLocationsOutAus"><br>
+                <div>
+                    <b>No. of physical locations within Australia </b><abbr class="required"
+                        title="required">*</abbr><input type="number" min="1" id="LIA" required
+                        name="NoOfPhysicalLocationsInAus">
+                </div>
+                <div>
+                    <b>No. of physical locations outside Australia</b><abbr class="required"
+                        title="required">*</abbr><input type="number" id="AOA" required
+                        name="NoOfPhysicalLocationsOutAus">
+                </div>
             </div>
         </div>
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
                 <div class="ur-field-item field-checkbox">
-                    <table class="checkbox" border="1">
+                    <div>
+                    <table class="checkbox">
                         <tr>
-                            <td colspan="2" id="CP"> <b> Select Certifications Provided:<abbr class="required"
+                            <td colspan="2" id="CP"> <b> Select Certifications Provided: <abbr class="required"
                                         title="required">*</abbr></b></td>
                             <label style="color:#FF0000;" id="errorLabel2"></label>
                         </tr>
@@ -94,6 +128,7 @@
                         </tr>
                     </table>
                 </div>
+                </div>
             </div>
         </div>
         <div class="ur-form-row">
@@ -122,26 +157,24 @@
         </div>
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                <b>Credentials Setup</b>
-                <div class="ur-form-row">
-                    <div class="ur-form-grid ur-grid-1" style="width:99%">
-
-                        <div>
-                            <input oninput="clicked()" id="LoginEmail" type="email" name="LoginEmail"
-                                placeholder="E-mail to be used for login" required>
-                        </div>
-
-                        <div>
-                            <input oninput="clicked()" id="Password" name="Password" type="password"
-                                placeholder="Password" required>
-                        </div>
-
-                        <div>
-                            <input id="confirmPassword" type="password" placeholder="Confirm password" required
-                                oninput="validate()"><label style="color:#FF0000;" id="errorLabel"></label>
-                        </div>
-                    </div>
-                </div>
+                <table border="1">
+                    <tr>
+                        <td colspan="2" id="CP"><b>Credentials Setup: <abbr class="required"
+                                    title="required">*</abbr></b></td>
+                    </tr>
+                    <tr>
+                        <td><input id="LoginEmail" type="email" name="LoginEmail"
+                                placeholder="E-mail to be used for login" required></td>
+                    </tr>
+                    <tr>
+                        <td><input id="Password" name="Password" type="password"
+                                placeholder="Password" required></td>
+                    </tr>
+                    <tr>
+                        <td><input id="confirmPassword" type="password" placeholder="Confirm password" required
+                                oninput="validatePasswordMatch()"></td><label style="color:#FF0000;" id="errorLabel"></label>
+                    </tr>
+                </table>
             </div>
         </div>
         <div class="ur-form-row">
@@ -189,42 +222,6 @@
         }
         if (errors > 0) {
             event.preventDefault();
-        }
-        else {
-            if (typeof (Storage) !== "undefined") {
-                var OrganisationName = document.getElementById("ON").value;
-                var ContactName = document.getElementById("CN").value;
-                var PositionTitle = document.getElementById("PT").value;
-                var NoOfEmployees = document.getElementById("NOE").value;
-                var HeadOfficeAddress = document.getElementById("HOL").value;
-                var ABNNo = document.getElementById("ABN").value;
-                var NoOfPhysicalLocationsInAus = document.getElementById("LIA").value;
-                var NoOfPhysicalLocationsOutAus = document.getElementById("AOA").value;
-                var Mobile = document.getElementById("MOB").value;
-                var Telephone = document.getElementById("TEL").value;
-                var ContactEmail = document.getElementById("EMAIL").value;
-                var AverageOfYearlyCert = document.getElementById("ACA").value;
-                var CertificationsProvided = document.getElementById("CertProvided").value;
-                var AdditionalServices = document.getElementById("addServices").value;
-                var LoginEmail = document.getElementById("email").value;
-                var Password = document.getElementById("password").value;
-                LoginEmail.value = sessionStorage.setItem("LoginEmail");
-                Password.value = sessionStorage.setItem("Password");
-                sessionStorage.setItem("OrganisationName", OrganisationName);
-                sessionStorage.setItem("ContactName", ContactName);
-                sessionStorage.setItem("PositionTitle", PositionTitle);
-                sessionStorage.setItem("NoOfEmployees", NoOfEmployees);
-                sessionStorage.setItem("HeadOfficeAddress", HeadOfficeAddress);
-                sessionStorage.setItem("ABNNo", ABNNo);
-                sessionStorage.setItem("NoOfPhysicalLocationsInAus", NoOfPhysicalLocationsInAus);
-                sessionStorage.setItem("NoOfPhysicalLocationsOutAus", NoOfPhysicalLocationsOutAus);
-                sessionStorage.setItem("Mobile", Mobile);
-                sessionStorage.setItem("Telephone", Telephone);
-                sessionStorage.setItem("ContactEmail", ContactEmail);
-                sessionStorage.setItem("AverageOfYearlyCert", AverageOfYearlyCert);
-                sessionStorage.setItem("CertificationsProvided", CertificationsProvided);
-                sessionStorage.setItem("AdditionalServices", AdditionalServices);
-            }
         }
     }
     function checkedCheckbox() {
@@ -275,7 +272,7 @@
         var addServices = document.getElementById("addServices");
         addServices.value = string
         alert(addServices.value)
-    } 
+    }
     function validate() {
         var password = document.getElementById("Password").value;
         var confirmPassword = document.getElementById("confirmPassword").value;

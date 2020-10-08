@@ -175,7 +175,7 @@
                         </tr>
                         <tr>
                             <td>Urgent</td>
-                            <td><input type="checkbox" id="urgent" name="Urgent" value="urgent"></td>
+                            <td><input type="checkbox" id="Urgent" name="Urgent" value="Urgent"></td>
                         </tr>
                     </table>
                 </div>

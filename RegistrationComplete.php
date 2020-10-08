@@ -16,6 +16,7 @@
 <?php
 if(isset($_POST['submit'])) {
     global $wpdb;
+
     $data_array = array(
         'OrganisationName' => $_POST['OrganisationName'],
         'ContactName' => $_POST['ContactName'],
@@ -32,7 +33,7 @@ if(isset($_POST['submit'])) {
         'CertificationsProvided' => $_POST['CertProvided'],
         'AdditionalServices' => $_POST['addServices'],
         'LoginEmail' => $_POST['LoginEmail'],
-        'Password' => $_POST['Password']
+        'Password' => $_POST[SHA('Password')]
     );
     $table_name = 'Supplier';
     $rowResult = $wpdb->insert($table_name, $data_array, $format=NULL);
