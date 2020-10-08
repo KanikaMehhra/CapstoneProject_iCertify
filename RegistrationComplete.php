@@ -16,6 +16,9 @@
 <?php
 if(isset($_POST['submit'])) {
     global $wpdb;
+    $password = $_POST['Password'];
+    $salt = "8dC_9Kl?";
+    $encrypted_password = md5($password . $salt); 
 
     $data_array = array(
         'OrganisationName' => $_POST['OrganisationName'],
@@ -33,7 +36,7 @@ if(isset($_POST['submit'])) {
         'CertificationsProvided' => $_POST['CertProvided'],
         'AdditionalServices' => $_POST['addServices'],
         'LoginEmail' => $_POST['LoginEmail'],
-        'Password' => $_POST[SHA('Password')]
+        'Password' => $encrypted_password
     );
     $table_name = 'Supplier';
     $rowResult = $wpdb->insert($table_name, $data_array, $format=NULL);

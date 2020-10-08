@@ -80,54 +80,54 @@
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
                 <div class="ur-field-item field-checkbox">
                     <div>
-                    <table class="checkbox">
-                        <tr>
-                            <td colspan="2" id="CP"> <b> Select Certifications Provided: <abbr class="required"
-                                        title="required">*</abbr></b></td>
-                            <label style="color:#FF0000;" id="errorLabel2"></label>
-                        </tr>
-                        <tr>
-                            <td>Quality</td>
-                            <td><input oninput="checkedCheckbox()" type="checkbox" id="Q" name="CertificationsProvided"
-                                    value="Quality"></td>
-                        </tr>
-                        <tr>
-                            <td>Workplace Health And Safety</td>
-                            <td><input oninput="checkedCheckbox()" type="checkbox" id="WHS"
-                                    name="CertificationsProvided" value="Workplace Health And Safety"></td>
-                        </tr>
-                        <tr>
-                            <td>Environmental Sustainability</td>
-                            <td><input oninput="checkedCheckbox()" type="checkbox" id="ES" name="CertificationsProvided"
-                                    value="Environmental Sustainability"></td>
-                        </tr>
-                        <tr>
-                            <td>Sourcing Practices</td>
-                            <td><input oninput="checkedCheckbox()" type="checkbox" id="SP" name="CertificationsProvided"
-                                    value="Sourcing Practices"></td>
-                        </tr>
-                        <tr>
-                            <td>Supply Chain Monitoring</td>
-                            <td><input oninput="checkedCheckbox()" type="checkbox" id="SM" name="CertificationsProvided"
-                                    value="Supply Chain Monitoring"></td>
-                        </tr>
-                        <tr>
-                            <td>Energy Management</td>
-                            <td><input oninput="checkedCheckbox()" type="checkbox" id="EM" name="CertificationsProvided"
-                                    value="Energy Management"></td>
-                        </tr>
-                        <tr>
-                            <td>Corporate Social Responsibility</td>
-                            <td><input oninput="checkedCheckbox()" type="checkbox" id="CSR"
-                                    name="CertificationsProvided" value="Corporate Social Responsibility"></td>
-                        </tr>
-                        <tr>
-                            <td>Sustainability Reporting</td>
-                            <td><input oninput="checkedCheckbox()" type="checkbox" id="SR" name="CertificationsProvided"
-                                    value="Sustainability Reporting"></td>
-                        </tr>
-                    </table>
-                </div>
+                        <table class="checkbox">
+                            <tr>
+                                <td colspan="2" id="CP"> <b> Select Certifications Provided: <abbr class="required"
+                                            title="required">*</abbr></b></td>
+                                <label style="color:#FF0000;" id="errorLabel2"></label>
+                            </tr>
+                            <tr>
+                                <td>Quality</td>
+                                <td><input oninput="checkedCheckbox()" type="checkbox" id="Q"
+                                        name="CertificationsProvided" value="Quality"></td>
+                            </tr>
+                            <tr>
+                                <td>Workplace Health And Safety</td>
+                                <td><input oninput="checkedCheckbox()" type="checkbox" id="WHS"
+                                        name="CertificationsProvided" value="Workplace Health And Safety"></td>
+                            </tr>
+                            <tr>
+                                <td>Environmental Sustainability</td>
+                                <td><input oninput="checkedCheckbox()" type="checkbox" id="ES"
+                                        name="CertificationsProvided" value="Environmental Sustainability"></td>
+                            </tr>
+                            <tr>
+                                <td>Sourcing Practices</td>
+                                <td><input oninput="checkedCheckbox()" type="checkbox" id="SP"
+                                        name="CertificationsProvided" value="Sourcing Practices"></td>
+                            </tr>
+                            <tr>
+                                <td>Supply Chain Monitoring</td>
+                                <td><input oninput="checkedCheckbox()" type="checkbox" id="SM"
+                                        name="CertificationsProvided" value="Supply Chain Monitoring"></td>
+                            </tr>
+                            <tr>
+                                <td>Energy Management</td>
+                                <td><input oninput="checkedCheckbox()" type="checkbox" id="EM"
+                                        name="CertificationsProvided" value="Energy Management"></td>
+                            </tr>
+                            <tr>
+                                <td>Corporate Social Responsibility</td>
+                                <td><input oninput="checkedCheckbox()" type="checkbox" id="CSR"
+                                        name="CertificationsProvided" value="Corporate Social Responsibility"></td>
+                            </tr>
+                            <tr>
+                                <td>Sustainability Reporting</td>
+                                <td><input oninput="checkedCheckbox()" type="checkbox" id="SR"
+                                        name="CertificationsProvided" value="Sustainability Reporting"></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -167,14 +167,14 @@
                                 placeholder="E-mail to be used for login" required></td>
                     </tr>
                     <tr>
-                        <td><input id="Password" name="Password" type="password"
-                                placeholder="Password" required></td>
+                        <td><input id="Password" name="Password" type="password" placeholder="Password" required></td>
                     </tr>
                     <tr>
                         <td><input id="confirmPassword" type="password" placeholder="Confirm password" required
-                                oninput="validatePasswordMatch()"></td><label style="color:#FF0000;" id="errorLabel"></label>
+                                oninput="validatePasswordMatch()"></td>
                     </tr>
                 </table>
+                <label style="color:#FF0000;" id="errorLabel"></label>
             </div>
         </div>
         <div class="ur-form-row">
@@ -196,6 +196,7 @@
     <div style="clear: both;"></div>
 </div>
 <script>
+    var passwordMatchCheck = 0;
     var errors = 0;
     var abnCheck = 0;
     var checkboxCheck = 0;
@@ -273,29 +274,17 @@
         addServices.value = string
         alert(addServices.value)
     }
-    function validate() {
+    function validatePasswordMatch() {
         var password = document.getElementById("Password").value;
         var confirmPassword = document.getElementById("confirmPassword").value;
         var label = document.getElementById("errorLabel");
         if (password !== confirmPassword) {
             label.innerHTML = "*Passwords do not match";
+            errors += 1;
+            passwordMatchCheck += 1;
         } else {
             label.innerHTML = "";
-        }
-        this.clicked();
-    }
-    function clicked() {
-        var label = document.getElementById("errorLabel");
-        var password = document.getElementById("Password");
-        var confirmPassword = document.getElementById("confirmPassword");
-        var email = document.getElementById("LoginEmail");
-        if (password !== null && confirmPassword !== null && email !== null) {
-            if (label.textContent.length === 0 && password.value.length !== 0 && confirmPassword.value.length !== 0 && email
-                .value.length !== 0) {
-                document.getElementById("submit").disabled = false;
-            } else {
-                document.getElementById("submit").disabled = true;
-            }
+            errors = errors - passwordMatchCheck;
         }
     }
     function demo() {
