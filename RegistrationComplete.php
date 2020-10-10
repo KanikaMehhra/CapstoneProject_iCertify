@@ -5,8 +5,6 @@
         <div class="ur-form-grid ur-grid-1" style="width: 48%;">
             <p>Thank you for registering with iCertify. Kindly wait for your account to be verified. You will be updated
                 by email once verified.</p>
-            <p>Thank you for registering with iCertify. Kindly wait for your account to be verified. You will be updated
-                by email once verified.</p>
             <p>*Approximate wait: 3-5 business days.</p>
             <p>*If your details changes, please notify us through the <a>Contact Details provided</a>.</p>
             <input id="submit" type="submit" name="submit" value="Go to Home Page">

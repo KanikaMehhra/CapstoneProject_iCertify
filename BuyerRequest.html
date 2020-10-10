@@ -34,10 +34,10 @@
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
                 <div>
-                    <b>Mobile (+XX XXX XXX XXX) </b><abbr class="required" title="required">*</abbr><input type="text" pattern="\+[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}" id="MOB" required name="Mobile">
+                    <b>Mobile (+XX XXX XXX XXX) </b><input type="text" pattern="\+[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}" id="MOB" name="Mobile">
                 </div>
                 <div>
-                    <b>Telphone (XX X XXXX XXXX) </b><abbr class="required" title="required">*</abbr><input type="text" pattern="[0-9]{2}\s[0-9]{1}\s[0-9]{4}\s[0-9]{4}" id="TEL" required name="Telephone">
+                    <b>Telphone (+XX X XXXX XXXX) </b><abbr class="required" title="required">*</abbr><input type="text" pattern="\+[0-9]{2}\s[0-9]{1}\s[0-9]{4}\s[0-9]{4}" id="TEL" required name="Telephone">
                 </div>
             </div>
         </div>
@@ -265,7 +265,6 @@
         }
         var hidden = document.getElementById("ServicesRequired");
         hidden.value = string
-        alert(hidden.value)
     }
     function getServicesValue() {
         checkboxes = document.querySelectorAll('input[name="AdditionalServices"]:checked');
@@ -284,7 +283,6 @@
         }
         var addServices = document.getElementById("addServices");
         addServices.value = string
-        alert(addServices.value)
     }
     function getUrgentValue() {
         radiobox = document.querySelectorAll('input[name="ServiceUrgency"]:checked');
@@ -298,7 +296,6 @@
         }
         var Urgent = document.getElementById("Urgent");
         Urgent.value = string
-        alert(Urgent.value)
     }
     function getCurrentstatusValue() {
         radiobox = document.querySelectorAll('input[name="CurrentStatus"]:checked');
@@ -312,7 +309,6 @@
         }
         var CurrStatus = document.getElementById("CurrStatus");
         CurrStatus.value = string
-        alert(CurrStatus.value)
     }
     function demo() {
         getCheckdValue()
