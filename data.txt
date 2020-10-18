@@ -37,7 +37,6 @@ CREATE TABLE Supplier (
     `ABNNo` INT(11), 
     `ContactEmail` VARCHAR(100), 
     `Mobile` VARCHAR(15) NULL , 
-    `Telephone` VARCHAR(15), 
     `HeadOfficeAddress` VARCHAR(200), 
     `AverageOfYearlyCert` INT(10), 
     `NoOfPhysicalLocationsInAus` INT(10), 
@@ -45,6 +44,10 @@ CREATE TABLE Supplier (
     `CertificationsProvided` VARCHAR(200), 
     `AdditionalServices` VARCHAR(100), 
     `Verified` ENUM('Yes','No'), 
+    `PricingType` VARCHAR(8) NULL, 
+    `FixedValue` DOUBLE NULL,
+    `MinPrice` DOUBLE NULL,
+    `MaxPrice` DOUBLE NULL,
     `LoginEmail` VARCHAR(100), 
     `Password` VARCHAR(100),
     PRIMARY KEY (ABNNo)
@@ -67,7 +70,8 @@ CREATE TABLE Buyer (
     `ServicesRequired` VARCHAR(200),
     `CurrentStatus` VARCHAR(10),  
     `AdditionalServices` VARCHAR(50), 
-    `Urgent` VARCHAR(3), 
+    `Urgent` VARCHAR(3),
+    `ServicePRovider` VARCHAR(100), 
     `Verified` ENUM('Yes','No'), 
     `TimeStamp` TIMESTAMP,
 );

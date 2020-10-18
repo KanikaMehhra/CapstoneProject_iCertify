@@ -1,11 +1,42 @@
 <?php
+if (isset($_POST['save'])) {
+    global $wpdb;
+    $loginEmail = $_POST['LoginEmail'];
+    $results = $wpdb->get_results("select OrganisationName, ContactName, PositionTitle, NoOfEmployees, ABNNo, ContactEmail, Mobile, Telephone, HeadOfficeAddress, AverageOfYearlyCert, NoOfPhysicalLocationsInAus, NoOfPhysicalLocationsOutAus, CertificationsProvided, AdditionalServices from Supplier Where LoginEmail='" . $loginEmail . "' ");
+    if (count($results) > 0) {
+        global $wpdb;
+        $abn = $_POST['ABNNO'];
+        $data = array(
+            'OrganisationName' => $_POST['OrganisationName'],
+            'ContactName' => $_POST['ContactName'],
+            'PositionTitle' => $_POST['PositionTitle'],
+            'NoOfEmployees' => $_POST['NoOfEmployees'],
+            'ABNNo' => $_POST['ABNNo'],
+            'ContactEmail' => $_POST['ContactEmail'],
+            'Mobile' => $_POST['Mobile'],
+            'Telephone' => $_POST['Telephone'],
+            'HeadOfficeAddress' => $_POST['HeadOfficeAddress'],
+            'AverageOfYearlyCert' => $_POST['AverageOfYearlyCert'],
+            'NoOfPhysicalLocationsInAus' => $_POST['NoOfPhysicalLocationsInAus'],
+            'NoOfPhysicalLocationsOutAus' => $_POST['NoOfPhysicalLocationsOutAus'],
+            'CertificationsProvided' => $_POST['CertProvided'],
+            'AdditionalServices' => $_POST['addServices'],
+            'PricingType' => $_POST['PricingType'],
+            'FixedValue' => $_POST['FixedValue'],
+            'MinPrice' => $_POST['MinPrice'],
+            'MaxPrice' => $_POST['MaxPrice']
+        ); 
+        $table = 'Supplier';
+        $where =  [ 'ABNNO' => $abn];
+        $updated = $wpdb->update($wpdb->$table, $data, $where, $format=NULL);
+    }
+}
 ?>
-<div class="user-registration ur-frontend-form  " id="user-registration-form-5914">
+<div class="user-registration ur-frontend-form" id="user-registration-form-5914">
     <div class="ur-form-row">
         <div class="ur-form-grid ur-grid-1" style="width: 48%;">
             <div>
-                <strong><u>Organisation Details </u>
-                </strong>
+                <strong>Organisation Details</strong>
             </div>
         </div>
         <div onclick="toggleEditOn()">
@@ -14,72 +45,63 @@
     </div>
     <div id="user-registration-form-5882" class="user-registration ur-frontend-form  ">
         <form class="information" action="#" method="post" onsubmit="formSubmission1();return false;">
-            <div class="textInput">
-                <div class="ur-form-row">
-                    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                        <div>
-                            Organisation Name<input type="text" id="ON" name="OrganisationName" required disabled>
-                        </div>
-                        <div>
-                            Contact Name<input type="text" id="CN" name="ContactName" required disabled><br>
-                        </div>
+            <div class="ur-form-row">
+                <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                    <div>
+                        <b>Organisation Name </b><input disabled type="text" id="ON" name="OrganisationName" required>
                     </div>
-                    <div class="ur-form-grid ur-grid-2" style="width: 48%;">
-                        <div class="ur-form-row">
-                            <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                                <div>
-                                    Position Title<input type="text" id="PT" name="PositionTitle" required disabled><br>
-                                </div>
-                                <div>
-                                    Number of employees<input type="number" id="NOE" name="NoOfEmployees" min="1" required disabled><br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ur-form-row">
-                        <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                            <div>
-                                ABN/ACN<input type="number" id="ABN" name="ABNNo" oninput="validateABN()"><br>
-                                <label style="color:#FF0000;" id="errorLabel1"></label>
-                            </div>
-                            <div>
-                                E-mail<input type="email" id="EMAIL" name="ContactEmail"><br>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ur-form-grid ur-grid-2" style="width: 48%;">
-                        <div class="ur-form-row">
-                            <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                                <div>
-                                    Mobile (+XX XXX XXX XXX)<input type="text" id="MOB" name="Mobile" pattern="\+[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}" required disabled><br>
-                                </div>
-                                <div>
-                                    Telphone (XX X XXXX XXXX)<input type="text" id="TEL" name="Telephone" pattern="[0-9]{2}\s[0-9]{1}\s[0-9]{4}\s[0-9]{4}" required disabled><br>
-                                </div>
-                            </div>
-                        </div>
+                    <div>
+                        <b>Contact Name </b><input disabled type="text" id="CN" name="ContactName" required>
                     </div>
                 </div>
-                <div class="ur-form-row">
-                    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                        <div>
-                            Head office location<input type="text" id="HOL" name="HeadOfficeAddress" required disabled><br>
-                        </div>
-                        <div>
-                            Avg. no. of certifications/annum<input type="number" id="ACA" name="AverageOfYearlyCert" required disabled><br>
-                        </div>
+            </div>
+            <div class="ur-form-row">
+                <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                    <div>
+                        <b>Position Title </b><input disabled type="text" id="PT" name="PositionTitle" required>
                     </div>
-                    <div class="ur-form-grid ur-grid-2" style="width: 48%;">
-                        <div class="ur-form-row">
-                            <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                                <div>
-                                    No. of physical locations within Aus<input type="number" min="1" id="LIA" name="NoOfPhysicalLocationsInAus" required disabled><br>
-                                </div>
-                                <div>
-                                    No. of physical locations outside Aus<input type="number" min="1" id="AOA" name="NoOfPhysicalLocationsOutAus" required disabled><br>
-                                </div>
-                            </div>
-                        </div>
+                    <div>
+                        <b>Number of employees </b><input disabled type="number" id="NOE" name="NoOfEmployees" min="1" required>
+                    </div>
+                </div>
+            </div>
+            <div class="ur-form-row">
+                <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                    <div>
+                        <b>ABN/ACN </b><input disabled type="number" id="ABN" required name="ABNNo" oninput="validateABN()"><label style="color:#FF0000;" id="errorLabel1"></label>
+                    </div>
+                    <div>
+                        <b>E-mail </b><input disabled type="email" id="EMAIL" required name="ContactEmail">
+                    </div>
+                </div>
+            </div>
+            <div class="ur-form-row">
+                <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                    <div>
+                        <b>Mobile (+XX XXX XXX XXX) </b><input disabled type="text" pattern="\+[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}" id="MOB" name="Mobile">
+                    </div>
+                    <div>
+                        <b>Telphone (+XX X XXXX XXXX) </b><input disabled type="text" pattern="\+[0-9]{2}\s[0-9]{1}\s[0-9]{4}\s[0-9]{4}" id="TEL" required name="Telephone">
+                    </div>
+                </div>
+            </div>
+            <div class="ur-form-row">
+                <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                    <div>
+                        <b>Head office location </b><input disabled type="text" id="HOL" required name="HeadOfficeAddress">
+                    </div>
+                    <div>
+                        <b>Avg. no. of certifications/annum </b><input disabled type="number" id="ACA" required name="AverageOfYearlyCert">
+                    </div>
+                </div>
+            </div>
+            <div class="ur-form-row">
+                <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                    <div>
+                        <b>No. of physical locations within Australia </b><input disabled type="number" min="1" id="LIA" required name="NoOfPhysicalLocationsInAus">
+                    </div>
+                    <div>
+                        <b>No. of physical locations outside Australia</b><input disabled type="number" id="AOA" required name="NoOfPhysicalLocationsOutAus">
                     </div>
                 </div>
             </div>
@@ -88,7 +110,7 @@
                     <div class="ur-field-item field-checkbox">
                         <table class="checkbox">
                             <tr>
-                                <td colspan="2" id="CP"> <b> Select Certifications Provided: <abbr class="required" title="required">*</abbr></b></td>
+                                <td colspan="2" id="CP"> <b> Select Certifications Provided: </b></td>
                                 <label style="color:#FF0000;" id="errorLabel2"></label>
                             </tr>
                             <tr>
@@ -127,8 +149,8 @@
                     </div>
                 </div>
             </div>
-            <div class="ur-form-grid ur-grid-2" style="width: 48%;">
-                <div class="ur-field-item field-radio " data-field-id="radio_1598611551">
+            <div class="ur-form-row">
+                <div class="ur-form-grid ur-grid-1" style="width: 48%;">
                     <div class="ur-field-item field-checkbox">
                         <table class="checkbox">
                             <tr>
@@ -153,13 +175,13 @@
             </div>
             <div class="ur-form-row">
                 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                    <input disabled type="checkbox" id="Demo" name="Demo" required oninput="demo()"><b>By signing up I agree to the <a href="https://icertify.net.au/terms-and-conditions-for-service-providers/" target="_blank">terms of service and privacy policy.</a></b><abbr class="required" title="required">*</abbr>
+                    <input disabled type="checkbox" id="Demo" name="Demo" required oninput="demo()"><b>By signing up I agree to the <a href="https://icertify.net.au/terms-and-conditions-for-service-providers/" target="_blank">terms of service and privacy policy.</a></b>
                     <input type="hidden" id="CertProvided" name="CertProvided">
                     <input type="hidden" id="addServices" name="addServices">
                 </div>
             </div>
             <div class="ur-button-container ">
-                <input disabled value="Save" id="submit" type="submit" onclick="validateSubmit()">
+                <input disabled value="Save" id="submit" type="submit" name="save" onclick="validateSubmit()">
             </div>
             <div>
                 <label style="color:rgb(0, 112, 15);" id="updatedInfo"></label>
@@ -293,20 +315,17 @@
     upper.addEventListener("input", function() {
         rangeDisplay.innerHTML = "$" + lower.value + " - $" + upper.value;
     }, false);
-
     function disableTextBox() {
         var element = document.getElementById("pricingFixedTextBox");
         element.value = "";
         element.disabled = true;
     }
-
     function disableRangeSlider() {
         var rangeElement = document.querySelectorAll('input[type="range"]');
         for (var i = 0; i < rangeElement.length; i += 1) {
             rangeElement[i].disabled = true;
         }
     }
-
     function enableTextBox() {
         var element = document.getElementById("pricingFixedTextBox");
         if (element.value.length != 0) {
@@ -315,7 +334,6 @@
             element.disabled = false;
         }
     }
-
     function enableRangeSlider() {
         var rangeElement = document.querySelectorAll('input[type="range"]');
         var element = document.querySelectorAll('input[type="radio"][id="variable"]:checked');
@@ -325,7 +343,6 @@
             }
         }
     }
-
     function saveAndLogout() {
         var submit = document.getElementById("submit");
         var submit2 = document.getElementById("submit2");
@@ -348,7 +365,6 @@
             clearInterval(intervalID);
         }
     }
-
     function formSubmission1() {
         var label = document.getElementById("updatedInfo");
         label.innerHTML = "*Information successfully updated!";
@@ -365,7 +381,6 @@
     var abnCheck = 0;
     var checkboxCheck = 0;
     var radioCheck = 0;
-
     function checkedCheckbox() {
         var label = document.getElementById("errorLabel2");
         if (errors > 0) {
@@ -373,7 +388,6 @@
         }
         label.innerHTML = "";
     }
-
     function validateSubmit() {
         var label = document.getElementById("errorLabel2");
         var len = document.querySelectorAll('.checkbox input[type="checkbox"]:checked').length;
@@ -386,7 +400,6 @@
             event.preventDefault();
         }
     }
-
     function validateABN() {
         var abn = document.getElementById("ABN").value.length;
         var label = document.getElementById("errorLabel1");
@@ -399,7 +412,6 @@
             errors = errors - abnCheck;
         }
     }
-
     function toggleEditOn() {
         var label = document.getElementById("updatedInfo");
         label.innerHTML = "";
@@ -408,7 +420,6 @@
             inputs[i].disabled = false;
         }
     }
-
     function checkPricing() {
         var label = document.getElementById("errorLabel4");
         var len = document.querySelectorAll('input[type="radio"]:checked').length;
@@ -435,7 +446,6 @@
             toggleEditOff("pricing");
         }
     }
-
     function checkedRadio() {
         var label = document.getElementById("errorLabel4");
         if (pricePreferenceError > 0) {
@@ -444,7 +454,6 @@
         label.innerHTML = "";
         enableRangeSlider();
     }
-
     function checkUpload() {
         if (document.getElementById("myfile").value.length == 0) {
             var label = document.getElementById("errorLabel3");
@@ -457,7 +466,6 @@
             clearInterval(intervalID);
         }
     }
-
     function toggleEditOff(formClass) {
         var inputs = document.querySelectorAll('.' + formClass + ' input');
         var len = document.querySelectorAll('input[disabled]').length;
@@ -465,7 +473,6 @@
             inputs[i].disabled = true;
         }
     }
-
     function togglePricingEditOn() {
         var label = document.getElementById("updatedPricing");
         label.innerHTML = "";
@@ -478,7 +485,6 @@
         enableTextBox();
         enableRangeSlider();
     }
-
     function toggleUploadingEditOn() {
         var label = document.getElementById("updatedUploads");
         label.innerHTML = "";
