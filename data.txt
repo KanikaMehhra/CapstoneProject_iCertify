@@ -2,12 +2,12 @@ Data management information (data.txt) which describes the exact type of DB,
 the version and the DB connection address if it is on the cloud with authorisationinformation and 
 any other necessary information.
 
-the database used for this project is phpMyAdmin
+The database used for this project is phpMyAdmin
 
 phpMyAdmin version information: 5.0.3
 MySQL version 5.7
 
-the plugins used for the storage Schema: 
+The plugins used for the storage Schema: 
 
 InnoDB version 10.3 by Oracle Corporation to Support transactions, row-level locking, foreign keys and encryption for tables.
 Aria version 1.5 by Monty Program Ab for Crash-safe tables with MyISAM heritage.	
@@ -22,12 +22,12 @@ SEQUENCE version 1.0 by	Sergei Golubchik for Generated tables filled with sequen
 SQL_SEQUENCE version 1.0 by jianwei.zhao @ Aliyun & Monty @ MariaDB corp for the sequence Storage Engine for CREATE SEQUENCE.
 wsrep version 1.0 by Codership Oy for the pseudo storage engine to represent transactions in multi-master synchornous replication.
 
-for the authentication the database uses the following plugins:
+For the authentication the database uses the following plugins:
 mysql_native_password version 1.0 by R.J.Silk, Sergei Golubchikfor for Native MySQL authentication.
 mysql_old_password version 1.0 by R.J.Silk, Sergei Golubchikfor	for Old MySQL-4.0 authentication.
 unix_socket	Unix version 1.0 by Sergei Golubchikfor for Socket based authentication.	
 
-the sql queries for creating the database tables: 
+The sql queries for creating the database tables: 
 
 CREATE TABLE Supplier ( 
     `OrganisationName` VARCHAR(200), 
@@ -71,3 +71,4 @@ CREATE TABLE Buyer (
     `Verified` ENUM('Yes','No'), 
     `TimeStamp` TIMESTAMP,
 );
+The PRIMARY Key for the buyer table was added manually through the structer tab on phpMyAdmin, due to sql query not accepting the TimeStamp to be the primay key. 

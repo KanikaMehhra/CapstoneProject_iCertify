@@ -131,8 +131,8 @@
         </div>
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                <div id="radio_1598611551_field" class="form-row validate-required" data-priority="">
-                    <table border="1">
+                <div class="ur-field-item field-checkbox">
+                    <table class="checkbox">
                         <tr>
                             <td colspan="2" id="CP"> <b>Additional services: </b></td>
                         </tr>
@@ -146,8 +146,7 @@
                         </tr>
                         <tr>
                             <td>Other services</td>
-                            <td><input type="text" id="OTH" class="input-radio ur-frontend-field"
-                                    name="AdditionalServices" type="text"></td>
+                            <td><input type="text" id="OTH" name="AdditionalServices" type="text"></td>
                         </tr>
                     </table>
                 </div>
@@ -260,7 +259,7 @@
                 string += values[i];
             }
             else {
-                string += values[i] + ",";
+                string += values[i] + ", ";
             }
         }
         var addServices = document.getElementById("addServices");
