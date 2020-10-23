@@ -307,8 +307,8 @@ if (isset($_POST['save'])) {
         <div style="clear: both;"></div>
     </div>
     <hr style="height: 10px;background-color:black">
-    <form method="post" action="https://icertify.net.au/">
-        <div class="ur-button-container ">
+    <form method="post">
+        <div onclick="phpFunction()" class="ur-button-container ">
             <input onclick="saveAndLogout()" value="Save and Logout" name="LogoutSave" id="submit4" type="submit">
         </div>
         <div>
@@ -623,5 +623,45 @@ if (isset($_POST['save'])) {
         getServicesValue();
     }
 </script>
-<?php
+<?php 
+if(isset($_POST['LogoutSave'])) {
+    global $wpdb;
+$results = $wpdb->get_results("select * from Test Where OrganisationName='1@g.com'");
+print_r($results[0]);
+$oldOrg='1@g.com';
+$OrganisationName=$_POST['OrganisationName'];
+
+// global $OrganisationName = $_POST['OrganisationName'];
+// global $ContactName = $_POST['ContactName'];
+
+// echo "<script type='text/javascript'> 
+//     $OrganisationName=document.getElementById('ON').value;
+//     $ContactName=document.getElementById('CN').value;
+//      </script>"; 
+
+$data = array(
+    'OrganisationName' => $OrganisationName
+);
+$table = 'Test';
+$where = array('OrganisationName' => $oldOrg);
+$wpdb->update($table, $data, $where, $format = NULL);
+
+}
+//  if(isset($_POST['LogoutSave'])) { 
+//     echo "<script type='text/javascript'> 
+//      alert('Coding is great!');
+//      </script>"; 
+// } 
+
+
+// function phpFunction(){
+//     $run = 3; 
+//     if($run>1){ 
+//      echo "<script type='text/javascript'> 
+//      alert('Coding is great!');
+//      </script>"; 
+//     } 
+//     else 
+//     echo "The condition has not been satisfied"; 
+// }
 ?>
