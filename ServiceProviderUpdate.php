@@ -1,35 +1,51 @@
 <?php
-if (isset($_POST['save'])) {
+session_start();
+if (isset($_POST['logout'])) {
     global $wpdb;
-    $loginEmail = $_POST['LoginEmail'];
-    $results = $wpdb->get_results("select OrganisationName, ContactName, PositionTitle, NoOfEmployees, ABNNo, ContactEmail, Mobile, Telephone, HeadOfficeAddress, AverageOfYearlyCert, NoOfPhysicalLocationsInAus, NoOfPhysicalLocationsOutAus, CertificationsProvided, AdditionalServices from Supplier Where LoginEmail='" . $loginEmail . "' ");
-    if (count($results) > 0) {
-        global $wpdb;
-        $abn = $_POST['ABNNO'];
-        $data = array(
-            'OrganisationName' => $_POST['OrganisationName'],
-            'ContactName' => $_POST['ContactName'],
-            'PositionTitle' => $_POST['PositionTitle'],
-            'NoOfEmployees' => $_POST['NoOfEmployees'],
-            'ABNNo' => $_POST['ABNNo'],
-            'ContactEmail' => $_POST['ContactEmail'],
-            'Mobile' => $_POST['Mobile'],
-            'Telephone' => $_POST['Telephone'],
-            'HeadOfficeAddress' => $_POST['HeadOfficeAddress'],
-            'AverageOfYearlyCert' => $_POST['AverageOfYearlyCert'],
-            'NoOfPhysicalLocationsInAus' => $_POST['NoOfPhysicalLocationsInAus'],
-            'NoOfPhysicalLocationsOutAus' => $_POST['NoOfPhysicalLocationsOutAus'],
-            'CertificationsProvided' => $_POST['CertProvided'],
-            'AdditionalServices' => $_POST['addServices'],
-            'PricingType' => $_POST['PricingType'],
-            'FixedValue' => $_POST['FixedValue'],
-            'MinPrice' => $_POST['MinPrice'],
-            'MaxPrice' => $_POST['MaxPrice']
-        ); 
-        $table = 'Supplier';
-        $where =  [ 'ABNNO' => $abn];
-        $updated = $wpdb->update($wpdb->$table, $data, $where, $format=NULL);
-    }
+    $LoginEmail = $_SESSION['LoginEmail'];
+    $OrganisationName = $_SESSION['OrganisationName'];
+    $ContactName = $_SESSION['ContactName'];
+    $PositionTitle = $_SESSION['PositionTitle'];
+    $NoOfEmployees = $_SESSION['NoOfEmployees'];
+    $ABNNo = $_SESSION['ABNNo'];
+    $ContactEmail = $_SESSION['ContactEmail'];
+    $Mobile = $_SESSION['Mobile'];
+    $Telephone = $_SESSION['Telephone'];
+    $HeadOfficeAddress = $_SESSION['HeadOfficeAddress'];
+    $AverageOfYearlyCert = $_SESSION['AverageOfYearlyCert'];
+    $NoOfPhysicalLocationsInAus = $_SESSION['NoOfPhysicalLocationsInAus'];
+    $NoOfPhysicalLocationsOutAus = $_SESSION['NoOfPhysicalLocationsOutAus'];
+    $CertProvided = $_POST['CertProvided'];
+    $addServices = $_POST['addServices'];
+    $PricingType = $_SESSION['PricingType'];
+    $FixedValue = $_SESSION['FixedValue'];
+    $MinPrice = $_SESSION['MinPrice'];
+    $MaxPrice = $_SESSION['MaxPrice'];
+    $data = array(
+        'OrganisationName' => $OrganisationName,
+        'ContactName' => $ContactName,
+        'PositionTitle' => $PositionTitle,
+        'NoOfEmployees' => $NoOfEmployees,
+        'ABNNo' => $ABNNo,
+        'ContactEmail' => $ContactEmail,
+        'Mobile' => $Mobile,
+        'Telephone' => $Telephone,
+        'HeadOfficeAddress' => $HeadOfficeAddress,
+        'AverageOfYearlyCert' => $AverageOfYearlyCert,
+        'NoOfPhysicalLocationsInAus' => $NoOfPhysicalLocationsInAus,
+        'NoOfPhysicalLocationsOutAus' => $NoOfPhysicalLocationsOutAus,
+        'CertificationsProvided' => $CertProvided,
+        'AdditionalServices' => $addServices,
+        'PricingType' => $PricingType,
+        'FixedValue' => $FixedValue,
+        'MinPrice' => $MinPrice,
+        'MaxPrice' => $MaxPrice
+    );
+    $table = 'Supplier';
+    $where = array('LoginEmail' => $LoginEmail);
+    $wpdb->update($table, $data, $where, $format = NULL);
+    session_destroy();
+    die;
 }
 ?>
 <div class="user-registration ur-frontend-form" id="user-registration-form-5914">
@@ -48,69 +64,71 @@ if (isset($_POST['save'])) {
             <div class="ur-form-row">
                 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
                     <div>
-                        <b>Organisation Name </b><input disabled type="text" id="ON" name="OrganisationName" required>
+                        <b>Organisation Name </b><input disabled type="text" id="ON" name="OrganisationName" value="<?php echo $_SESSION['OrganisationName']; ?>">
                     </div>
                     <div>
-                        <b>Contact Name </b><input disabled type="text" id="CN" name="ContactName" required>
+                        <b>Contact Name </b><input disabled type="text" id="CN" name="ContactName" value="<?php echo $_SESSION['ContactName']; ?>">
                     </div>
                 </div>
             </div>
             <div class="ur-form-row">
                 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
                     <div>
-                        <b>Position Title </b><input disabled type="text" id="PT" name="PositionTitle" required>
+                        <b>Position Title </b><input disabled type="text" id="PT" name="PositionTitle" value="<?php echo $_SESSION['PositionTitle']; ?>">
                     </div>
                     <div>
-                        <b>Number of employees </b><input disabled type="number" id="NOE" name="NoOfEmployees" min="1" required>
+                        <b>Number of employees </b><input disabled type="number" id="NOE" name="NoOfEmployees" min="1" value="<?php echo $_SESSION['NoOfEmployees']; ?>">
                     </div>
                 </div>
             </div>
             <div class="ur-form-row">
                 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
                     <div>
-                        <b>ABN/ACN </b><input disabled type="number" id="ABN" required name="ABNNo" oninput="validateABN()"><label style="color:#FF0000;" id="errorLabel1"></label>
+                        <b>ABN/ACN </b><input disabled type="number" id="ABN" value="<?php echo $_SESSION['ABNNo']; ?>" name="ABNNo" oninput="validateABN()"><label style="color:#FF0000;" id="errorLabel1"></label>
                     </div>
                     <div>
-                        <b>E-mail </b><input disabled type="email" id="EMAIL" required name="ContactEmail">
+                        <b>E-mail </b><input disabled type="email" id="EMAIL" value="<?php echo $_SESSION['ContactEmail']; ?>" name="ContactEmail">
                     </div>
                 </div>
             </div>
             <div class="ur-form-row">
                 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
                     <div>
-                        <b>Mobile (+XX XXX XXX XXX) </b><input disabled type="text" pattern="\+[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}" id="MOB" name="Mobile">
+                        <b>Mobile (+XX XXX XXX XXX) </b><input disabled type="text" pattern="\+[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}" id="MOB" name="Mobile" value="<?php echo $_SESSION['Mobile']; ?>">
                     </div>
                     <div>
-                        <b>Telphone (+XX X XXXX XXXX) </b><input disabled type="text" pattern="\+[0-9]{2}\s[0-9]{1}\s[0-9]{4}\s[0-9]{4}" id="TEL" required name="Telephone">
+                        <b>Telphone (+XX X XXXX XXXX) </b><input disabled type="text" pattern="\+[0-9]{2}\s[0-9]{1}\s[0-9]{4}\s[0-9]{4}" id="TEL" value="<?php echo $_SESSION['Telephone']; ?>" name="Telephone">
                     </div>
                 </div>
             </div>
             <div class="ur-form-row">
                 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
                     <div>
-                        <b>Head office location </b><input disabled type="text" id="HOL" required name="HeadOfficeAddress">
+                        <b>Head office location </b><input disabled type="text" id="HOL" value="<?php echo $_SESSION['HeadOfficeAddress']; ?>" name="HeadOfficeAddress">
                     </div>
                     <div>
-                        <b>Avg. no. of certifications/annum </b><input disabled type="number" id="ACA" required name="AverageOfYearlyCert">
+                        <b>Avg. no. of certifications/annum </b><input disabled type="number" id="ACA" value="<?php echo $_SESSION['AverageOfYearlyCert']; ?>" name="AverageOfYearlyCert">
                     </div>
                 </div>
             </div>
             <div class="ur-form-row">
                 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
                     <div>
-                        <b>No. of physical locations within Australia </b><input disabled type="number" min="1" id="LIA" required name="NoOfPhysicalLocationsInAus">
+                        <b>No. of physical locations within Australia </b><input disabled type="number" min="1" id="LIA" value="<?php echo $_SESSION['NoOfPhysicalLocationsInAus']; ?>" name="NoOfPhysicalLocationsInAus">
                     </div>
                     <div>
-                        <b>No. of physical locations outside Australia</b><input disabled type="number" id="AOA" required name="NoOfPhysicalLocationsOutAus">
+                        <b>No. of physical locations outside Australia</b><input disabled type="number" id="AOA" value="<?php echo $_SESSION['NoOfPhysicalLocationsOutAus']; ?>" name="NoOfPhysicalLocationsOutAus">
                     </div>
                 </div>
             </div>
             <div class="ur-form-row">
                 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                    <div class="ur-field-item field-checkbox">
+                    <div class="ur-results-item results-checkbox">
                         <table class="checkbox">
                             <tr>
-                                <td colspan="2" id="CP"> <b> Select Certifications Provided: </b></td>
+                                <td colspan="2" id="CP"> <b> Selected Certifications Provided: </b>
+                                    <p><?php echo $_SESSION['CertificationsProvided']; ?></p>
+                                </td>
                                 <label style="color:#FF0000;" id="errorLabel2"></label>
                             </tr>
                             <tr>
@@ -151,10 +169,12 @@ if (isset($_POST['save'])) {
             </div>
             <div class="ur-form-row">
                 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                    <div class="ur-field-item field-checkbox">
+                    <div class="ur-results-item results-checkbox">
                         <table class="checkbox">
                             <tr>
-                                <td colspan="2" id="CP"> <b>Additional services: </b></td>
+                                <td colspan="2" id="CP"> <b> Selected Additional services: </b>
+                                    <p><?php echo $_SESSION['AdditionalServices']; ?></p>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Remote audit</td>
@@ -167,7 +187,7 @@ if (isset($_POST['save'])) {
                             </tr>
                             <tr>
                                 <td>Other services</td>
-                                <td><input disabled type="text" id="OTH" class="input-radio ur-frontend-field" name="AdditionalServices" type="text"></td>
+                                <td><input disabled type="text" id="OTH" name="AdditionalServices"></td>
                             </tr>
                         </table>
                     </div>
@@ -175,14 +195,17 @@ if (isset($_POST['save'])) {
             </div>
             <div class="ur-form-row">
                 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                    <input disabled type="checkbox" id="Demo" name="Demo" required oninput="demo()"><b>By signing up I agree to the <a href="https://icertify.net.au/terms-and-conditions-for-service-providers/" target="_blank">terms of service and privacy policy.</a></b>
+                    <input disabled type="checkbox" id="Demo" name="Demo" oninput="demo()"><b>By signing up I agree to
+                        the <a href="https://icertify.net.au/terms-and-conditions-for-service-providers/" target="_blank">terms of service and privacy policy.</a></b>
                     <input type="hidden" id="CertProvided" name="CertProvided">
                     <input type="hidden" id="addServices" name="addServices">
                 </div>
             </div>
             <div class="ur-button-container ">
-                <input disabled value="Save" id="submit" type="submit" name="save" onclick="validateSubmit()">
+                <input disabled value="Save" id="submit" name="save" type="submit" onclick="validateSubmit()">
             </div>
+            <br>
+            <br>
             <div>
                 <label style="color:rgb(0, 112, 15);" id="updatedInfo"></label>
             </div>
@@ -203,6 +226,7 @@ if (isset($_POST['save'])) {
                 </div>
             </div>
             <div onclick="togglePricingEditOn()">
+                <!-- <button onclick="togglePricingEditOn()">click</button> -->
                 <i class="fa fa-edit"></i>
             </div>
         </div>
@@ -217,18 +241,18 @@ if (isset($_POST['save'])) {
                                 </div>
                                 <ul class="pricingPreference">
                                     <div onclick="disableTextBox()">
-                                        <li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="variable" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="variable" /> <label class="radio" for="variable">Variable</label>
+                                        <li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="variable" class="input-radio ur-frontend-field" name="PricingType" type="radio" value="variable" /> <label class="radio" for="variable">Variable</label>
                                         </li>
                                     </div>
                                     <li>
                                         <div id="rangeDisplay"></div>
                                         <span class="multi-range">
-                                            <input disabled style="top:40px; z-index:1;" type="range" min="20" max="2000" value="20" id="lower" step="5">
-                                            <input disabled type="range" min="20" max="2000" value="2000" id="upper" step="5">
+                                            <input disabled style="top:40px; z-index:1;" type="range" min="20" max="2000" value="20" id="lower" step="5" name="MinPrice">
+                                            <input disabled type="range" min="20" max="2000" value="2000" id="upper" step="5" name="MaxPrice">
                                         </span>
                                     </li>
                                     <div onclick="disableRangeSlider()">
-                                        <li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="fixed" class="input-radio ur-frontend-field  " name="pricing" type="radio" value="fixed" /> <label class="radio" for="fixed">Fixed</label></li>
+                                        <li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="fixed" class="input-radio ur-frontend-field" name="PricingType" type="radio" value="fixed" /> <label class="radio" for="fixed">Fixed</label></li>
                                     </div>
                                     <li><input id="pricingFixedTextBox" oninput="checkBaseHourlyRate()" type="number" placeholder="Enter hourly rate (AUD)" required disabled /></li>
                                     <label style="color:#FF0000;" id="checkBaseHourlyRate"></label>
@@ -238,7 +262,7 @@ if (isset($_POST['save'])) {
                     </div>
                 </div>
                 <div class="ur-button-container ">
-                    <input disabled value="Save" id="submit2" type="submit" onclick="checkPricing()">
+                    <input disabled value="Save" id="submit2" type="submit" name="PricingSave" onclick="checkPricing()">
                 </div>
                 <div>
                     <label style="color:rgb(0, 112, 15);" id="updatedPricing"></label>
@@ -251,6 +275,7 @@ if (isset($_POST['save'])) {
             <div style="clear: both;"></div>
         </div>
     </div>
+    <hr style="height: 10px;">
     <div class="ur-form-row">
         <div class="ur-form-grid ur-grid-1" style="width: 48%;">
             <div>
@@ -270,10 +295,11 @@ if (isset($_POST['save'])) {
                         <label style="color:#FF0000;" id="errorLabel3"></label>
                     </div>
                     <input disabled type="file" id="myfile" name="myfile" multiple>
+
                 </div>
             </div>
-            <div class="ur-button-container">
-                <input disabled onclick="checkUpload()" value="Upload" id="submit3" type="submit">
+            <div class="ur-button-container ">
+                <input disabled onclick="checkUpload()" value="Upload" name="upload" id="submit3" type="submit">
             </div><br><br>
             <div>
                 <label style="color:rgb(0, 112, 15);" id="updatedUploads"></label>
@@ -282,13 +308,14 @@ if (isset($_POST['save'])) {
             <input name="ur-user-form-id" type="hidden" value="5882" />
             <input name="ur-redirect-url" type="hidden" value="" />
             <input id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" type="hidden" value="5db8c0f987" />
+
         </form>
         <div style="clear: both;"></div>
     </div>
     <hr style="height: 10px;background-color:black">
     <form method="post" action="https://icertify.net.au/">
         <div class="ur-button-container ">
-            <input onclick="saveAndLogout()" value="Save and Logout" id="submit4" type="submit">
+            <input onclick="saveAndLogout()" value="Save and Logout" name="LogoutSave" id="submit4" type="submit">
         </div>
         <div>
             <label style="color:#FF0000;" id="finalErrorCheck"></label>
@@ -315,17 +342,20 @@ if (isset($_POST['save'])) {
     upper.addEventListener("input", function() {
         rangeDisplay.innerHTML = "$" + lower.value + " - $" + upper.value;
     }, false);
+
     function disableTextBox() {
         var element = document.getElementById("pricingFixedTextBox");
         element.value = "";
         element.disabled = true;
     }
+
     function disableRangeSlider() {
         var rangeElement = document.querySelectorAll('input[type="range"]');
         for (var i = 0; i < rangeElement.length; i += 1) {
             rangeElement[i].disabled = true;
         }
     }
+
     function enableTextBox() {
         var element = document.getElementById("pricingFixedTextBox");
         if (element.value.length != 0) {
@@ -334,6 +364,7 @@ if (isset($_POST['save'])) {
             element.disabled = false;
         }
     }
+
     function enableRangeSlider() {
         var rangeElement = document.querySelectorAll('input[type="range"]');
         var element = document.querySelectorAll('input[type="radio"][id="variable"]:checked');
@@ -343,6 +374,7 @@ if (isset($_POST['save'])) {
             }
         }
     }
+
     function saveAndLogout() {
         var submit = document.getElementById("submit");
         var submit2 = document.getElementById("submit2");
@@ -365,6 +397,7 @@ if (isset($_POST['save'])) {
             clearInterval(intervalID);
         }
     }
+
     function formSubmission1() {
         var label = document.getElementById("updatedInfo");
         label.innerHTML = "*Information successfully updated!";
@@ -381,6 +414,7 @@ if (isset($_POST['save'])) {
     var abnCheck = 0;
     var checkboxCheck = 0;
     var radioCheck = 0;
+
     function checkedCheckbox() {
         var label = document.getElementById("errorLabel2");
         if (errors > 0) {
@@ -388,6 +422,7 @@ if (isset($_POST['save'])) {
         }
         label.innerHTML = "";
     }
+
     function validateSubmit() {
         var label = document.getElementById("errorLabel2");
         var len = document.querySelectorAll('.checkbox input[type="checkbox"]:checked').length;
@@ -400,6 +435,7 @@ if (isset($_POST['save'])) {
             event.preventDefault();
         }
     }
+
     function validateABN() {
         var abn = document.getElementById("ABN").value.length;
         var label = document.getElementById("errorLabel1");
@@ -412,6 +448,7 @@ if (isset($_POST['save'])) {
             errors = errors - abnCheck;
         }
     }
+
     function toggleEditOn() {
         var label = document.getElementById("updatedInfo");
         label.innerHTML = "";
@@ -420,6 +457,7 @@ if (isset($_POST['save'])) {
             inputs[i].disabled = false;
         }
     }
+
     function checkPricing() {
         var label = document.getElementById("errorLabel4");
         var len = document.querySelectorAll('input[type="radio"]:checked').length;
@@ -438,6 +476,7 @@ if (isset($_POST['save'])) {
                 return;
             }
         }
+
         if (pricePreferenceError > 0) {
             event.preventDefault();
         } else {
@@ -446,6 +485,7 @@ if (isset($_POST['save'])) {
             toggleEditOff("pricing");
         }
     }
+
     function checkedRadio() {
         var label = document.getElementById("errorLabel4");
         if (pricePreferenceError > 0) {
@@ -454,6 +494,7 @@ if (isset($_POST['save'])) {
         label.innerHTML = "";
         enableRangeSlider();
     }
+
     function checkUpload() {
         if (document.getElementById("myfile").value.length == 0) {
             var label = document.getElementById("errorLabel3");
@@ -466,6 +507,7 @@ if (isset($_POST['save'])) {
             clearInterval(intervalID);
         }
     }
+
     function toggleEditOff(formClass) {
         var inputs = document.querySelectorAll('.' + formClass + ' input');
         var len = document.querySelectorAll('input[disabled]').length;
@@ -473,6 +515,7 @@ if (isset($_POST['save'])) {
             inputs[i].disabled = true;
         }
     }
+
     function togglePricingEditOn() {
         var label = document.getElementById("updatedPricing");
         label.innerHTML = "";
@@ -485,6 +528,7 @@ if (isset($_POST['save'])) {
         enableTextBox();
         enableRangeSlider();
     }
+
     function toggleUploadingEditOn() {
         var label = document.getElementById("updatedUploads");
         label.innerHTML = "";
@@ -522,6 +566,48 @@ if (isset($_POST['save'])) {
             }
         }
     };
+
+    function getCheckdValue() {
+        checkboxes = document.querySelectorAll('input[name="CertificationsProvided"]:checked');
+        let values = [];
+        var string = ""
+        checkboxes.forEach((checkbox) => {
+            values.push(checkbox.value);
+        });
+        for (var i = 0; i < values.length; i++) {
+            if (i === (values.length - 1)) {
+                string += values[i];
+            } else {
+                string += values[i] + ",";
+            }
+        }
+        var hidden = document.getElementById("CertProvided");
+        hidden.value = string
+    }
+
+    function getServicesValue() {
+        checkboxes = document.querySelectorAll('input[name="AdditionalServices"]:checked');
+        other = document.getElementById('OTH');
+        let values = [];
+        var string = other.value;
+        checkboxes.forEach((checkbox) => {
+            values.push(checkbox.value);
+        });
+        for (var i = 0; i < values.length; i++) {
+            if (i === (values.length - 1)) {
+                string += values[i];
+            } else {
+                string += values[i] + ", ";
+            }
+        }
+        var addServices = document.getElementById("addServices");
+        addServices.value = string
+    }
+
+    function demo() {
+        getCheckdValue();
+        getServicesValue();
+    }
 </script>
 <?php
 ?>
