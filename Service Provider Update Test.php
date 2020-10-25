@@ -1,48 +1,4 @@
 <?php
-session_start();
-if (isset($_POST['save'])) {
-    global $wpdb;
-    $LoginEmail = $_SESSION['LoginEmail'];
-    $OrganisationName = $_GET['OrganisationName'];
-    $ContactName = $_GET['ContactName'];
-    $PositionTitle = $_GET['PositionTitle'];
-    $NoOfEmployees = $_SESSION['NoOfEmployees'];
-    $ABNNo = $_SESSION['ABNNo'];
-    $ContactEmail = $_SESSION['ContactEmail'];
-    $Mobile = $_SESSION['Mobile'];
-    $Telephone = $_SESSION['Telephone'];
-    $HeadOfficeAddress = $_SESSION['HeadOfficeAddress'];
-    $AverageOfYearlyCert = $_SESSION['AverageOfYearlyCert'];
-    $NoOfPhysicalLocationsInAus = $_SESSION['NoOfPhysicalLocationsInAus'];
-    $NoOfPhysicalLocationsOutAus = $_SESSION['NoOfPhysicalLocationsOutAus'];
-    $CertProvided = $_POST['CertProvided'];
-    $addServices = $_POST['addServices'];
-    $PricingType = $_SESSION['PricingType'];
-    $FixedValue = $_SESSION['FixedValue'];
-    $MinPrice = $_SESSION['MinPrice'];
-    $MaxPrice = $_SESSION['MaxPrice'];
-    $data = array(
-        'OrganisationName' => $OrganisationName,
-        'ContactName' => $ContactName,
-        'PositionTitle' => $PositionTitle,
-        'NoOfEmployees' => $NoOfEmployees,
-        'ABNNo' => $ABNNo,
-        'ContactEmail' => $ContactEmail,
-        'Mobile' => $Mobile,
-        'Telephone' => $Telephone,
-        'HeadOfficeAddress' => $HeadOfficeAddress,
-        'AverageOfYearlyCert' => $AverageOfYearlyCert,
-        'NoOfPhysicalLocationsInAus' => $NoOfPhysicalLocationsInAus,
-        'NoOfPhysicalLocationsOutAus' => $NoOfPhysicalLocationsOutAus,
-        'CertificationsProvided' => $CertProvided,
-        'AdditionalServices' => $addServices
-    );
-    $table = 'Supplier';
-    $where = array('LoginEmail' => $LoginEmail);
-    $wpdb->update($table, $data, $where, $format = NULL);
-    session_destroy();
-    die;
-}
 ?>
 <div class="user-registration ur-frontend-form" id="user-registration-form-5914">
     <div class="ur-form-row">
@@ -308,7 +264,7 @@ if (isset($_POST['save'])) {
     </div>
     <hr style="height: 10px;background-color:black">
     <form method="post">
-        <div onclick="phpFunction()" class="ur-button-container ">
+        <div class="ur-button-container ">
             <input onclick="saveAndLogout()" value="Save and Logout" name="LogoutSave" id="submit4" type="submit">
         </div>
         <div>
@@ -438,6 +394,8 @@ if (isset($_POST['save'])) {
     }
 
     function validateSubmit() {
+        sessionStorage.setItem("OrganisationName", document.getElementById("ON"));
+        sessionStorage.setItem("ContactName", document.getElementById("CN"));
         var label = document.getElementById("errorLabel2");
         var len = document.querySelectorAll('.checkbox input[type="checkbox"]:checked').length;
         if (len === 0) {
@@ -623,45 +581,25 @@ if (isset($_POST['save'])) {
         getServicesValue();
     }
 </script>
+
+
+
 <?php 
+session_start();
+
 if(isset($_POST['LogoutSave'])) {
-    global $wpdb;
-$results = $wpdb->get_results("select * from Test Where OrganisationName='1@g.com'");
-print_r($results[0]);
-$oldOrg='1@g.com';
-$OrganisationName=$_POST['OrganisationName'];
-
-// global $OrganisationName = $_POST['OrganisationName'];
-// global $ContactName = $_POST['ContactName'];
-
-// echo "<script type='text/javascript'> 
-//     $OrganisationName=document.getElementById('ON').value;
-//     $ContactName=document.getElementById('CN').value;
-//      </script>"; 
+    global $wpdb; 
+    $OrganisationName =  "<script type=\'text/javascript\'>
+    alert(sessionStorage.getItem('OrganisationName'));                
+    document.write(sessionStorage.getItem('OrganisationName'));
+</script>";
 
 $data = array(
     'OrganisationName' => $OrganisationName
 );
-$table = 'Test';
-$where = array('OrganisationName' => $oldOrg);
+$table = 'Supplier';
+$where = array('LoginEmail' => $_SESSION['LoginEmail']);
 $wpdb->update($table, $data, $where, $format = NULL);
 
 }
-//  if(isset($_POST['LogoutSave'])) { 
-//     echo "<script type='text/javascript'> 
-//      alert('Coding is great!');
-//      </script>"; 
-// } 
-
-
-// function phpFunction(){
-//     $run = 3; 
-//     if($run>1){ 
-//      echo "<script type='text/javascript'> 
-//      alert('Coding is great!');
-//      </script>"; 
-//     } 
-//     else 
-//     echo "The condition has not been satisfied"; 
-// }
 ?>

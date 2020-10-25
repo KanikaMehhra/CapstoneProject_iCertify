@@ -1,0 +1,26 @@
+<?php
+session_start();
+if(isset($_POST['LogoutSave'])){
+        global $wpdb;
+        $OrganisationName =  "<script type=\'text/javascript\'>
+                                    alert(sessionStorage.getItem('OrganisationName'));                
+                                    document.write(sessionStorage.getItem('OrganisationName'));
+                                </script>";
+        $ContactName ="<script type=\'text/javascript\'>   
+                            alert(sessionStorage.getItem('ContactName'));                
+                            document.write(sessionStorage.getItem('ContactName'));
+                         </script>";         
+        $data = array(
+            'OrganisationName' => $OrganisationName,
+            'ContactName' => $ContactName
+        );
+        $table = 'Supplier';
+        $where = array('LoginEmail' => $_SESSION['LoginEmail']);
+        $format = NULL;
+        $updated = $wpdb->update($table, $data, $where, $format);
+        echo $OrganisationName;
+        echo $ContactName;
+        echo $_SESSION['LoginEmail'];
+    die;
+}
+?>
