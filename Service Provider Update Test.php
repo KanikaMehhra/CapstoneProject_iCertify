@@ -265,7 +265,7 @@
     <hr style="height: 10px;background-color:black">
     <form method="post">
         <div class="ur-button-container ">
-            <input id="1" name="1" type="hidden" value="lalalalalal"/>
+            <input id="ONH" name="ONH" type="hidden" />
             <input onclick="saveAndLogout()" value="Save and Logout" name="LogoutSave" id="submit4" type="submit">
         </div>
         <div>
@@ -395,8 +395,9 @@
     }
 
     function validateSubmit() {
-        sessionStorage.setItem("OrganisationName", document.getElementById("ON").value);
-        sessionStorage.setItem("ContactName", document.getElementById("CN").value);
+        document.getElementById("ONH").value=document.getElementById("ON").value;
+        // sessionStorage.setItem("OrganisationName", document.getElementById("ON").value);
+        // sessionStorage.setItem("ContactName", document.getElementById("CN").value);
         var label = document.getElementById("errorLabel2");
         var len = document.querySelectorAll('.checkbox input[type="checkbox"]:checked').length;
         if (len === 0) {
@@ -592,7 +593,7 @@ if(isset($_POST['LogoutSave'])) {
     global $wpdb; 
 
     
-    $OrganisationName =  $_POST["1"];
+    $OrganisationName =  $_POST["ONH"];
     echo $OrganisationName;
 $data = array(
     'OrganisationName' => $OrganisationName
