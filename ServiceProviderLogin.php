@@ -33,7 +33,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['FixedValue'] = $results[0]->FixedValue;
                 $_SESSION['MinPrice'] = $results[0]->MinPrice;
                 $_SESSION['MaxPrice'] = $results[0]->MaxPrice;
-                header("Location: https://icertify.net.au/service-provider/service-provider-login/service-provider-details/");
+                header("Location: https://icertify.net.au/service-provider/service-provider-login/service-provider-update-test/");
             } else {
                 echo 'The password is inccorrect.';
             }
@@ -68,6 +68,7 @@ if (isset($_POST['login'])) {
             </div>
         </div>
     </form>
+    <a href="https://icertify.net.au/otp-verification-code/">Forgot Password </a>
 </div>
 <?php
 ?>
