@@ -145,7 +145,7 @@
             </div>
             <div class="ur-form-row">
                 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                    <input disabled type="checkbox" id="Demo" name="Demo" oninput="demo()"><b>By signing up I agree to
+                    <input disabled type="checkbox" id="Demo" name="Demo"><b>By signing up I agree to
                         the <a href="https://icertify.net.au/terms-and-conditions-for-service-providers/" target="_blank">terms of service and privacy policy.</a></b>
                     <input type="hidden" id="CertProvided" name="CertProvided">
                     <input type="hidden" id="addServices" name="addServices">
@@ -266,6 +266,19 @@
     <form method="post">
         <div class="ur-button-container ">
             <input id="ONH" name="ONH" type="hidden" />
+            <input id="CNH" name="CNH" type="hidden" />
+            <input id="PTH" name="PTH" type="hidden" />
+            <input id="NEH" name="NEH" type="hidden" />
+            <input id="ABNH" name="ABNH" type="hidden" />
+            <input id="EH" name="EH" type="hidden" />
+            <input id="MOBH" name="MOBH" type="hidden" />
+            <input id="TELH" name="TELH" type="hidden" />
+            <input id="HOLH" name="HOLH" type="hidden" />
+            <input id="AVGH" name="AVGH" type="hidden" />
+            <input id="PLIH" name="PLIH" type="hidden" />
+            <input id="PLOH" name="PLOH" type="hidden" />
+            <input id="CSH" name="CSH" type="hidden" />
+            <input id="ASD" name="ASD" type="hidden" />
             <input onclick="saveAndLogout()" value="Save and Logout" name="LogoutSave" id="submit4" type="submit">
         </div>
         <div>
@@ -395,7 +408,33 @@
     }
 
     function validateSubmit() {
+        demo();
         document.getElementById("ONH").value=document.getElementById("ON").value;
+        document.getElementById("CNH").value=document.getElementById("CN").value;
+        document.getElementById("PTH").value=document.getElementById("PT").value;
+        document.getElementById("NEH").value=document.getElementById("NOE").value;
+        document.getElementById("ABNH").value=document.getElementById("ABN").value;
+        document.getElementById("EH").value=document.getElementById("EMAIL").value;
+        document.getElementById("MOBH").value=document.getElementById("MOB").value;
+        document.getElementById("TELH").value=document.getElementById("TEL").value;
+        document.getElementById("HOLH").value=document.getElementById("HOL").value;
+        document.getElementById("AVGH").value=document.getElementById("ACA").value;
+        document.getElementById("PLIH").value=document.getElementById("LIA").value;
+        document.getElementById("PLOH").value=document.getElementById("AOA").value;
+        document.getElementById("CSH").value=document.getElementById("CertProvided").value;
+        document.getElementById("ASD").value=document.getElementById("addServices").value;
+        
+
+
+
+
+
+
+
+
+
+
+
         // sessionStorage.setItem("OrganisationName", document.getElementById("ON").value);
         // sessionStorage.setItem("ContactName", document.getElementById("CN").value);
         var label = document.getElementById("errorLabel2");
@@ -594,9 +633,35 @@ if(isset($_POST['LogoutSave'])) {
 
     
     $OrganisationName =  $_POST["ONH"];
+    $ContactName =  $_POST["CNH"];
+    $PositionTitle =  $_POST["PTH"];
+    $NoOfEmployees =  $_POST["NEH"];
+    $ABNNo =  $_POST["ABNH"];
+    $ContactEmail =  $_POST["EH"];
+    $Mobile =  $_POST["MOBH"];
+    $Telephone =  $_POST["TELH"];
+    $HeadOfficeAddress =  $_POST["HOLH"];
+    $AverageOfYearlyCert =  $_POST["AVGH"];
+    $NoOfPhysicalLocationsInAus =  $_POST["PLIH"];
+    $NoOfPhysicalLocationsOutAus =  $_POST["PLOH"];
+    $CertificationsProvided =  $_POST["CSH"];
+    $AdditionalServices =  $_POST["ASD"];
     echo $OrganisationName;
 $data = array(
-    'OrganisationName' => $OrganisationName
+    'OrganisationName' => $OrganisationName,
+    'ContactName' => $ContactName,
+    'PositionTitle' => $PositionTitle,
+    'NoOfEmployees' => $NoOfEmployees,
+    'ABNNo' => $ABNNo,
+    'ContactEmail' => $ContactEmail,
+    'Mobile' => $Mobile,
+    'Telephone' => $Telephone,
+    'HeadOfficeAddress' => $HeadOfficeAddress,
+    'AverageOfYearlyCert' => $AverageOfYearlyCert,
+    'NoOfPhysicalLocationsInAus' => $NoOfPhysicalLocationsInAus,
+    'NoOfPhysicalLocationsOutAus' => $NoOfPhysicalLocationsOutAus,
+    'CertificationsProvided' => $CertificationsProvided,
+    'AdditionalServices' => $AdditionalServices,
 );
 $table = 'Supplier';
 $where = array('LoginEmail' => $_SESSION['LoginEmail']);
