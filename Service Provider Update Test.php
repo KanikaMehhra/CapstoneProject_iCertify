@@ -145,7 +145,7 @@
             </div>
             <div class="ur-form-row">
                 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                    <input disabled type="checkbox" id="Demo" name="Demo"><b>By signing up I agree to
+                    <input disabled type="checkbox" id="Demo" name="Demo" checked><b>By signing up I agree to
                         the <a href="https://icertify.net.au/terms-and-conditions-for-service-providers/" target="_blank">terms of service and privacy policy.</a></b>
                     <input type="hidden" id="CertProvided" name="CertProvided">
                     <input type="hidden" id="addServices" name="addServices">
@@ -265,20 +265,25 @@
     <hr style="height: 10px;background-color:black">
     <form method="post">
         <div class="ur-button-container ">
-            <input id="ONH" name="ONH" type="hidden" />
-            <input id="CNH" name="CNH" type="hidden" />
-            <input id="PTH" name="PTH" type="hidden" />
-            <input id="NEH" name="NEH" type="hidden" />
-            <input id="ABNH" name="ABNH" type="hidden" />
-            <input id="EH" name="EH" type="hidden" />
-            <input id="MOBH" name="MOBH" type="hidden" />
-            <input id="TELH" name="TELH" type="hidden" />
-            <input id="HOLH" name="HOLH" type="hidden" />
-            <input id="AVGH" name="AVGH" type="hidden" />
-            <input id="PLIH" name="PLIH" type="hidden" />
-            <input id="PLOH" name="PLOH" type="hidden" />
-            <input id="CSH" name="CSH" type="hidden" />
-            <input id="ASD" name="ASD" type="hidden" />
+            <input id="ONH" name="ONH" type="hidden" value="<?php echo $_SESSION['OrganisationName']; ?>"/>
+            <input id="CNH" name="CNH" type="hidden" value="<?php echo $_SESSION['ContactName']; ?>"/>
+            <input id="PTH" name="PTH" type="hidden" value="<?php echo $_SESSION['PositionTitle']; ?>"/>
+            <input id="NEH" name="NEH" type="hidden" value="<?php echo $_SESSION['NoOfEmployees']; ?>"/>
+            <input id="ABNH" name="ABNH" type="hidden" value="<?php echo $_SESSION['ABNNo']; ?>"/>
+            <input id="EH" name="EH" type="hidden" value="<?php echo $_SESSION['ContactEmail']; ?>"/>
+            <input id="MOBH" name="MOBH" type="hidden" value="<?php echo $_SESSION['Mobile']; ?>"/>
+            <input id="TELH" name="TELH" type="hidden" value="<?php echo $_SESSION['Telephone']; ?>"/>
+            <input id="HOLH" name="HOLH" type="hidden" value="<?php echo $_SESSION['HeadOfficeAddress']; ?>"/>
+            <input id="AVGH" name="AVGH" type="hidden" value="<?php echo $_SESSION['AverageOfYearlyCert']; ?>"/>
+            <input id="PLIH" name="PLIH" type="hidden" value="<?php echo $_SESSION['NoOfPhysicalLocationsInAus']; ?>"/>
+            <input id="PLOH" name="PLOH" type="hidden" value="<?php echo $_SESSION['NoOfPhysicalLocationsOutAus']; ?>"/>
+            <input id="CSH" name="CSH" type="hidden" value="<?php echo $_SESSION['CertificationsProvided']; ?>"/>
+            <input id="ASD" name="ASD" type="hidden"  value="<?php echo $_SESSION['AdditionalServices']; ?>"/>
+            <input id="PPH" name="PPH" type="hidden" />
+            <input id="LH" name="LH" type="hidden" />
+            <input id="UH" name="UH" type="hidden" />
+            <input id="FVH" name="FVH" type="hidden" />
+
             <input onclick="saveAndLogout()" value="Save and Logout" name="LogoutSave" id="submit4" type="submit">
         </div>
         <div>
@@ -311,6 +316,18 @@
             }
             flag=true;           
         }
+    }
+
+    //set the value of the pricing preference
+    var myvar2='<?php echo $_SESSION['PricingType']; ?>';
+    var myvar2=myvar2.toLowerCase();
+    if(myvar2=="variable"){
+        document.getElementById(myvar2).checked=true;
+        document.getElementById("lower").value='<?php echo $_SESSION['MinPrice']; ?>'
+        document.getElementById("upper").value='<?php echo $_SESSION['MaxPrice']; ?>'
+    }else if(myvar2=="fixed"){
+        document.getElementById(myvar2).checked=true;
+        document.getElementById("pricingFixedTextBox").value='<?php echo $_SESSION['FixedValue']; ?>'
     }
 
     function checkBaseHourlyRate() {
@@ -502,6 +519,15 @@
             var label = document.getElementById("updatedPricing");
             label.innerHTML = "*Information successfully updated!";
             toggleEditOff("pricing");
+            var pricingType=document.querySelectorAll('input[type="radio"]:checked')[0].value;
+            var nameCapitalized = pricingType.charAt(0).toUpperCase() + pricingType.slice(1);
+            document.getElementById("PPH").value=nameCapitalized;
+            if(nameCapitalized=="Fixed"){
+                document.getElementById("FVH").value=document.getElementById("pricingFixedTextBox").value;
+            }else if(nameCapitalized=="Variable"){
+                document.getElementById("LH").value=document.getElementById("lower").value;
+                document.getElementById("UH").value=document.getElementById("upper").value;
+            }         
         }
     }
 
@@ -655,6 +681,10 @@ if(isset($_POST['LogoutSave'])) {
     $NoOfPhysicalLocationsOutAus =  $_POST["PLOH"];
     $CertificationsProvided =  $_POST["CSH"];
     $AdditionalServices =  $_POST["ASD"];
+    $PricingType =  $_POST["PPH"];
+    $FixedValue =  $_POST["FVH"];
+    $MinPrice =  $_POST["LH"];
+    $MaxPrice =  $_POST["UH"];
     echo $OrganisationName;
 $data = array(
     'OrganisationName' => $OrganisationName,
@@ -671,6 +701,10 @@ $data = array(
     'NoOfPhysicalLocationsOutAus' => $NoOfPhysicalLocationsOutAus,
     'CertificationsProvided' => $CertificationsProvided,
     'AdditionalServices' => $AdditionalServices,
+    'PricingType' => $PricingType,
+    'FixedValue' => $FixedValue,
+    'MinPrice' => $MinPrice,
+    'MaxPrice' => $MaxPrice
 );
 $table = 'Supplier';
 $where = array('LoginEmail' => $_SESSION['LoginEmail']);
