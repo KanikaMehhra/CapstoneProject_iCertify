@@ -197,10 +197,11 @@
                                     <li>
                                         <div id="rangeDisplay"></div>
                                         <span class="multi-range">
-                                            <input disabled style="top:40px; z-index:1;" type="range" min="20" max="2000" value="20" id="lower" step="5" name="MinPrice">
+                                            <input disabled type="range" min="20" max="2000" value="20" id="lower" step="5" name="MinPrice">
                                             <input disabled type="range" min="20" max="2000" value="2000" id="upper" step="5" name="MaxPrice">
                                         </span>
                                     </li>
+                                    <br>
                                     <div onclick="disableRangeSlider()">
                                         <li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="fixed" class="input-radio ur-frontend-field" name="PricingType" type="radio" value="fixed" /> <label class="radio" for="fixed">Fixed</label></li>
                                     </div>
