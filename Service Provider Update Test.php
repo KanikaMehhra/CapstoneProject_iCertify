@@ -298,12 +298,18 @@
     //setting the additionl services
     var myvar1='<?php echo $_SESSION['AdditionalServices']; ?>';
     var addSerArray=myvar1.split(",");
+    var flag=false;
     for(var i=0;i<addSerArray.length;i++){
         var elm=document.getElementById(addSerArray[i]);
         if(elm!=null){
             document.getElementById(addSerArray[i]).checked=true;
         }else{
-            document.getElementById("OTH").value=addSerArray[i];
+            if(!flag){
+                document.getElementById("OTH").value=addSerArray[i];
+            }else{
+                document.getElementById("OTH").value+=","+addSerArray[i];
+            }
+            flag=true;           
         }
     }
 
@@ -602,7 +608,10 @@
         checkboxes = document.querySelectorAll('input[name="AdditionalServices"]:checked');
         other = document.getElementById('OTH');
         let values = [];
-        var string = other.value;
+        var string="";
+        if(other.value.length!==0){
+            string+= other.value+",";
+        }      
         checkboxes.forEach((checkbox) => {
             values.push(checkbox.value);
         });
@@ -610,7 +619,7 @@
             if (i === (values.length - 1)) {
                 string += values[i];
             } else {
-                string += values[i] + ", ";
+                string += values[i] + ",";
             }
         }
         var addServices = document.getElementById("addServices");
