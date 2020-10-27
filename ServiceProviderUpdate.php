@@ -1,52 +1,5 @@
 <?php
 session_start();
-if (isset($_POST['logout'])) {
-    global $wpdb;
-    $LoginEmail = $_SESSION['LoginEmail'];
-    $OrganisationName = $_SESSION['OrganisationName'];
-    $ContactName = $_SESSION['ContactName'];
-    $PositionTitle = $_SESSION['PositionTitle'];
-    $NoOfEmployees = $_SESSION['NoOfEmployees'];
-    $ABNNo = $_SESSION['ABNNo'];
-    $ContactEmail = $_SESSION['ContactEmail'];
-    $Mobile = $_SESSION['Mobile'];
-    $Telephone = $_SESSION['Telephone'];
-    $HeadOfficeAddress = $_SESSION['HeadOfficeAddress'];
-    $AverageOfYearlyCert = $_SESSION['AverageOfYearlyCert'];
-    $NoOfPhysicalLocationsInAus = $_SESSION['NoOfPhysicalLocationsInAus'];
-    $NoOfPhysicalLocationsOutAus = $_SESSION['NoOfPhysicalLocationsOutAus'];
-    $CertProvided = $_POST['CertProvided'];
-    $addServices = $_POST['addServices'];
-    $PricingType = $_SESSION['PricingType'];
-    $FixedValue = $_SESSION['FixedValue'];
-    $MinPrice = $_SESSION['MinPrice'];
-    $MaxPrice = $_SESSION['MaxPrice'];
-    $data = array(
-        'OrganisationName' => $OrganisationName,
-        'ContactName' => $ContactName,
-        'PositionTitle' => $PositionTitle,
-        'NoOfEmployees' => $NoOfEmployees,
-        'ABNNo' => $ABNNo,
-        'ContactEmail' => $ContactEmail,
-        'Mobile' => $Mobile,
-        'Telephone' => $Telephone,
-        'HeadOfficeAddress' => $HeadOfficeAddress,
-        'AverageOfYearlyCert' => $AverageOfYearlyCert,
-        'NoOfPhysicalLocationsInAus' => $NoOfPhysicalLocationsInAus,
-        'NoOfPhysicalLocationsOutAus' => $NoOfPhysicalLocationsOutAus,
-        'CertificationsProvided' => $CertProvided,
-        'AdditionalServices' => $addServices,
-        'PricingType' => $PricingType,
-        'FixedValue' => $FixedValue,
-        'MinPrice' => $MinPrice,
-        'MaxPrice' => $MaxPrice
-    );
-    $table = 'Supplier';
-    $where = array('LoginEmail' => $LoginEmail);
-    $wpdb->update($table, $data, $where, $format = NULL);
-    session_destroy();
-    die;
-}
 ?>
 <div class="user-registration ur-frontend-form" id="user-registration-form-5914">
     <div class="ur-form-row">
@@ -127,41 +80,40 @@ if (isset($_POST['logout'])) {
                         <table class="checkbox">
                             <tr>
                                 <td colspan="2" id="CP"> <b> Selected Certifications Provided: </b>
-                                    <p><?php echo $_SESSION['CertificationsProvided']; ?></p>
                                 </td>
                                 <label style="color:#FF0000;" id="errorLabel2"></label>
                             </tr>
                             <tr>
                                 <td>Quality</td>
-                                <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="Q" name="CertificationsProvided" value="Quality"></td>
+                                <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="Quality" name="CertificationsProvided" value="Quality"></td>
                             </tr>
                             <tr>
                                 <td>Workplace Health And Safety</td>
-                                <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="WHS" name="CertificationsProvided" value="Workplace Health And Safety"></td>
+                                <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="Workplace Health And Safety" name="CertificationsProvided" value="Workplace Health And Safety"></td>
                             </tr>
                             <tr>
                                 <td>Environmental Sustainability</td>
-                                <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="ES" name="CertificationsProvided" value="Environmental Sustainability"></td>
+                                <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="Environmental Sustainability" name="CertificationsProvided" value="Environmental Sustainability"></td>
                             </tr>
                             <tr>
                                 <td>Sourcing Practices</td>
-                                <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="SP" name="CertificationsProvided" value="Sourcing Practices"></td>
+                                <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="Sourcing Practices" name="CertificationsProvided" value="Sourcing Practices"></td>
                             </tr>
                             <tr>
                                 <td>Supply Chain Monitoring</td>
-                                <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="SM" name="CertificationsProvided" value="Supply Chain Monitoring"></td>
+                                <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="Supply Chain Monitoring" name="CertificationsProvided" value="Supply Chain Monitoring"></td>
                             </tr>
                             <tr>
                                 <td>Energy Management</td>
-                                <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="EM" name="CertificationsProvided" value="Energy Management"></td>
+                                <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="Energy Management" name="CertificationsProvided" value="Energy Management"></td>
                             </tr>
                             <tr>
                                 <td>Corporate Social Responsibility</td>
-                                <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="CSR" name="CertificationsProvided" value="Corporate Social Responsibility"></td>
+                                <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="Corporate Social Responsibility" name="CertificationsProvided" value="Corporate Social Responsibility"></td>
                             </tr>
                             <tr>
                                 <td>Sustainability Reporting</td>
-                                <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="SR" name="CertificationsProvided" value="Sustainability Reporting"></td>
+                                <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="Sustainability Reporting" name="CertificationsProvided" value="Sustainability Reporting"></td>
                             </tr>
                         </table>
                     </div>
@@ -173,16 +125,15 @@ if (isset($_POST['logout'])) {
                         <table class="checkbox">
                             <tr>
                                 <td colspan="2" id="CP"> <b> Selected Additional services: </b>
-                                    <p><?php echo $_SESSION['AdditionalServices']; ?></p>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Remote audit</td>
-                                <td><input disabled type="checkbox" id="RA" name="AdditionalServices" value="Remote audit"></td>
+                                <td><input disabled type="checkbox" id="Remote audit" name="AdditionalServices" value="Remote audit"></td>
                             </tr>
                             <tr>
                                 <td>Gap audit</td>
-                                <td><input disabled type="checkbox" id="GA" name="AdditionalServices" value="Gap audit">
+                                <td><input disabled type="checkbox" id="Gap audit" name="AdditionalServices" value="Gap audit">
                                 </td>
                             </tr>
                             <tr>
@@ -195,7 +146,7 @@ if (isset($_POST['logout'])) {
             </div>
             <div class="ur-form-row">
                 <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-                    <input disabled type="checkbox" id="Demo" name="Demo" oninput="demo()"><b>By signing up I agree to
+                    <input disabled required type="checkbox" id="Demo" name="Demo" oninput="demo()"><b>By signing up I agree to
                         the <a href="https://icertify.net.au/terms-and-conditions-for-service-providers/" target="_blank">terms of service and privacy policy.</a></b>
                     <input type="hidden" id="CertProvided" name="CertProvided">
                     <input type="hidden" id="addServices" name="addServices">
@@ -226,7 +177,6 @@ if (isset($_POST['logout'])) {
                 </div>
             </div>
             <div onclick="togglePricingEditOn()">
-                <!-- <button onclick="togglePricingEditOn()">click</button> -->
                 <i class="fa fa-edit"></i>
             </div>
         </div>
@@ -299,7 +249,7 @@ if (isset($_POST['logout'])) {
                 </div>
             </div>
             <div class="ur-button-container ">
-                <input disabled onclick="checkUpload()" value="Upload" name="upload" id="submit3" type="submit">
+                <input disabled onclick="checkUpload()" value="Upload" name="uploadSave" id="submit3" type="submit">
             </div><br><br>
             <div>
                 <label style="color:rgb(0, 112, 15);" id="updatedUploads"></label>
@@ -313,8 +263,26 @@ if (isset($_POST['logout'])) {
         <div style="clear: both;"></div>
     </div>
     <hr style="height: 10px;background-color:black">
-    <form method="post" action="https://icertify.net.au/">
+    <form method="post">
         <div class="ur-button-container ">
+            <input id="ONH" name="ONH" type="hidden" />
+            <input id="CNH" name="CNH" type="hidden" />
+            <input id="PTH" name="PTH" type="hidden" />
+            <input id="NEH" name="NEH" type="hidden" />
+            <input id="ABH" name="ABH" type="hidden" />
+            <input id="EMH" name="EMH" type="hidden" />
+            <input id="MOH" name="MOH" type="hidden" />
+            <input id="TEH" name="TEH" type="hidden" />
+            <input id="HOH" name="HOH" type="hidden" />
+            <input id="ACH" name="ACH" type="hidden" />
+            <input id="LIH" name="LIH" type="hidden" />
+            <input id="LOH" name="LOH" type="hidden" />
+            <input id="CPH" name="CPH" type="hidden" />
+            <input id="ASH" name="ASH" type="hidden" />
+            <input id="PTH" name="PTH" type="hidden" />
+            <input id="FVH" name="FVH" type="hidden" />
+            <input id="LPH" name="LPH" type="hidden" />
+            <input id="UPH" name="UPH" type="hidden" />
             <input onclick="saveAndLogout()" value="Save and Logout" name="LogoutSave" id="submit4" type="submit">
         </div>
         <div>
@@ -322,7 +290,27 @@ if (isset($_POST['logout'])) {
         </div>
     </form>
 </div>
+
 <script>
+    //setting the certifications
+    var myvar='<?php echo $_SESSION['CertificationsProvided']; ?>';
+    var certArray=myvar.split(",");
+    for(var i=0;i<certArray.length;i++){
+        document.getElementById(certArray[i]).checked=true;
+    }
+
+    //setting the additionl services
+    var myvar1='<?php echo $_SESSION['AdditionalServices']; ?>';
+    var addSerArray=myvar1.split(",");
+    for(var i=0;i<addSerArray.length;i++){
+        var elm=document.getElementById(addSerArray[i]);
+        if(elm!=null){
+            document.getElementById(addSerArray[i]).checked=true;
+        }else{
+            document.getElementById("OTH").value=addSerArray[i];
+        }
+    }
+
     function checkBaseHourlyRate() {
         var errorLabel = document.getElementById("checkBaseHourlyRate");
         var element = document.getElementById("pricingFixedTextBox");
@@ -422,8 +410,23 @@ if (isset($_POST['logout'])) {
         }
         label.innerHTML = "";
     }
-
     function validateSubmit() {
+        document.getElementById("ONH").value=document.getElementById("ON").value;
+        document.getElementById("CNH").value=document.getElementById("CN").value;
+        document.getElementById("PTH").value=document.getElementById("PT").value;
+        document.getElementById("NEH").value=document.getElementById("NOE").value;
+        document.getElementById("ABH").value=document.getElementById("ABN").value;
+        document.getElementById("EMH").value=document.getElementById("EMAIL").value;
+        document.getElementById("MOH").value=document.getElementById("MOB").value;
+        document.getElementById("TEH").value=document.getElementById("TEL").value;
+        document.getElementById("HOH").value=document.getElementById("HOL").value;
+        document.getElementById("ACH").value=document.getElementById("ACA").value;
+        document.getElementById("LIH").value=document.getElementById("LIA").value;
+        document.getElementById("LOH").value=document.getElementById("AOA").value;
+        document.getElementById("CPH").value=document.getElementById("CertProvided").value;
+        document.getElementById("ASH").value=document.getElementById("addServices").value;
+        // sessionStorage.setItem("OrganisationName", document.getElementById("ON").value);
+        // sessionStorage.setItem("ContactName", document.getElementById("CN").value);
         var label = document.getElementById("errorLabel2");
         var len = document.querySelectorAll('.checkbox input[type="checkbox"]:checked').length;
         if (len === 0) {
@@ -476,7 +479,6 @@ if (isset($_POST['logout'])) {
                 return;
             }
         }
-
         if (pricePreferenceError > 0) {
             event.preventDefault();
         } else {
@@ -485,7 +487,6 @@ if (isset($_POST['logout'])) {
             toggleEditOff("pricing");
         }
     }
-
     function checkedRadio() {
         var label = document.getElementById("errorLabel4");
         if (pricePreferenceError > 0) {
@@ -494,7 +495,6 @@ if (isset($_POST['logout'])) {
         label.innerHTML = "";
         enableRangeSlider();
     }
-
     function checkUpload() {
         if (document.getElementById("myfile").value.length == 0) {
             var label = document.getElementById("errorLabel3");
@@ -528,7 +528,6 @@ if (isset($_POST['logout'])) {
         enableTextBox();
         enableRangeSlider();
     }
-
     function toggleUploadingEditOn() {
         var label = document.getElementById("updatedUploads");
         label.innerHTML = "";
@@ -609,5 +608,31 @@ if (isset($_POST['logout'])) {
         getServicesValue();
     }
 </script>
-<?php
+
+
+
+<?php 
+if(isset($_POST['LogoutSave'])) {
+    global $wpdb;
+$data = array(
+    'OrganisationName' =>  $_POST["ONH"],
+    'ContactName' =>  $_POST["CNH"],
+    'PositionTitle' =>  $_POST["PTH"],
+    'NoOfEmployees' =>  $_POST["NEH"],
+    'ABNNo' =>  $_POST["ABH"],
+    'ContactEmail' =>  $_POST["EMH"],
+    'Mobile' =>  $_POST["MOH"],
+    'Telephone' =>  $_POST["TEH"],
+    'HeadOfficeAddress' =>  $_POST["HOH"],
+    'AverageOfYearlyCert' =>  $_POST["ACH"],
+    'NoOfPhysicalLocationsInAus' =>  $_POST["LIH"],
+    'NoOfPhysicalLocationsOutAus' =>  $_POST["LOH"],
+    'CertificationsProvided' =>  $_POST["CPH"],
+    'AdditionalServices' =>  $_POST["ASH"]
+);
+$table = 'Supplier';
+$where = array('LoginEmail' => $_SESSION['LoginEmail']);
+$wpdb->update($table, $data, $where, $format = NULL);
+die;
+}
 ?>
