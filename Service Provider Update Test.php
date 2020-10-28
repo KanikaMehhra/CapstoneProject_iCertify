@@ -280,10 +280,10 @@
             <input id="PLOH" name="PLOH" type="hidden" value="<?php echo $_SESSION['NoOfPhysicalLocationsOutAus']; ?>"/>
             <input id="CSH" name="CSH" type="hidden" value="<?php echo $_SESSION['CertificationsProvided']; ?>"/>
             <input id="ASD" name="ASD" type="hidden"  value="<?php echo $_SESSION['AdditionalServices']; ?>"/>
-            <input id="PPH" name="PPH" type="hidden" />
-            <input id="LH" name="LH" type="hidden" />
-            <input id="UH" name="UH" type="hidden" />
-            <input id="FVH" name="FVH" type="hidden" />
+            <input id="PPH" name="PPH" type="hidden" value="<?php echo $_SESSION['PricingType'];?>"/>
+            <input id="LH" name="LH" type="hidden" value="<?php echo $_SESSION['MinPrice'];?>"/>
+            <input id="UH" name="UH" type="hidden" value="<?php echo $_SESSION['MaxPrice'];?>"/>
+            <input id="FVH" name="FVH" type="hidden" value="<?php echo $_SESSION['FixedValue'];?>"/>
 
             <input onclick="saveAndLogout()" value="Save and Logout" name="LogoutSave" id="submit4" type="submit">
         </div>
@@ -665,12 +665,11 @@
 session_start();
 
 if(isset($_POST['LogoutSave'])) {
-    global $wpdb; 
-
-    
+    global $wpdb;   
     $OrganisationName =  $_POST["ONH"];
     $ContactName =  $_POST["CNH"];
     $PositionTitle =  $_POST["PTH"];
+    echo "alert($PositionTitle)";
     $NoOfEmployees =  $_POST["NEH"];
     $ABNNo =  $_POST["ABNH"];
     $ContactEmail =  $_POST["EH"];
@@ -709,6 +708,8 @@ $data = array(
 $table = 'Supplier';
 $where = array('LoginEmail' => $_SESSION['LoginEmail']);
 $wpdb->update($table, $data, $where, $format = NULL);
-
+header("Location:https://icertify.net.au/");
+session_destroy();
+die;
 }
 ?>

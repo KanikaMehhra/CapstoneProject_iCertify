@@ -16,7 +16,7 @@ session_start();
                         <td><input type="submit" name="submit" value="Verify OTP"></td>
                     </tr>
                 </table>
-                <a href="https://icertify.net.au/otp-verification-code/">Resend OTP</a>
+                <a style="color:#2271b1;" href="https://icertify.net.au/otp-verification-code/">Resend OTP</a>
             </div>
         </div>
     </form>

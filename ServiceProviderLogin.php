@@ -68,7 +68,7 @@ if (isset($_POST['login'])) {
             </div>
         </div>
     </form>
-    <a href="https://icertify.net.au/otp-verification-code/">Forgot Password </a>
+    <a href="https://icertify.net.au/otp-verification-code/" style="color:#2271b1;">Forgot Password </a>
 </div>
 <?php
 ?>

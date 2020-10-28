@@ -23,7 +23,7 @@
             </div>
         </div>
     </form>
-    <a href="https://icertify.net.au/otp-verification-code/">Forgot Password </a>
+    <a style="color:#2271b1;" href="https://icertify.net.au/service-provider/service-provider-login/otp-verification-code/">Forgot Password </a>
 </div>
 <script>
     var errors=0;
@@ -63,6 +63,7 @@ if(isset($_POST['submit'])) {
     $where = array('LoginEmail' => $LoginEmail);
     $wpdb->update($table, $data, $where, $format = NULL);
     header("Location:https://icertify.net.au/service-provider/service-provider-login/");
+    session_destroy();
     // echo '<pre>' . print_r($_SESSION, TRUE) ."\n". $Password."\n".$encodedpass.'</pre>';
 
 }
