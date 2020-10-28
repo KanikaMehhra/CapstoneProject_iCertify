@@ -48,7 +48,7 @@ if(isset($_POST['submit'])) {
 
         // send email
         wp_mail($LoginEmail,"Reset Password OTP",$msg);
-        // header("Location:https://icertify.net.au/");
+        header("Location:https://icertify.net.au/verify-otp/");
 
     }
     else{
