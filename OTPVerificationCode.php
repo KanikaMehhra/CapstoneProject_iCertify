@@ -1,4 +1,5 @@
 <?php
+session_start();
 ?>
 <div class="container">
     <form method="post">
@@ -41,7 +42,7 @@ if(isset($_POST['submit'])) {
         // the message
         $otp=generate_string($permitted_chars, 10);
         $msg="Dear customer, \n\nPlease enter the following OTP to verify your email in order to reset the password.\n\nOTP: " .$otp."\n\nThanks, \nCOMPLIANCE. EASY. \ncraig@icertify.net.au";
-
+        $_SESSION["otp"] = $otp;
 
         // use wordwrap() if lines are longer than 70 characters
         // $msg = wordwrap($msg,70);

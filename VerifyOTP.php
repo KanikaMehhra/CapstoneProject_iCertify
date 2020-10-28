@@ -1,4 +1,5 @@
 <?php
+session_start();
 ?>
 <div class="container">
     <form method="post">
@@ -22,4 +23,5 @@
     </form>
 </div>
 <?php
+echo $_SESSION["otp"];
 ?>
