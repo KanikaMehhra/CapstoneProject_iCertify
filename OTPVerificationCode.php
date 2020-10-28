@@ -33,16 +33,28 @@ function generate_string($input, $strength = 16) {
 }
 
 if(isset($_POST['submit'])) {
-    // the message
-$msg = generate_string($permitted_chars, 10);
+    global $wpdb;
+    // Select data
+    $LoginEmail =  $_POST["LoginEmail"];
+    echo $LoginEmail;
+    // $results = $wpdb->get_results("select * from Supplier Where LoginEmail='" . $LoginEmail . "'");
+    // print_r(count($results));
+    // if(count($results) == 1){
+        // the message
+        $msg = generate_string($permitted_chars, 10);
 
-// use wordwrap() if lines are longer than 70 characters
-$msg = wordwrap($msg,70);
+        // use wordwrap() if lines are longer than 70 characters
+        $msg = wordwrap($msg,70);
 
-// send email
-wp_mail("kanikamygov@gmail.com","My subject",$msg);
-echo $_SESSION['LoginEmail'];
-// header("Location:https://icertify.net.au/");
+        // send email
+        wp_mail("kanikamygov@gmail.com","My subject",$msg);
+        // echo $_SESSION['LoginEmail'];
+        // header("Location:https://icertify.net.au/");
+
+    // } 
+    // else{
+    //     echo "This login email is not registered. Register" "<a href=''> here</a> first.";
+    // }
 }
 
 
