@@ -23,21 +23,13 @@ session_start();
 </div>
 <?php
 echo $_SESSION["otp"];
-// echo $_REQUEST["otp"];
+echo $_POST['otp'];
 if(isset($_POST['submit'])) {
 if($_POST['otp']==$_SESSION["otp"]){
-    echo "MATCHED";
+    header("Location:https://icertify.net.au/reset-password/");
 }
 else{
     echo "<span style='color:#f44336;text-align:center;'>Incorrect OTP. Try again or click on Resend OTP above.</span>";
 }
 }
-    // if(isset($_POST['submit'])) {
-    //     if($_POST['otp']==$_SESSION["otp"]){
-    //         echo "MATCHED";
-    //     }
-        // else{
-        //     echo "<span style='color:#f44336;text-align:center;'>Incorrect OTP. Try again or click on Resend OTP below.</span>"
-        // }
-    // }
 ?>
