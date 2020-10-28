@@ -36,14 +36,11 @@ if(isset($_POST['submit'])) {
     global $wpdb;
     // Select data
     $LoginEmail =  $_POST["LoginEmail"];
-    echo $LoginEmail;
     $results = $wpdb->get_results("select * from Supplier Where LoginEmail='" . $LoginEmail . "'");
-    print_r(count($results));
     if(count($results) == 1){
         // the message
         $otp=generate_string($permitted_chars, 10);
         $msg="Dear customer, \n\nPlease enter the following OTP to verify your email in order to reset the password.\n\nOTP: " .$otp."\n\nThanks, \nCOMPLIANCE. EASY. \ncraig@icertify.net.au";
-        // $msg+= generate_string($permitted_chars, 10)+"\nThanks, \nCOMPLIANCE. EASY. \ncraig@icertify.net.au";
 
 
         // use wordwrap() if lines are longer than 70 characters
@@ -51,12 +48,11 @@ if(isset($_POST['submit'])) {
 
         // send email
         wp_mail($LoginEmail,"Reset Password OTP",$msg);
-        // echo $_SESSION['LoginEmail'];
         // header("Location:https://icertify.net.au/");
 
     }
     else{
-        echo "This login email is not registered. Register <a href=''>here</a> first.";
+        echo "<span style='color:#f44336;text-align:center;'>This login email is not registered. Register <a href='https://icertify.net.au/service-provider/service-provider-registeration/'>here</a> first.</span>";
     } 
 }
 
