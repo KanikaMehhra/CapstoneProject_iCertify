@@ -22,8 +22,6 @@ session_start();
     </form>
 </div>
 <?php
-echo $_SESSION["otp"];
-echo $_POST['otp'];
 if(isset($_POST['submit'])) {
 if($_POST['otp']==$_SESSION["otp"]){
     header("Location:https://icertify.net.au/reset-password/");
