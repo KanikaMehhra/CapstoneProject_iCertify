@@ -37,9 +37,9 @@ if(isset($_POST['submit'])) {
     // Select data
     $LoginEmail =  $_POST["LoginEmail"];
     echo $LoginEmail;
-    // $results = $wpdb->get_results("select * from Supplier Where LoginEmail='" . $LoginEmail . "'");
-    // print_r(count($results));
-    // if(count($results) == 1){
+    $results = $wpdb->get_results("select * from Supplier Where LoginEmail='" . $LoginEmail . "'");
+    print_r(count($results));
+    if(count($results) == 1){
         // the message
         $msg = generate_string($permitted_chars, 10);
 
@@ -51,7 +51,7 @@ if(isset($_POST['submit'])) {
         // echo $_SESSION['LoginEmail'];
         // header("Location:https://icertify.net.au/");
 
-    // } 
+    } 
     // else{
     //     echo "This login email is not registered. Register" "<a href=''> here</a> first.";
     // }
