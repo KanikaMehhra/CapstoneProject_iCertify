@@ -5,8 +5,7 @@ session_start();
     <form method="post">
         <div class="ur-form-row">
             <div class="ur-form-grid ur-grid-1" style="width: 48%;">
-            An OTP is emailed to the entered email address, if it is registered with iCertify.
-            <br>
+            <div><p>An OTP is emailed to the entered email address, if it is registered with iCertify.</p></div>
                 <table>
                     <tr>
                         <td>Enter OTP: </td>
@@ -17,7 +16,7 @@ session_start();
                         <td><input type="submit" name="submit" value="Verify OTP"></td>
                     </tr>
                 </table>
-                <a href="">Resend OTP</a>
+                <a href="https://icertify.net.au/otp-verification-code/">Resend OTP</a>
             </div>
         </div>
     </form>
