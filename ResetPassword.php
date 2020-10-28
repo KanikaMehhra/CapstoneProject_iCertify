@@ -8,7 +8,7 @@
                 <table>
                     <tr>
                         <td>Enter New Password: </td>
-                        <td><input minlength="8" id="Password" type="Password" name="password" required></td>
+                        <td><input minlength="8" id="Password" type="Password" name="Password" required></td>
                     </tr>
                     <tr>
                         <td>Confirm New Password: </td>
@@ -47,6 +47,22 @@ function validatePasswordMatch() {
 </script>
 <?php
 if(isset($_POST['submit'])) {
-    echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+    global $wpdb;
+    // Select data
+    $LoginEmail =  $_SESSION["LoginEmail"];
+    $results = $wpdb->get_results("select * from Supplier Where LoginEmail='" . $LoginEmail . "'");
+    
+    $Password=$_POST["Password"];
+    $salt = "8dC_9Kl?";
+    $encodedpass = md5($Password . $salt);
+
+    $data = array(
+        'Password' => $encodedpass
+    );
+    $table = 'Supplier';
+    $where = array('LoginEmail' => $LoginEmail);
+    $wpdb->update($table, $data, $where, $format = NULL);
+    // echo '<pre>' . print_r($_SESSION, TRUE) ."\n". $Password."\n".$encodedpass.'</pre>';
+
 }
 ?>

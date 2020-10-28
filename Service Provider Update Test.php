@@ -686,7 +686,6 @@ if(isset($_POST['LogoutSave'])) {
     $FixedValue =  $_POST["FVH"];
     $MinPrice =  $_POST["LH"];
     $MaxPrice =  $_POST["UH"];
-    echo $OrganisationName;
 $data = array(
     'OrganisationName' => $OrganisationName,
     'ContactName' => $ContactName,
