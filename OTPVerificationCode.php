@@ -47,7 +47,7 @@ if(isset($_POST['submit'])) {
         $msg = wordwrap($msg,70);
 
         // send email
-        wp_mail("kanikamygov@gmail.com","My subject",$msg);
+        wp_mail($LoginEmail,"My subject",$msg);
         // echo $_SESSION['LoginEmail'];
         // header("Location:https://icertify.net.au/");
 
