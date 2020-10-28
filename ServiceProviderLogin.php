@@ -35,13 +35,13 @@ if (isset($_POST['login'])) {
                 $_SESSION['MaxPrice'] = $results[0]->MaxPrice;
                 header("Location: https://icertify.net.au/service-provider/service-provider-login/service-provider-update-test/");
             } else {
-                echo 'The password is inccorrect.';
+                echo "<span style='color:#f44336;text-align:center;'>The password is inccorrect.</span>";
             }
         } else {
-            echo 'Your account has not been verified yet. Please wait unitl verified.';
+            echo "<span style='color:#f44336;text-align:center;'>Your account has not been verified yet. Please wait unitl verified.</span>";
         }
     } else {
-        echo 'Account does not exist for these details. Please register from the Service Provider Registeration.';
+        echo "<span style='color:#f44336;text-align:center;'>Account does not exist for these details. Please register from the Service Provider Registeration.</span>";
         unset($_POST['LoginEmail']);
         unset($_POST['Password']);
     }
