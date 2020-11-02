@@ -34,6 +34,14 @@ function generate_string($input, $strength = 16) {
     return $random_string;
 }
 
+function wporg_replace_user_mail_from() {
+    return 'inquiries@icertify.net.au';
+}
+
+function wpb_sender_name() {
+    return 'iCertify';
+}
+
 if(isset($_POST['submit'])) {
     global $wpdb;
     // Select data
@@ -50,6 +58,8 @@ if(isset($_POST['submit'])) {
         // $msg = wordwrap($msg,70);
 
         // send email
+        add_filter( 'wp_mail_from', 'wporg_replace_user_mail_from' );
+        add_filter( 'wp_mail_from_name', 'wpb_sender_name' );
         wp_mail($LoginEmail,"Reset Password OTP",$msg);
         header("Location:https://icertify.net.au/verify-otp/");
 
