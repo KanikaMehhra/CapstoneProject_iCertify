@@ -42,7 +42,7 @@ if(isset($_POST['submit'])) {
     if(count($results) == 1){
         // the message
         $otp=generate_string($permitted_chars, 10);
-        $msg="Dear customer, \n\nPlease enter the following OTP to verify your email in order to reset the password.\n\nOTP: " .$otp."\n\nThanks, \nCOMPLIANCE. EASY. \ncraig@icertify.net.au";
+        $msg="Dear customer, \n\nPlease enter the following OTP to verify your email in order to reset the password.\n\nOTP: " .$otp."\n\nThanks, \nCOMPLIANCE. EASY. \ninquiries@icertify.net.au";
         $_SESSION["otp"] = $otp;
         $_SESSION["LoginEmail"] = $LoginEmail;
 
