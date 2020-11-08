@@ -1,4 +1,5 @@
 <?php
+session_destroy();
 session_start();
 // proccess login using the submit button
 if (isset($_POST['login'])) {
@@ -8,12 +9,14 @@ if (isset($_POST['login'])) {
     $Password = $wpdb->escape($_POST['Password']);
     $salt = "8dC_9Kl?";
 
-    $results = $wpdb->get_results("select * from Supplier Where LoginEmail='" . $LoginEmail . "'");
+    $results = $wpdb->get_results("select * from ServiceProviders Where LoginEmail='" . $LoginEmail . "'");
+    // checking for the existing of the account & matached passwords & verification of the accounts
     if (count($results) == 1) {
         $verified = $results[0]->Verified;
         if ($verified == 'Yes') {
             $encodedpass = md5($Password . $salt);
             if ($encodedpass == $results[0]->Password && $LoginEmail == $results[0]->LoginEmail) {
+                // storing the data in session to be used in the update proccess
                 $_SESSION['LoginEmail'] = $results[0]->LoginEmail;
                 $_SESSION['OrganisationName'] = $results[0]->OrganisationName;
                 $_SESSION['ContactName'] = $results[0]->ContactName;
@@ -33,15 +36,15 @@ if (isset($_POST['login'])) {
                 $_SESSION['FixedValue'] = $results[0]->FixedValue;
                 $_SESSION['MinPrice'] = $results[0]->MinPrice;
                 $_SESSION['MaxPrice'] = $results[0]->MaxPrice;
-                header("Location: https://icertify.net.au/service-provider/service-provider-login/service-provider-update-test/");
+                header("Location: https://icertify.net.au/service-provider/service-provider-login/service-provider-update/");
             } else {
-                echo 'The password is inccorrect.';
+                echo "<span style='color:#f44336;text-align:center;'>The password is inccorrect.</span>";
             }
         } else {
-            echo 'Your account has not been verified yet. Please wait unitl verified.';
+            echo "<span style='color:#f44336;text-align:center;'>Your account has not been verified yet. Please wait unitl verified.</span>";
         }
     } else {
-        echo 'Account does not exist for these details. Please register from the Service Provider Registeration.';
+        echo "<span style='color:#f44336;text-align:center;'>Account does not exist for these details. Please register from the Service Provider Registeration.</span>";
         unset($_POST['LoginEmail']);
         unset($_POST['Password']);
     }
@@ -68,6 +71,7 @@ if (isset($_POST['login'])) {
             </div>
         </div>
     </form>
+    <a href="https://icertify.net.au/service-provider/service-provider-login/otp-verification-code/" style="color:#2271b1;">Forgot Password </a>
 </div>
 <?php
 ?>
