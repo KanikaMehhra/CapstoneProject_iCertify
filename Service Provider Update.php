@@ -1,0 +1,637 @@
+<?php
+?>
+<div class="user-registration ur-frontend-form" id="user-registration-form-5914">
+    <div class="ur-form-row">
+        <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+            <div>
+                <strong style="color:#2271b1;">Organisation Details</strong>
+            </div>
+        </div>
+        <div onclick="toggleEditOn()">
+            <i class="fa fa-edit"></i>
+        </div>
+    </div>
+    <div id="user-registration-form-5882" class="user-registration ur-frontend-form  ">
+        <form class="information" action="#" method="post" onsubmit="formSubmission1();return false;">
+            <div class="ur-form-row">
+                <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                    <div>
+                        <b>Organisation Name </b><input disabled type="text" id="ON" name="OrganisationName" value="<?php echo $_SESSION['OrganisationName']; ?>">
+                    </div>
+                    <div>
+                        <b>Head office location </b><input disabled type="text" id="HOL" value="<?php echo $_SESSION['HeadOfficeAddress']; ?>" name="HeadOfficeAddress">
+                    </div>
+                </div>
+            </div>
+            <div class="ur-form-row">
+                <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                    <div>
+                        <b>No. of physical locations within Australia </b><input disabled type="number" min="1" id="LIA" value="<?php echo $_SESSION['NoOfPhysicalLocationsInAus']; ?>" name="NoOfPhysicalLocationsInAus">
+                    </div>
+                    <div>
+                        <b>No. of physical locations outside Australia</b><input disabled type="number" id="AOA" value="<?php echo $_SESSION['NoOfPhysicalLocationsOutAus']; ?>" name="NoOfPhysicalLocationsOutAus">
+                    </div>
+                </div>
+            </div>
+            <div class="ur-form-row">
+                <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                    <div>
+                        <b>Avg. no. of certifications/annum </b><input disabled type="number" id="ACA" value="<?php echo $_SESSION['AverageOfYearlyCert']; ?>" name="AverageOfYearlyCert">
+                    </div>
+                    <div>
+                        <b>ABN/ACN </b><input disabled type="number" id="ABN" value="<?php echo $_SESSION['ABNNo']; ?>" name="ABNNo" oninput="validateABN()"><label style="color:#FF0000;" id="errorLabel1"></label>
+                    </div>
+                    <div>
+                        <b>Number of employees </b><input disabled type="number" id="NOE" name="NoOfEmployees" min="1" value="<?php echo $_SESSION['NoOfEmployees']; ?>">
+                    </div>
+                </div>
+            </div>
+            <div class="user-registration ur-frontend-form" id="user-registration-form-5914">
+                <div class="ur-form-row">
+                    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                        <div>
+                            <strong style="color:#2271b1;">Contact Details</strong>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="ur-form-row">
+                    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                        <div>
+                            <b>Contact Name </b><input disabled type="text" id="CN" name="ContactName" value="<?php echo $_SESSION['ContactName']; ?>">
+                        </div>
+                        <div>
+                            <b>Position Title </b><input disabled type="text" id="PT" name="PositionTitle" value="<?php echo $_SESSION['PositionTitle']; ?>">
+                        </div>
+                    </div>
+                </div>
+                <div class="ur-form-row">
+                    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                        <div>
+                            <b>E-mail </b><input disabled type="email" id="EMAIL" value="<?php echo $_SESSION['ContactEmail']; ?>" name="ContactEmail">
+                        </div>
+                        <div>
+                            <b>Mobile (+XX XXX XXX XXX) </b><input disabled type="text" pattern="\+[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}" id="MOB" name="Mobile" value="<?php echo $_SESSION['Mobile']; ?>">
+                        </div>
+                        <div>
+                            <b>Telphone (+XX X XXXX XXXX) </b><input disabled type="text" pattern="\+[0-9]{2}\s[0-9]{1}\s[0-9]{4}\s[0-9]{4}" id="TEL" value="<?php echo $_SESSION['Telephone']; ?>" name="Telephone">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-registration ur-frontend-form" id="user-registration-form-5914">
+                <div class="ur-form-row">
+                    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                        <div>
+                            <strong style="color:#2271b1;">Supplier Service Details</strong>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="ur-form-row">
+                    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                        <div class="ur-results-item results-checkbox">
+                            <table class="checkbox">
+                                <tr>
+                                    <td colspan="2" id="CP"> <b> Selected Certifications Provided: </b>
+                                    </td>
+                                    <label style="color:#FF0000;" id="errorLabel2"></label>
+                                </tr>
+                                <tr>
+                                    <td>Quality</td>
+                                    <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="Quality" name="CertificationsProvided" value="Quality"></td>
+                                </tr>
+                                <tr>
+                                    <td>Workplace Health And Safety</td>
+                                    <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="Workplace Health And Safety" name="CertificationsProvided" value="Workplace Health And Safety"></td>
+                                </tr>
+                                <tr>
+                                    <td>Environmental Sustainability</td>
+                                    <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="Environmental Sustainability" name="CertificationsProvided" value="Environmental Sustainability"></td>
+                                </tr>
+                                <tr>
+                                    <td>Sourcing Practices</td>
+                                    <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="Sourcing Practices" name="CertificationsProvided" value="Sourcing Practices"></td>
+                                </tr>
+                                <tr>
+                                    <td>Supply Chain Monitoring</td>
+                                    <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="Supply Chain Monitoring" name="CertificationsProvided" value="Supply Chain Monitoring"></td>
+                                </tr>
+                                <tr>
+                                    <td>Energy Management</td>
+                                    <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="Energy Management" name="CertificationsProvided" value="Energy Management"></td>
+                                </tr>
+                                <tr>
+                                    <td>Corporate Social Responsibility</td>
+                                    <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="Corporate Social Responsibility" name="CertificationsProvided" value="Corporate Social Responsibility"></td>
+                                </tr>
+                                <tr>
+                                    <td>Sustainability Reporting</td>
+                                    <td><input disabled oninput="checkedCheckbox()" type="checkbox" id="Sustainability Reporting" name="CertificationsProvided" value="Sustainability Reporting"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="ur-form-row">
+                    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                        <div class="ur-results-item results-checkbox">
+                            <table class="checkbox">
+                                <tr>
+                                    <td colspan="2" id="CP"> <b> Selected Additional services: </b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Remote audit</td>
+                                    <td><input disabled type="checkbox" id="Remote audit" name="AdditionalServices" value="Remote audit"></td>
+                                </tr>
+                                <tr>
+                                    <td>Gap audit</td>
+                                    <td><input disabled type="checkbox" id="Gap audit" name="AdditionalServices" value="Gap audit">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Other services</td>
+                                    <td><input disabled type="text" id="OTH" name="AdditionalServices"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="ur-form-row">
+                    <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                        <input disabled type="checkbox" id="Demo" name="Demo" onclick="demo()"><b>By signing up I agree to
+                            the <a href="https://icertify.net.au/terms-and-conditions-for-service-providers/" target="_blank" style="color:#2271b1;">terms of service and privacy policy.</a></b><abbr class="required" title="required">*</abbr>
+                        <input type="hidden" id="CertProvided" name="CertProvided">
+                        <input type="hidden" id="addServices" name="addServices">
+                    </div>
+                </div>
+                <div class="ur-button-container ">
+                    <input disabled value="Save" id="submit" name="save" type="submit" onclick="validateSubmit()">
+                </div>
+                <br>
+                <div>
+                    <label style="color:rgb(0, 112, 15);" id="updatedInfo"></label>
+                </div>
+                <div style="clear: both;"></div>
+                <input name="ur-user-form-id" type="hidden" value="5882" />
+                <input name="ur-redirect-url" type="hidden" value="" />
+                <input id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" type="hidden" value="5db8c0f987" />
+        </form>
+        <div style="clear: both;"></div>
+    </div>
+    <hr style="height: 10px;">
+    <div id="pricePreferenceForm">
+        <div class="ur-form-row">
+            <div class="ur-form-grid ur-grid-1" style="width: 48%;">
+                <div>
+                    <strong><u>Pricing Preference (Hourly Rates) </u></strong>
+                </div>
+            </div>
+            <div onclick="togglePricingEditOn()">
+                <i class="fa fa-edit"></i>
+            </div>
+        </div>
+        <div id="user-registration-form-5882" class="user-registration ur-frontend-form  ">
+            <form class="pricing" method="post" action="#" onsubmit="return false;">
+                <div class="ur-form-row">
+                    <div class="ur-form-grid ur-grid-2" style="width: 48%;">
+                        <div class="ur-field-item field-radio " data-field-id="radio_1598611551">
+                            <div id="radio_1598611551_field" class="form-row validate-required" data-priority="">
+                                <div>
+                                    <label style="color:#FF0000;" id="errorLabel4"></label>
+                                </div>
+                                <ul class="pricingPreference">
+                                    <div onclick="disableTextBox()">
+                                        <li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="variable" class="input-radio ur-frontend-field" name="PricingType" type="radio" value="variable" /> <label class="radio" for="variable">Variable</label>
+                                        </li>
+                                    </div>
+                                    <li>
+                                        <div id="rangeDisplay"></div>
+                                        <span class="multi-range">
+                                            <input disabled type="range" min="20" max="2000" value="20" id="lower" step="5" name="MinPrice">
+                                            <input disabled type="range" min="20" max="2000" value="2000" id="upper" step="5" name="MaxPrice">
+                                        </span>
+                                    </li>
+                                    <br>
+                                    <div onclick="disableRangeSlider()">
+                                        <li class="ur-radio-list"><input disabled oninput="checkedRadio()" id="fixed" class="input-radio ur-frontend-field" name="PricingType" type="radio" value="fixed" /> <label class="radio" for="fixed">Fixed</label></li>
+                                    </div>
+                                    <li><input id="pricingFixedTextBox" oninput="checkBaseHourlyRate()" type="number" placeholder="Enter hourly rate (AUD)" required disabled /></li>
+                                    <label style="color:#FF0000;" id="checkBaseHourlyRate"></label>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ur-button-container ">
+                    <input disabled value="Save" id="submit2" type="submit" name="PricingSave" onclick="checkPricing()">
+                </div>
+                <div>
+                    <label style="color:rgb(0, 112, 15);" id="updatedPricing"></label>
+                </div>
+                <div style="clear: both;"></div>
+                <input name="ur-user-form-id" type="hidden" value="5882" />
+                <input name="ur-redirect-url" type="hidden" value="" />
+                <input id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" type="hidden" value="5db8c0f987" />
+            </form>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <hr style="height: 10px;background-color:black">
+    <form method="post">
+        <div class="ur-button-container ">
+            <input id="ONH" name="ONH" type="hidden" value="<?php echo $_SESSION['OrganisationName']; ?>" />
+            <input id="CNH" name="CNH" type="hidden" value="<?php echo $_SESSION['ContactName']; ?>" />
+            <input id="PTH" name="PTH" type="hidden" value="<?php echo $_SESSION['PositionTitle']; ?>" />
+            <input id="NEH" name="NEH" type="hidden" value="<?php echo $_SESSION['NoOfEmployees']; ?>" />
+            <input id="ABNH" name="ABNH" type="hidden" value="<?php echo $_SESSION['ABNNo']; ?>" />
+            <input id="EH" name="EH" type="hidden" value="<?php echo $_SESSION['ContactEmail']; ?>" />
+            <input id="MOBH" name="MOBH" type="hidden" value="<?php echo $_SESSION['Mobile']; ?>" />
+            <input id="TELH" name="TELH" type="hidden" value="<?php echo $_SESSION['Telephone']; ?>" />
+            <input id="HOLH" name="HOLH" type="hidden" value="<?php echo $_SESSION['HeadOfficeAddress']; ?>" />
+            <input id="AVGH" name="AVGH" type="hidden" value="<?php echo $_SESSION['AverageOfYearlyCert']; ?>" />
+            <input id="PLIH" name="PLIH" type="hidden" value="<?php echo $_SESSION['NoOfPhysicalLocationsInAus']; ?>" />
+            <input id="PLOH" name="PLOH" type="hidden" value="<?php echo $_SESSION['NoOfPhysicalLocationsOutAus']; ?>" />
+            <input id="CSH" name="CSH" type="hidden" value="<?php echo $_SESSION['CertificationsProvided']; ?>" />
+            <input id="ASD" name="ASD" type="hidden" value="<?php echo $_SESSION['AdditionalServices']; ?>" />
+            <input id="PPH" name="PPH" type="hidden" value="<?php echo $_SESSION['PricingType']; ?>" />
+            <input id="LH" name="LH" type="hidden" value="<?php echo $_SESSION['MinPrice']; ?>" />
+            <input id="UH" name="UH" type="hidden" value="<?php echo $_SESSION['MaxPrice']; ?>" />
+            <input id="FVH" name="FVH" type="hidden" value="<?php echo $_SESSION['FixedValue']; ?>" />
+            <input onclick="saveAndLogout()" value="Save and Logout" name="LogoutSave" id="submit4" type="submit">
+        </div>
+        <div>
+            <label style="color:#FF0000;" id="finalErrorCheck"></label>
+        </div>
+    </form>
+</div>
+
+<script>
+    //setting the certifications
+    var myvar = '<?php echo $_SESSION['CertificationsProvided']; ?>';
+    var certArray = myvar.split(",");
+    for (var i = 0; i < certArray.length; i++) {
+        document.getElementById(certArray[i]).checked = true;
+    }
+
+    //setting the additionl services
+    var myvar1 = '<?php echo $_SESSION['AdditionalServices']; ?>';
+    var addSerArray = myvar1.split(",");
+    var flag = false;
+    for (var i = 0; i < addSerArray.length; i++) {
+        var elm = document.getElementById(addSerArray[i]);
+        if (elm != null) {
+            document.getElementById(addSerArray[i]).checked = true;
+        } else {
+            if (!flag) {
+                document.getElementById("OTH").value = addSerArray[i];
+            } else {
+                document.getElementById("OTH").value += "," + addSerArray[i];
+            }
+            flag = true;
+        }
+    }
+    //set the value of the pricing preference
+    var myvar2 = '<?php echo $_SESSION['PricingType']; ?>';
+    var myvar2 = myvar2.toLowerCase();
+    if (myvar2 == "variable") {
+        document.getElementById(myvar2).checked = true;
+        document.getElementById("lower").value = '<?php echo $_SESSION['MinPrice']; ?>'
+        document.getElementById("upper").value = '<?php echo $_SESSION['MaxPrice']; ?>'
+    } else if (myvar2 == "fixed") {
+        document.getElementById(myvar2).checked = true;
+        document.getElementById("pricingFixedTextBox").value = '<?php echo $_SESSION['FixedValue']; ?>'
+    }
+
+    function checkBaseHourlyRate() {
+        var errorLabel = document.getElementById("checkBaseHourlyRate");
+        var element = document.getElementById("pricingFixedTextBox");
+        if (element.value < 20) {
+            errorLabel.innerHTML = "*Please enter a value greater than or equal to the minimum wage i.e. $20.";
+        } else {
+            errorLabel.innerHTML = "";
+        }
+    }
+    var lower = document.getElementById("lower");
+    var upper = document.getElementById("upper");
+    var rangeDisplay = document.getElementById("rangeDisplay");
+    rangeDisplay.innerHTML = "$" + lower.value + " - $" + upper.value;
+    lower.addEventListener("input", function() {
+        rangeDisplay.innerHTML = "$" + lower.value + " - $" + upper.value;
+    }, false);
+    upper.addEventListener("input", function() {
+        rangeDisplay.innerHTML = "$" + lower.value + " - $" + upper.value;
+    }, false);
+
+    function disableTextBox() {
+        var element = document.getElementById("pricingFixedTextBox");
+        element.value = "";
+        element.disabled = true;
+    }
+
+    function disableRangeSlider() {
+        var rangeElement = document.querySelectorAll('input[type="range"]');
+        for (var i = 0; i < rangeElement.length; i += 1) {
+            rangeElement[i].disabled = true;
+        }
+    }
+
+    function enableTextBox() {
+        var element = document.getElementById("pricingFixedTextBox");
+        if (element.value.length != 0) {
+            var label = document.getElementById("errorLabel4");
+            label.innerHTML = "";
+            element.disabled = false;
+        }
+    }
+
+    function enableRangeSlider() {
+        var rangeElement = document.querySelectorAll('input[type="range"]');
+        var element = document.querySelectorAll('input[type="radio"][id="variable"]:checked');
+        if (element.length != 0) {
+            for (var i = 0; i < rangeElement.length; i += 1) {
+                rangeElement[i].disabled = false;
+            }
+        }
+    }
+
+    function saveAndLogout() {
+        var submit = document.getElementById("submit");
+        var submit2 = document.getElementById("submit2");
+        var finalError = "";
+        if (!submit.disabled) {
+            finalError = finalError + "*Save the updated Organisation Information.";
+        }
+        if (!submit2.disabled) {
+            finalError = finalError + "\n*Save the updated Pricing Preference.";
+        }
+        if (finalError.length != 0) {
+            var finalErrorCheck = document.getElementById("finalErrorCheck");
+            finalErrorCheck.innerHTML = finalError;
+            event.preventDefault();
+        } else {
+            clearInterval(intervalID);
+        }
+    }
+
+    function formSubmission1() {
+        var label = document.getElementById("updatedInfo");
+        label.innerHTML = "*Information successfully updated!";
+        toggleEditOff("information");
+    }
+    var pricePreferenceError = 0;
+    var errors = 0;
+    var abnCheck = 0;
+    var checkboxCheck = 0;
+    var radioCheck = 0;
+
+    function checkedCheckbox() {
+        var label = document.getElementById("errorLabel2");
+        if (errors > 0) {
+            errors = errors - checkboxCheck;
+        }
+        label.innerHTML = "";
+    }
+
+    function validateSubmit() {
+        document.getElementById("ONH").value = document.getElementById("ON").value;
+        document.getElementById("CNH").value = document.getElementById("CN").value;
+        document.getElementById("PTH").value = document.getElementById("PT").value;
+        document.getElementById("NEH").value = document.getElementById("NOE").value;
+        document.getElementById("ABNH").value = document.getElementById("ABN").value;
+        document.getElementById("EH").value = document.getElementById("EMAIL").value;
+        document.getElementById("MOBH").value = document.getElementById("MOB").value;
+        document.getElementById("TELH").value = document.getElementById("TEL").value;
+        document.getElementById("HOLH").value = document.getElementById("HOL").value;
+        document.getElementById("AVGH").value = document.getElementById("ACA").value;
+        document.getElementById("PLIH").value = document.getElementById("LIA").value;
+        document.getElementById("PLOH").value = document.getElementById("AOA").value;
+        document.getElementById("CSH").value = document.getElementById("CertProvided").value;
+        document.getElementById("ASD").value = document.getElementById("addServices").value;
+        var label = document.getElementById("errorLabel2");
+        var len = document.querySelectorAll('.checkbox input[type="checkbox"]:checked').length;
+        if (len === 0) {
+            errors += 1;
+            checkboxCheck += 1;
+            label.innerHTML = "*Please select atleast one certification.";
+        }
+        if (errors > 0) {
+            event.preventDefault();
+        }
+    }
+
+    function validateABN() {
+        var abn = document.getElementById("ABN").value.length;
+        var label = document.getElementById("errorLabel1");
+        if (abn !== 11 && abn !== 9) {
+            label.innerHTML = "ABN must be 11 and ACN must be 9 digit long";
+            errors += 1;
+            abnCheck += 1;
+        } else {
+            label.innerHTML = "";
+            errors = errors - abnCheck;
+        }
+    }
+
+    function toggleEditOn() {
+        var label = document.getElementById("updatedInfo");
+        label.innerHTML = "";
+        var inputs = document.querySelectorAll('.information input[disabled]');
+        for (var i = 0; i < inputs.length; i += 1) {
+            inputs[i].disabled = false;
+        }
+    }
+
+    function checkPricing() {
+        var label = document.getElementById("errorLabel4");
+        var len = document.querySelectorAll('input[type="radio"]:checked').length;
+        var lenForTextBox = document.querySelectorAll('input[id="fixed"]:checked').length;
+        if (len === 0) {
+            pricePreferenceError += 1;
+            radioCheck += 1;
+            label.innerHTML = "*Please select atleast one pricing option.";
+        }
+        if (lenForTextBox !== 0) {
+            var pricingFixedTextBox = document.getElementById("pricingFixedTextBox");
+            if (pricingFixedTextBox.value.length === 0) {
+                event.preventDefault();
+                var errorLabel = document.getElementById("checkBaseHourlyRate");
+                errorLabel.innerHTML = "*Please enter the fixed amount.";
+                return;
+            }
+        }
+
+        if (pricePreferenceError > 0) {
+            event.preventDefault();
+        } else {
+            var label = document.getElementById("updatedPricing");
+            label.innerHTML = "*Information successfully updated!";
+            toggleEditOff("pricing");
+            var pricingType = document.querySelectorAll('input[type="radio"]:checked')[0].value;
+            var nameCapitalized = pricingType.charAt(0).toUpperCase() + pricingType.slice(1);
+            document.getElementById("PPH").value = nameCapitalized;
+            if (nameCapitalized == "Fixed") {
+                document.getElementById("FVH").value = document.getElementById("pricingFixedTextBox").value;
+            } else if (nameCapitalized == "Variable") {
+                document.getElementById("LH").value = document.getElementById("lower").value;
+                document.getElementById("UH").value = document.getElementById("upper").value;
+            }
+        }
+    }
+
+    function checkedRadio() {
+        var label = document.getElementById("errorLabel4");
+        if (pricePreferenceError > 0) {
+            pricePreferenceError = pricePreferenceError - radioCheck;
+        }
+        label.innerHTML = "";
+        enableRangeSlider();
+    }
+
+    function toggleEditOff(formClass) {
+        var inputs = document.querySelectorAll('.' + formClass + ' input');
+        var len = document.querySelectorAll('input[disabled]').length;
+        for (var i = 0; i < inputs.length; i += 1) {
+            inputs[i].disabled = true;
+        }
+    }
+
+    function togglePricingEditOn() {
+        var label = document.getElementById("updatedPricing");
+        label.innerHTML = "";
+        var inputs = document.querySelectorAll('.pricing input[type="radio"]');
+        var input = document.querySelectorAll('.pricing input[type="submit"]');
+        for (var i = 0; i < inputs.length; i += 1) {
+            inputs[i].disabled = false;
+        }
+        input[0].disabled = false;
+        enableTextBox();
+        enableRangeSlider();
+    }
+    var element = document.getElementById("fixed");
+    element.addEventListener("click", function() {
+        var input = document.querySelectorAll('.pricingPreference input[type="number"]');
+        input[0].disabled = false;
+    }, false);
+    var lowerSlider = document.querySelector('#lower'),
+        upperSlider = document.querySelector('#upper'),
+        lowerVal = parseInt(lowerSlider.value);
+    upperVal = parseInt(upperSlider.value);
+    upperSlider.oninput = function() {
+        lowerVal = parseInt(lowerSlider.value);
+        upperVal = parseInt(upperSlider.value);
+        if (upperVal < lowerVal + 4) {
+            lowerSlider.value = upperVal - 4;
+            if (lowerVal == lowerSlider.min) {
+                upperSlider.value = 4;
+            }
+        }
+    };
+    lowerSlider.oninput = function() {
+        lowerVal = parseInt(lowerSlider.value);
+        upperVal = parseInt(upperSlider.value);
+        if (lowerVal > upperVal - 4) {
+            upperSlider.value = lowerVal + 4;
+            if (upperVal == upperSlider.max) {
+                lowerSlider.value = parseInt(upperSlider.max) - 4;
+            }
+        }
+    };
+
+    function getCheckdValue() {
+        checkboxes = document.querySelectorAll('input[name="CertificationsProvided"]:checked');
+        let values = [];
+        var string = ""
+        checkboxes.forEach((checkbox) => {
+            values.push(checkbox.value);
+        });
+        for (var i = 0; i < values.length; i++) {
+            if (i === (values.length - 1)) {
+                string += values[i];
+            } else {
+                string += values[i] + ",";
+            }
+        }
+        var hidden = document.getElementById("CertProvided");
+        hidden.value = string
+    }
+
+    function getServicesValue() {
+        checkboxes = document.querySelectorAll('input[name="AdditionalServices"]:checked');
+        other = document.getElementById('OTH');
+        let values = [];
+        var string = "";
+        if (other.value.length !== 0) {
+            string += other.value + ",";
+        }
+        checkboxes.forEach((checkbox) => {
+            values.push(checkbox.value);
+        });
+        for (var i = 0; i < values.length; i++) {
+            if (i === (values.length - 1)) {
+                string += values[i];
+            } else {
+                string += values[i] + ",";
+            }
+        }
+        var addServices = document.getElementById("addServices");
+        addServices.value = string
+    }
+
+    function demo() {
+        getCheckdValue();
+        getServicesValue();
+    }
+</script>
+<?php
+session_start();
+if (isset($_POST['LogoutSave'])) {
+    global $wpdb;
+    $OrganisationName =  $_POST["ONH"];
+    $ContactName =  $_POST["CNH"];
+    $PositionTitle =  $_POST["PTH"];
+    echo "alert($PositionTitle)";
+    $NoOfEmployees =  $_POST["NEH"];
+    $ABNNo =  $_POST["ABNH"];
+    $ContactEmail =  $_POST["EH"];
+    $Mobile =  $_POST["MOBH"];
+    $Telephone =  $_POST["TELH"];
+    $HeadOfficeAddress =  $_POST["HOLH"];
+    $AverageOfYearlyCert =  $_POST["AVGH"];
+    $NoOfPhysicalLocationsInAus =  $_POST["PLIH"];
+    $NoOfPhysicalLocationsOutAus =  $_POST["PLOH"];
+    $CertificationsProvided =  $_POST["CSH"];
+    $AdditionalServices =  $_POST["ASD"];
+    $PricingType =  $_POST["PPH"];
+    $FixedValue =  $_POST["FVH"];
+    $MinPrice =  $_POST["LH"];
+    $MaxPrice =  $_POST["UH"];
+    $data = array(
+        'OrganisationName' => $OrganisationName,
+        'ContactName' => $ContactName,
+        'PositionTitle' => $PositionTitle,
+        'NoOfEmployees' => $NoOfEmployees,
+        'ABNNo' => $ABNNo,
+        'ContactEmail' => $ContactEmail,
+        'Mobile' => $Mobile,
+        'Telephone' => $Telephone,
+        'HeadOfficeAddress' => $HeadOfficeAddress,
+        'AverageOfYearlyCert' => $AverageOfYearlyCert,
+        'NoOfPhysicalLocationsInAus' => $NoOfPhysicalLocationsInAus,
+        'NoOfPhysicalLocationsOutAus' => $NoOfPhysicalLocationsOutAus,
+        'CertificationsProvided' => $CertificationsProvided,
+        'AdditionalServices' => $AdditionalServices,
+        'PricingType' => $PricingType,
+        'FixedValue' => $FixedValue,
+        'MinPrice' => $MinPrice,
+        'MaxPrice' => $MaxPrice
+    );
+    $table = 'Supplier';
+    $where = array('LoginEmail' => $_SESSION['LoginEmail']);
+    $wpdb->update($table, $data, $where, $format = NULL);
+    header("Location: https://icertify.net.au/");
+    session_destroy();
+    die;
+}
+?>
